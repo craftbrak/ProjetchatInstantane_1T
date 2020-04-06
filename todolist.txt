@@ -9,6 +9,7 @@ page de creation de role
 service de creation role
 service de lectuer des roles
 service de modification des roles
+
 Page du jeu ( le plateau){
     -les personnage
     -l'affchage / masquage des allier (pour les loups et les amants)
@@ -25,4 +26,4 @@ Page du jeu ( le plateau){
 
 
 ajouter des truc si vous trouver qu'il en manque 
-une fois fait ajouter un OK: devant l'objet ☺ 
+une fois fait ajouter un OK: devant l'objet ☺      
