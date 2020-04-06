@@ -17,6 +17,8 @@ Page du jeu ( le plateau){
     -les popUp
     .... 
 }
+service chat
+service generation game (tableau des roles)
 
 
 
