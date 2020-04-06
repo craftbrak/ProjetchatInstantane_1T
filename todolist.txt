@@ -1,14 +1,15 @@
 page d'acceuille ( explication du concept + lien vers le panel de connection + lien vers la création de compte)
-page de connection
-page de creation de profil 
-page de profil managment
-service de connection 
-service d'inscription 
-service de modification de l'user
-page de creation de role 
+B- page de connection
+B- page de creation de profil 
+A- page de profil managment
+B- service de connection 
+B- service d'inscription 
+A- service de modification de l'user
+F- service de lectuer des roles
+/*page de creation de role 
 service de creation role
-service de lectuer des roles
-service de modification des roles
+
+service de modification des roles*/
 
 Page du jeu ( le plateau){
     -les personnage
@@ -17,7 +18,7 @@ Page du jeu ( le plateau){
     -les popUp
     .... 
 }
-service chat
+L- service chat
 service generation game (tableau des roles)
 
 
