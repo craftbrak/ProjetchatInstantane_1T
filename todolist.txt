@@ -1,0 +1,28 @@
+page d'acceuille ( explication du concept + lien vers le panel de connection + lien vers la création de compte)
+page de connection
+page de creation de profil 
+page de profil managment
+service de connection 
+service d'inscription 
+service de modification de l'user
+page de creation de role 
+service de creation role
+service de lectuer des roles
+service de modification des roles
+Page du jeu ( le plateau){
+    -les personnage
+    -l'affchage / masquage des allier (pour les loups et les amants)
+    -le chat
+    -les popUp
+    .... 
+}
+
+
+
+
+
+
+
+
+ajouter des truc si vous trouver qu'il en manque 
+une fois fait ajouter un OK: devant l'objet ☺ 
