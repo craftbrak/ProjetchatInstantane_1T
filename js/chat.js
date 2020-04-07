@@ -20,7 +20,7 @@ function initPage() {
 function TraiterFormMessage(formMessage) {
     let message = formMessage.message.value;
     let envoiMsg = new XMLHttpRequest;
-    envoiMsg.open("GET", "newMsg?msgContent=" + message + "&idUsrVar=" + Setion.idUser + "&idGameVar=" + Game.id + "", true);
+    envoiMsg.open("GET", "newMsg?msgContentVar=" + message + "&idUsrVar=" + Setion.idUser + "&idGameVar=" + Game.id + "", true);
     envoiMsg.onload = function() {
         console.log("msg envoyer");
     };
@@ -34,11 +34,14 @@ function updateChat() {
     chatUpdate.open("GET", "updateChat?idGameVar=" + Game.id, true);
     chatUpdate.onload = function() {
         let chat = JSON.parse(chatUpdate.responseText);
-        chat.date = 10;
-        console.log(chat);
+       // chat.date = chat.date.toLocaleDateString(locales, {});
+        //console.log(chat);
         let zoneChat = document.getElementById("divChat");
         let chatFinal = "";
         for (const element of chat) {
+            console.log(element.heure);
+             element.heure = element.heure.slice(11);
+             console.log(element.heure);
             chatFinal += "<p class='chatMessage' id='" + element.msgId + "><span class='chatPseudo' >" + element.pseudo + "</span>" + "<span class='chatMessagContent'>" + element.msgContent + "</span>" + "<span class='chatTimeCode'>" + element.heure + "</span></p>"
         }
         zoneChat.innerHTML = chatFinal;
