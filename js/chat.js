@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', initPage);
 
 function initPage() {
     //document.getElementById("formMessage").addEventListener("submit",TraiterFormMessage(this));
-    updateChat()
+    updateChat();
 }
 
 function TraiterFormMessage(formMessage) {
@@ -23,6 +23,7 @@ function TraiterFormMessage(formMessage) {
     envoiMsg.open("GET", "newMsg?msgContentVar=" + message + "&idUsrVar=" + Setion.idUser + "&idGameVar=" + Game.id + "", true);
     envoiMsg.onload = function() {
         console.log("msg envoyer");
+        updateChat();
     };
     envoiMsg.send();
     return false;
