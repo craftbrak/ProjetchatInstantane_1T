@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', initPage);
 function initPage() {
     //document.getElementById("formMessage").addEventListener("submit",TraiterFormMessage(this));
     updateChat();
-   // setInterval(updateChat,1000);
+    setInterval(updateChat,1000);
 }
 
 function TraiterFormMessage(formMessage) {
