@@ -47,10 +47,10 @@ function updateChat() {
              element.heure = element.heure.slice(11,-4);
              //console.log(element.heure);
             chatFinal += "<p class='chatMessage' id='" + element.msgId + "'><span class='chatPseudo' >" + element.pseudo + "</span>" + "<span class='chatMessagContent'>" + element.msgContent + "</span>" + "<span class='chatTimeCode'>" + element.heure + "</span></p>"
-            
+
         }
         zoneChat.innerHTML = chatFinal;
     }
     chatUpdate.send()
-    
+
 }
