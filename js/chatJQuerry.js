@@ -15,6 +15,7 @@ $(document).ready(() => {
 function traiterFormMessage(event) {
     event.preventDefault();
     msg = $('#msg').val();
+    $.get(`newMsg?msgContentVar=${msg}&idUserVar=${Setion.idUser}&idGameVar=${Game.id}`, () => {
         $('#divChat').trigger('nouveauMsg');
         $('#msg').val(null);
     })
