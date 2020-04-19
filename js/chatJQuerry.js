@@ -27,11 +27,12 @@ function updateChat() {
         let chat = reponce;
         let lastmsg = findLastMsgid()
         let nlastmsg = findLastMsg(chat, lastmsg);
-        if (chat[(chat.length - 1)].id > lastmsg)
-            for (let i = nlastmsg + 1; i < chat.length; i++) {
+        if (Number(chat[(chat.length - 1)].id) > Number(lastmsg)) {
+            for (let i = nlastmsg; i < chat.length; i++) {
                 chat[i].heure = chat[i].heure.slice(11, -4);
                 $('#divMessage').append(`<p class="chatMessage" id="${chat[i].id}"><span class='chatPseudo' >${chat[i].pseudo}</span><span class='chatMessagContent'>${chat[i].msgContent}</span><span class='chatTimeCode'>${chat[i].heure}</span></p>`)
             }
+        }
     })
 }
 
