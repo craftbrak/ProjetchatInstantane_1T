@@ -9,13 +9,13 @@ function initPage() {
 function soumettreForm(event) {
     event.preventDefault();
     let informations = this;
-    envoyerEmail(informations.idEmail.value);
+    envoyerEmail(informations.idEmail.value, informations.motPasse.value);
 }
 
 
-function envoyerEmail(email, mdp) {
+function envoyerEmail(emailVerif, mdpVerif) {
     let connexion = new XMLHttpRequest();
-    connexion.open('get', 'envoiMdp?email=' + email, true);
+    connexion.open('get', 'connexion?email=' + emailVerif, true);
     connexion.onload =
         function testMdp() {
             let mdp = JSON.parse(connexion.response);
