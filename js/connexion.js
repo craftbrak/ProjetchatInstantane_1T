@@ -15,7 +15,7 @@ function soumettreForm(event) {
 
 function envoyerEmail(email, mdp) {
     let connexion = new XMLHttpRequest();
-    connexion.open('get', 'envoiMdp?email=' + email, true);
+    connexion.open('get', 'connexion?email=' + email, true);
     connexion.onload =
         function testMdp() {
             let mdp = JSON.parse(connexion.response);
