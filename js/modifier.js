@@ -7,5 +7,5 @@ function initialiserFormulaire (){
 
 function remplirFormulaire(){
     let reponse = JSON.parse(this.responseText);
-    console.log(reponse);
+
 }
