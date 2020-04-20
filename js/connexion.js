@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', initPage);
 
 function initPage() {
     let formulaire = document.getElementById("formulaireConnexion");
-    formulaire.addEventListener("submit", soumettreForm);
+    formulaire.addEventListener("submit", soumettreForm(this));
 }
 
 
