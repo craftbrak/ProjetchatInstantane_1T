@@ -13,7 +13,7 @@ function soumettreForm(event) {
 }
 
 
-function envoyerForm(email, mdp) {
+function envoyerEmail(email, mdp) {
     let connexion = new XMLHttpRequest();
     connexion.open('get', 'envoiMdp?email=' + email, true);
     connexion.onload =
