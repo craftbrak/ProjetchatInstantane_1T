@@ -20,10 +20,9 @@ function envoyerEmail(emailVerif, mdpVerif) {
     connexion.onload =
         function testMdp() {
             let mdp = JSON.parse(connexion.response);
-            verif = false;
+            console.log(mdp, mdpVerif);
             if (mdp == mdpVerif) {
                 console.log("bg");
-                verif = true;
             }
             else {
                 document.getElementById("erreur").innerText = "Email ou mot de passe éronné! Réessayez.";
