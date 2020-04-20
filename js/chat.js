@@ -1,8 +1,8 @@
 /*le temps du developement des autre partie du code */
 
-let Setion = {
-    idUser: 782
-}
+
+let idUser = 782
+
 let Game = {
     id: 1
 }
@@ -17,7 +17,7 @@ function initPage() {
 function TraiterFormMessage(formMessage) {
     let message = formMessage.message.value;
     let envoiMsg = new XMLHttpRequest;
-    envoiMsg.open("GET", "newMsg?msgContentVar=" + message + "&idUserVar=" + Setion.idUser + "&idGameVar=" + Game.id + "", true);
+    envoiMsg.open("GET", "newMsg?msgContentVar=" + message + "&idUserVar=" + idUser + "&idGameVar=" + Game.id + "", true);
     envoiMsg.onload = function() {
         //console.log("msg envoyer");
         updateChat();
