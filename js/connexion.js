@@ -7,9 +7,10 @@ function initPage() {
 
 
 function soumettreForm(event) {
-    event.preventDefault();
+    //event.preventDefault();
     let informations = this;
     envoyerEmail(informations.idEmail.value, informations.motPasse.value);
+    return false;
 }
 
 //
@@ -22,6 +23,7 @@ function envoyerEmail(emailVerif, mdpVerif) {
             verif = false;
             while (!(verif)) {
                 if (mdp == mdpVerif) {
+                    console.log("bg");
                     verif = 1;
                 }
                 else {
