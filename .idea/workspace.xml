@@ -25,6 +25,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="ProjetLg" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -49,25 +52,49 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/OneDrive - EPHEC asbl/TP_Structure_Donnees/TP08/EspecesStarWars/js/especes.js" />
-  </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="d02d6245-e63a-4835-874e-834453e52466" name="Default Changelist" comment="" />
-      <created>1587390674729</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1587390674729</updated>
-      <workItem from="1587390677949" duration="145000" />
+
       <workItem from="1587390926974" duration="4679000" />
+
+      <workItem from="1587390926974" duration="26000" />
+      <workItem from="1587391274866" duration="1671000" />
     </task>
+    <task id="LOCAL-00001" summary="retirer le jquerry">
+      <created>1587391437998</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587391437998</updated>
+    </task>
+    <task id="LOCAL-00002" summary="retirer le jquerry">
+      <created>1587391728721</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1587391728721</updated>
+
+    </task>
+    <task id="LOCAL-00003" summary="retirer le jquerry">
+      <created>1587395052072</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1587395052072</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="retirer le jquerry" />
+    <option name="LAST_COMMIT_MESSAGE" value="retirer le jquerry" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="572" y="134" key="CommitChangelistDialog2" timestamp="1587395051417">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="572" y="134" key="CommitChangelistDialog2/0.0.1920.1080/-1920.0.1920.1080/1920.-617.1024.1280/1920.663.1360.768@0.0.1920.1080" timestamp="1587395051417" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
