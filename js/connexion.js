@@ -9,7 +9,7 @@ function initPage() {
 function soumettreForm(event) {
     event.preventDefault();
     let informations = this;
-    envoyerEmail(informations.idEmail.value);
+    envoyerEmail(informations.idEmail.value, informations.motPasse.value);
 }
 
 
