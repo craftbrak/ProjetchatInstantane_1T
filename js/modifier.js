@@ -8,5 +8,5 @@ function initialiserFormulaire (){
 function remplirFormulaire(){
     let reponse = JSON.parse(this.responseText);
     console.log(reponse);
-    //document.getElementById("formulaire").innerHTML +=
+    document.getElementById("formulaire").innerHTML += "<input type='text'>"
 }
