@@ -7,13 +7,13 @@ function initPage() {
 
 
 function soumettreForm(event) {
-    //event.preventDefault();
+    console.log(event);
+    event.preventDefault();
     let informations = this;
     envoyerEmail(informations.idEmail.value, informations.motPasse.value);
-    return false;
 }
 
-//
+
 function envoyerEmail(emailVerif, mdpVerif) {
     let connexion = new XMLHttpRequest();
     connexion.open('get', 'connexion?emailVerif=' + emailVerif, true);
