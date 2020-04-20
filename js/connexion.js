@@ -26,7 +26,7 @@ function envoyerEmail(emailVerif, mdpVerif) {
                 verif = true;
             }
             else {
-                document.getElementById("erreur").innerText = "Email ou mot de passe éronné! Réessayer.";
+                document.getElementById("erreur").innerText = "Email ou mot de passe éronné! Réessayez.";
             }
         };
     connexion.send();
