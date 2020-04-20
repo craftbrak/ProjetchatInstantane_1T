@@ -7,7 +7,7 @@
         <link href="css/connexion.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <form id="formulaireConnexion">
+        <form id="formulaireConnexion" onsubmit="soumettreForm(this);">
             <fieldset>
                 <legend>Connexion</legend>
                 <label for="identifiant">Identifiant :</label>
@@ -17,5 +17,8 @@
                 <input id="boutonConnexion" type="submit" name="bouton" value="Se connecter">
             </fieldset>
         </form>
+        <section id="erreur">
+
+        </section>
     </body>
 </html>
