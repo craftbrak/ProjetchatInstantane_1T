@@ -21,7 +21,7 @@ function envoyerEmail(emailVerif, mdpVerif) {
             let mdp = JSON.parse(connexion.response);
             console.log(mdp);
             
-            document.getElementById("boxResponse").innerHTML = "";
+            
         };
     connexion.send();
 }
