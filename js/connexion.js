@@ -19,9 +19,7 @@ function envoyerEmail(emailVerif, mdpVerif) {
     connexion.onload =
         function testMdp() {
             let mdp = JSON.parse(connexion.response);
-            console.log(mdp);
-            
-            
+            console.log(mdp); 
         };
     connexion.send();
 }
