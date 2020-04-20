@@ -26,5 +26,3 @@ function envoyerForm(email, mdp) {
     connexion.send();
 }
 
-//craftbrakddns.myddns.me:26380/identifiant
-//idUser
