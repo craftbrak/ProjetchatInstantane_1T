@@ -21,14 +21,12 @@ function envoyerEmail(emailVerif, mdpVerif) {
         function testMdp() {
             let mdp = JSON.parse(connexion.response);
             verif = false;
-            while (!(verif)) {
-                if (mdp == mdpVerif) {
-                    console.log("bg");
-                    verif = true;
-                }
-                else {
-                    document.getElementById("erreur").innerText = "Email ou mot de passe éronné! Réessayer.";
-                }
+            if (mdp == mdpVerif) {
+                console.log("bg");
+                verif = true;
+            }
+            else {
+                document.getElementById("erreur").innerText = "Email ou mot de passe éronné! Réessayer.";
             }
         };
     connexion.send();
