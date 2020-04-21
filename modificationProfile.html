@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <title>Modification De Données</title>
     <script src="js/modifier.js"></script>
+    <link href="css/modifcation.css">
 </head>
 <body onload="return initialiserFormulaire();">
-<div>
-    <form id="formulaire">
+    <div id="formulaire"></div>
+    <form onsubmit="return enregistrerModifs();">
+        <button type="submit">Enregistrer</button>
     </form>
-</div>
 </body>
 </html>
