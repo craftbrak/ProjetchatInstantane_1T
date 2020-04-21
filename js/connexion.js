@@ -19,12 +19,12 @@ function envoyerEmail(emailVerif, mdpVerif) {
     connexion.onload =
         function testMdp() {
             let mdp = JSON.parse(connexion.response)[0].mdp;
-                if (mdp == mdpVerif) {
-                    console.log("bg");
-                }
-                else {
-                    document.getElementById("erreur").innerText = "Email ou mot de passe éronné! Réessayer.";
-                }
+            if (mdp == mdpVerif) {
+                //crée objet et décale sur un autre site
+            }
+            else {
+                document.getElementById("erreur").innerText = "Email ou mot de passe éronné! Réessayez.";
+            }
         };
     connexion.send();
 }
