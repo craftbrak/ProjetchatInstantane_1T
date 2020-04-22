@@ -35,3 +35,5 @@ function envoyerEmail(emailVerif, mdpVerif) {
         };
     connexion.send();
 }
+
+//Baptiste

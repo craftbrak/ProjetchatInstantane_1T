@@ -12,7 +12,7 @@ Pour ce projet, nous avons décidé de réaliser un chat de discussion, du même
 Nous désirons y implémenter différents services tel qu'un chat global des utilisateurs, ou des discussion privées et de
 groupe.
 <br/>Nous allons chacun y intégrer un service web :
-<br/>Baptiste aura pour rôle d'intégrer le service d'inscription d'un nouvel utilisateur.
+<br/>Baptiste aura pour rôle d'intégrer le service d'inscription et de connexion des utilisateurs.
 <br/>Arthur devra gérer la partie de modification de paramètre de l'utilisateur.
 <br/>Louis établira le chat en lui même.
 <br/>François s'occupera quant à lui du service de discussion de groupe ou privée.
