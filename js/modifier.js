@@ -44,7 +44,7 @@ function enregistrerModifs(){
         xhr.send();
     }
     else{
-        
+
     }
 }
 
