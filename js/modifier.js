@@ -1,11 +1,11 @@
-function initialiserFormulaire (){
+function initialiserFormulaire() {
     let xhr = new XMLHttpRequest();
     xhr.open("get", "http://craftbrakddns.myddns.me:536/modification?idChoisi=780", true);
     xhr.onload = remplirFormulaire;
     xhr.send();
 }
 
-function remplirFormulaire(){
+function remplirFormulaire() {
     let reponse = JSON.parse(this.responseText);
     console.log(reponse);
     console.log(reponse[0].idUser);
@@ -20,18 +20,20 @@ function remplirFormulaire(){
     document.getElementById("formulaire").innerHTML += "<div id='divMdp'><label for='mdpUser'>Mot De Passe</label> <input id='mdpUser' name='mdpUser' type='password' " +
         "value='" + reponse[0].mdpUser + "'></div>";
 
-    document.getElementById("formulaire").innerHTML += "<div id='divNouveauMdp'><label for='nvMdp'>Confirmer MDP</label> <input id='nvMdp' name='nvMdp' type='password' " +
-        "value='" + reponse[0].mdpUser+ "'></div>";
+
+    document.getElementById("formulaire").innerHTML += "<div id='divNouveauMdp'><label for='nvMdp'>Confirmer Mot De Passe</label> <input id='nvMdp' name='nvMdp' type='password' " +
+
+        "value='" + reponse[0].mdpUser + "'></div>";
 
     document.getElementById("formulaire").innerHTML += "<div id='divMail'><label for='mail'>Adresse mail</label> <input id='mail' name='mail' type='text' " +
-        "value='" + reponse[0].mail+ "'></div>";
+        "value='" + reponse[0].mail + "'></div>";
 
     document.getElementById("formulaire").innerHTML += "<div id='divPseudo'><label for='pseudo'>Pseudo</label> <input id='pseudo' name='pseudo' type='text' " +
         "value='" + reponse[0].pseudo + "'></div>";
     console.log("bonjour");
 }
 
-function enregistrerModifs(){
+function enregistrerModifs() {
     let nvNom = document.getElementById("name").value;
     let nvPrenom = document.getElementById("surname").value;
     let nvMdp = document.getElementById("mdpUser").value;
@@ -39,24 +41,24 @@ function enregistrerModifs(){
     let nvMail = document.getElementById("mail").value;
     let nvPseudo = document.getElementById("pseudo").value;
     let xhr = new XMLHttpRequest();
-    xhr.open("get", "http://craftbrakddns.myddns.me:536/mettreAJour?idUtilisateur=780&nvNom="+ nvNom + "&nvPrenom=" + nvPrenom + "&nvMdp=" + nvMdp + "&nvMail=" + nvMail + "&nvPseudo=" + nvPseudo);
-    if(test(nvMdp, nvMdpConfirme)){
+    xhr.open("get", "http://craftbrakddns.myddns.me:536/mettreAJour?idUtilisateur=780&nvNom=" + nvNom + "&nvPrenom=" + nvPrenom + "&nvMdp=" + nvMdp + "&nvMail=" + nvMail + "&nvPseudo=" + nvPseudo);
+    if (test(nvMdp, nvMdpConfirme)) {
         document.getElementById("erreur").innerHTML = "";
         document.getElementById("erreur").innerHTML += "Vos modifications ont bien été enregistrées !";
         xhr.send();
-    }
-    else{
+    } else {
         document.getElementById("erreur").innerHTML = "";
-        document.getElementById("erreur").innerHTML += "Mot de passe erroné, veuillez entrer deux fois le même nouveau mot de passe";
+
+        document.getElementById("erreur").innerHTML += "Mot de passe erroné, veuillez entrer deux fois le même nouveau mot de passe !";
+
         return false;
     }
 }
 
-function test(a, b){
-    if (a === b){
+function test(a, b) {
+    if (a === b) {
         return true;
-    }
-    else{
+    } else {
         return false;
     }
 }
