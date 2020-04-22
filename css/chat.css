@@ -1,26 +1,59 @@
-#sectionChat{
-    float: right;
-    size: 10em;
+/*     #sectionChat {
+float: right;
+size: 10em;
+}
+*/
+
+body {
+    overflow: hidden;
 }
 
-.chatMessage{
+.card-footer {
+    border-radius: 0 0 15px 15px !important;
+    border-top: 0 !important;
+}
+
+.chat {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.card {
+    height: 500px;
+    border-radius: 15px !important;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.msg_card_body {
+    overflow-y: auto;
+}
+
+.card-body {
+    height: 60%;
+    overflow: auto;
+}
+
+.chatMessage {
     height: 3em;
     size: 2.5em;
     background-color: aquamarine;
-    border:solid 9px aquamarine;
--moz-border-radius: 46px;
--webkit-border-radius: 46px;
-border-radius: 46px;
+    border: solid 9px aquamarine;
+    -moz-border-radius: 46px;
+    -webkit-border-radius: 46px;
+    border-radius: 46px;
 }
-.chatPseudo{
+
+.chatPseudo {
     font-size: 0.8em;
     align-content: flex-start;
 }
-.chatTimeCode{
+
+.chatTimeCode {
     font-size: 0.7em;
-    align-content:bottom  ;
+    align-content: bottom;
 }
-.chatMessageContent{
+
+.chatMessageContent {
     font-size: 2.5em;
     align-content: center;
 }

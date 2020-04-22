@@ -6,26 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel=stylesheet href=css/main.css>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
     <link rel=stylesheet href=css/chat.css>
     <!-- <script src="js/chat.js"></script>-->
     <script src="js/chat.js"></script>
     <title>lousp garou</title>
 </head>
 
-<body>
-    <section id="sectionPlateau">
-
-    </section>
-    <section id="sectionChat">
-        <div id="divChat"></div>
-        <div id="divMessage">
-            <form id="formMessage" method="POST">
-                <!--onsubmit="TraiterFormMessage(this);return false" -->
-                <input type="text" id='msg' name="message" placeholder="entrer votre message" required>
-                <input type="submit" name="envoyer" value="envoyerMsg">
-            </form>
+<body class="container-fluid">
+    <div class="row">
+        <div id="listeConvesation" class="col col-xs-4">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate repellendus veniam quas, inventore cupiditate ab iure? Tenetur, hic eligendi! Quia illum dignissimos libero sapiente esse ratione soluta perspiciatis voluptas sequi.
         </div>
-    </section>
+        <div id="sectionChat" class="col col-xs-8 col-lg-10">
+            <div id="divChat"></div>
+            <div id="divMessage">
+                <form id="formMessage" method="POST" onsubmit="TraiterFormMessage(this);return false">
+                    <input type="text" id='msg' name="message" placeholder="entrer votre message" required>
+                    <input type="submit" name="envoyer" value="envoyerMsg">
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
