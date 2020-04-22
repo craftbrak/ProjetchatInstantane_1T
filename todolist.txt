@@ -5,11 +5,7 @@ A- page de profil managment
 B- service de connection 
 B- service d'inscription 
 A- service de modification de l'user
-F- service de lectuer des roles
-/*page de creation de role 
-service de creation role
 
-service de modification des roles*/
 
 Page du jeu ( le plateau){
     -les personnage
