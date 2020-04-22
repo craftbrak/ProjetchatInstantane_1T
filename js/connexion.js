@@ -18,14 +18,25 @@ function envoyerEmail(emailVerif, mdpVerif) {
     connexion.open('get', 'connexion?emailVerif=' + emailVerif, true);
     connexion.onload =
         function testMdp() {
-            let mdp = JSON.parse(connexion.response)[0].mdp;
-            if (mdp == mdpVerif) {
-                //crée objet et décale sur un autre site
+            let mdp;
+            if(JSON.parse(connexion.response)[0] != undefined){
+                mdp = JSON.parse(connexion.response)[0].mdp; 
             }
-            else {
+            else{
+                document.getElementById("erreur").innerText = "Email ou mot de passe éronné! Réessayez.";
+            }
+            if (mdp == mdpVerif) {   
+                window.location = "http://craftbrakddns.myddns.me:536/play.html"; // rajouter procedure "profil /play?profil=" + objet.pseudo - si pas connecté, pseudo par défault = invité avec droit restreint (peut pas écrire) en haut de play.html profil et quand invité clique sur profil, est redirigé vers creation
+                //crée objet
+            }
+            else{
                 document.getElementById("erreur").innerText = "Email ou mot de passe éronné! Réessayez.";
             }
         };
     connexion.send();
 }
 
+/** à créer : 
+ * Pas inscrit ?
+ * connecté
+ */
