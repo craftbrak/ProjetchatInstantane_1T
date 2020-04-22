@@ -41,10 +41,14 @@ function enregistrerModifs(){
     let xhr = new XMLHttpRequest();
     xhr.open("get", "http://craftbrakddns.myddns.me:536/mettreAJour?idUtilisateur=780&nvNom="+ nvNom + "&nvPrenom=" + nvPrenom + "&nvMdp=" + nvMdp + "&nvMail=" + nvMail + "&nvPseudo=" + nvPseudo);
     if(test(nvMdp, nvMdpConfirme)){
+        document.getElementById("erreur").innerHTML = "";
+        document.getElementById("erreur").innerHTML += "Vos modifications ont bien été enregistrées !";
         xhr.send();
     }
     else{
-
+        document.getElementById("erreur").innerHTML = "";
+        document.getElementById("erreur").innerHTML += "Mot de passe erroné, veuillez entrer deux fois le même nouveau mot de passe !";
+        return false;
     }
 }
 
