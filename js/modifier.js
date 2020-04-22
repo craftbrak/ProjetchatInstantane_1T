@@ -17,8 +17,11 @@ function remplirFormulaire(){
     document.getElementById("formulaire").innerHTML += "<div id='divSurname'><label for='surname'>Prenom</label> <input id='surname' name='surname' type='text' " +
         "value='" + reponse[0].prenom + "'></div>";
 
-    document.getElementById("formulaire").innerHTML += "<div id='divMdp'><label for='mdpUser'>Mot de Passe</label> <input id='mdpUser' name='mdpUser' type='text' " +
+    document.getElementById("formulaire").innerHTML += "<div id='divMdp'><label for='mdpUser'>Mot De Passe</label> <input id='mdpUser' name='mdpUser' type='password' " +
         "value='" + reponse[0].mdpUser + "'></div>";
+
+    document.getElementById("formulaire").innerHTML += "<div id='divNouveauMdp'><label for='nvMdp'>Confirmer MDP</label> <input id='nvMdp' name='nvMdp' type='password' " +
+        "value='" + reponse[0].mdpUser+ "'></div>";
 
     document.getElementById("formulaire").innerHTML += "<div id='divMail'><label for='mail'>Adresse mail</label> <input id='mail' name='mail' type='text' " +
         "value='" + reponse[0].mail+ "'></div>";
@@ -32,9 +35,28 @@ function enregistrerModifs(){
     let nvNom = document.getElementById("name").value;
     let nvPrenom = document.getElementById("surname").value;
     let nvMdp = document.getElementById("mdpUser").value;
+    let nvMdpConfirme = document.getElementById("nvMdp").value;
     let nvMail = document.getElementById("mail").value;
     let nvPseudo = document.getElementById("pseudo").value;
     let xhr = new XMLHttpRequest();
     xhr.open("get", "http://craftbrakddns.myddns.me:536/mettreAJour?idUtilisateur=780&nvNom="+ nvNom + "&nvPrenom=" + nvPrenom + "&nvMdp=" + nvMdp + "&nvMail=" + nvMail + "&nvPseudo=" + nvPseudo);
-    xhr.send();
+    if(test(nvMdp, nvMdpConfirme)){
+        document.getElementById("erreur").innerHTML = "";
+        document.getElementById("erreur").innerHTML += "Vos modifications ont bien été enregistrées !";
+        xhr.send();
+    }
+    else{
+        document.getElementById("erreur").innerHTML = "";
+        document.getElementById("erreur").innerHTML += "Mot de passe erroné, veuillez entrer deux fois le même nouveau mot de passe";
+        return false;
+    }
+}
+
+function test(a, b){
+    if (a === b){
+        return true;
+    }
+    else{
+        return false;
+    }
 }

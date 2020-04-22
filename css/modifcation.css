@@ -1,6 +1,5 @@
 body{
-    width: 60%;
-    border: double black 1px;
+    width: 40%;
     padding: 10px;
 }
 
@@ -12,4 +11,19 @@ div{
 #enregistrer{
     float: right;
     margin: 5px;
+}
+
+legend{
+    border: dotted black 1px;
+}
+ 
+label{
+    display: block;
+    width: 130px;
+    float: left;
+}
+
+#erreur{
+    background-color: red;
+    color: white;
 }

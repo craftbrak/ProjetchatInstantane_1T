@@ -26,8 +26,8 @@ function envoyerEmail(emailVerif, mdpVerif) {
                 document.getElementById("erreur").innerText = "Email ou mot de passe éronné! Réessayez.";
             }
             if (mdp == mdpVerif) {   
-                window.location = "http://craftbrakddns.myddns.me:536/play.html"; // rajouter procedure "profil /play?profil=" + objet.pseudo - si pas connecté, pseudo par défault = invité avec droit restreint (peut pas écrire) en haut de play.html profil et quand invité clique sur profil, est redirigé vers creation
-                //crée objet
+                let id = JSON.parse(connexion.response)[0].idUser;
+                window.location = "http://craftbrakddns.myddns.me:536/play.html?id=" + id; 
             }
             else{
                 document.getElementById("erreur").innerText = "Email ou mot de passe éronné! Réessayez.";
@@ -35,8 +35,3 @@ function envoyerEmail(emailVerif, mdpVerif) {
         };
     connexion.send();
 }
-
-/** à créer : 
- * Pas inscrit ?
- * connecté
- */
