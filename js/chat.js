@@ -52,3 +52,9 @@ function updateChat() {
     chatUpdate.send()
 
 }
+$('document').ready(function() {
+    $('#msg').each(function() {
+        $(this).height($(this).parent().height());
+        $(this).width($(this).parent().width());
+    });
+});
