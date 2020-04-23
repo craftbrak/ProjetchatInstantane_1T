@@ -44,7 +44,7 @@ function updateChat() {
             //console.log(element.heure);
             element.heure = element.heure.slice(11, -4);
             //console.log(element.heure);
-            chatFinal += `<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><p class="user_msg">${element.pseudo}</p></div><div class="msg_cotainer " id="${element.id}">${element.msgContent}</div><span class="msg_time">${element.heure}</span></div>`
+            chatFinal += `<div class="d-flex justify-content-start mb-4"><div class="chatPseudo"><p class="user_msg">${element.pseudo}</p></div><div class="msg_cotainer " id="${element.id}">${element.msgContent}</div><span class="msg_time">${element.heure}</span></div>`
 
         }
         zoneChat.innerHTML = chatFinal;

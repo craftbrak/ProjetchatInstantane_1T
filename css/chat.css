@@ -54,6 +54,8 @@ body {
 .chatPseudo {
     font-size: 0.8em;
     align-content: flex-start;
+    min-width: 10%;
+    background-color: lightblue;
 }
 
 .chatTimeCode {
