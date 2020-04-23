@@ -25,7 +25,7 @@ body {
 
 .fixedBottom {
     position: fixed;
-    right: 5%;
+    right: 0%;
     top: 95%;
     width: 45em;
     margin-top: -2.5em;
