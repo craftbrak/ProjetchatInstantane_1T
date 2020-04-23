@@ -24,10 +24,6 @@ label {
     float: left;
 }
 
-input {
-    text-align: center;
-}
-
 #erreur {
     background-color: red;
     color: white;
