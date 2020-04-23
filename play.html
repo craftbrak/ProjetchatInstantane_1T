@@ -23,12 +23,12 @@
         <div id="listeConvesation" class="col col-xs-4">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate repellendus veniam quas, inventore cupiditate ab iure? Tenetur, hic eligendi! Quia illum dignissimos libero sapiente esse ratione soluta perspiciatis voluptas sequi.
         </div>
-        <div id="sectionChat" class="col col-xs-8 col-lg-10">
-            <div id="divChat"></div>
-            <div id="divMessage">
+        <div id="sectionChat" class="col col-xs-4 col-lg-6 ">
+            <div id="divChat" class="card-body "></div>
+            <div id="divMessage" class="fixedBottom col col-xs-4 col-lg-6 row">
                 <form id="formMessage" method="POST" onsubmit="TraiterFormMessage(this);return false">
                     <input type="text" id='msg' name="message" placeholder="entrer votre message" required>
-                    <input type="submit" name="envoyer" value="envoyerMsg">
+                    <input type="submit" id="MsgfomSub" name="envoyer" value="envoyerMsg">
                 </form>
             </div>
         </div>
