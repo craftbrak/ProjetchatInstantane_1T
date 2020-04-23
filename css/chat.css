@@ -14,7 +14,7 @@ body {
 }
 
 .card-body {
-    max-height: 65vw;
+    max-height: 55vw;
     overflow: auto;
 }
 
@@ -25,7 +25,7 @@ body {
 .fixedBottom {
     position: fixed;
     right: 0;
-    top: 5%;
+    top: 95%;
     width: 18em;
     margin-top: -2.5em;
 }
@@ -42,7 +42,6 @@ body {
     border-radius: 20px;
     min-width: 10%;
     max-width: 38%;
-    max-height: 80vh;
 }
 
 .msg_time {
