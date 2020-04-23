@@ -25,11 +25,10 @@ body {
 
 .fixedBottom {
     position: fixed;
-    right: 25%;
+    right: 5%;
     top: 95%;
     width: 45em;
-    margin: 0em;
-    padding: 1em;
+    margin-top: -2.5em;
 }
 
 #msg {
