@@ -31,11 +31,12 @@ body {
 }
 
 #msg {
-    min-width: 60%;
+    min-width: 80%;
 }
 
 #MsgfomSub {
     min-width: 6%;
+    max-width: 10%;
 }
 
 .msg_cotainer {
