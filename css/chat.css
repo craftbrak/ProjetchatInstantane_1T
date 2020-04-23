@@ -64,7 +64,7 @@ body {
 .chatPseudo {
     font-size: 0.8em;
     align-content: flex-start;
-    min-width: 10%;
+    min-width: 15%;
     background-color: lightblue;
     border: solid 0.3em lightblue;
     -moz-border-radius: 20px;
