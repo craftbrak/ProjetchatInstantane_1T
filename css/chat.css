@@ -33,6 +33,7 @@ body {
 #msg {
     display: flex;
     box-sizing: border-box;
+    size: 100%;
 }
 
 #MsgfomSub {
