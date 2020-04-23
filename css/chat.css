@@ -16,6 +16,7 @@ body {
 .card-body {
     max-height: 90vh;
     overflow: auto;
+    max-width: 30em;
 }
 
 .msg_time {
@@ -26,7 +27,7 @@ body {
     position: fixed;
     right: 25%;
     top: 95%;
-    width: 18em;
+    width: 30em;
     margin-top: -2.5em;
 }
 
