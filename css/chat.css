@@ -16,7 +16,7 @@ body {
 .card-body {
     max-height: 90vh;
     overflow: auto;
-    max-width: 30em;
+    max-width: 45em;
 }
 
 .msg_time {
@@ -27,14 +27,14 @@ body {
     position: fixed;
     right: 25%;
     top: 95%;
-    width: 30em;
+    width: 45em;
     margin-top: -2.5em;
 }
 
 #msg {
     display: flex;
     box-sizing: border-box;
-    size: 100%;
+    width: 100%;
 }
 
 #MsgfomSub {
