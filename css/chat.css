@@ -14,7 +14,7 @@ body {
 }
 
 .card-body {
-    max-height: 55vw;
+    max-height: 55vh;
     overflow: auto;
 }
 
