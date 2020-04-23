@@ -30,6 +30,11 @@ body {
     margin-top: -2.5em;
 }
 
+#msg {
+    width: 30vw;
+    min-width: 60%;
+}
+
 .msg_cotainer {
     align-content: center;
     display: flex;
