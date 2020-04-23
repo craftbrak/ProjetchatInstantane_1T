@@ -28,7 +28,8 @@ body {
     right: 25%;
     top: 95%;
     width: 45em;
-    margin-top: -2.5em;
+    margin: 0em;
+    padding: 1em;
 }
 
 #msg {
