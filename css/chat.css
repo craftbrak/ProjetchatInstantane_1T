@@ -56,6 +56,10 @@ body {
     align-content: flex-start;
     min-width: 10%;
     background-color: lightblue;
+    border: solid 0.3em lightblue;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
 }
 
 .chatTimeCode {
