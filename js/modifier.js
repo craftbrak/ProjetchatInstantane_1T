@@ -56,9 +56,10 @@ function enregistrerModifs() {
 }
 
 function test(a, b) {
-    if (a === b) {
+    if(a === b) {
         return true;
-    } else {
+    }
+    else {
         return false;
     }
 }
