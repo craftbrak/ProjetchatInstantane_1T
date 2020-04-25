@@ -21,7 +21,7 @@ function remplirFormulaire() {
         "value='" + reponse[0].mdpUser + "'></div>";
 
 
-    document.getElementById("formulaire").innerHTML += "<div id='divNouveauMdp'><label for='nvMdp'>Confirmer Mot De Passe</label> <input id='nvMdp' name='nvMdp' type='password' " +
+    document.getElementById("formulaire").innerHTML += "<div id='divNouveauMdp'><label for='nvMdp'>Confirmer MDP</label> <input id='nvMdp' name='nvMdp' type='password' " +
 
         "value='" + reponse[0].mdpUser + "'></div>";
 
@@ -44,7 +44,7 @@ function enregistrerModifs() {
     xhr.open("get", "http://craftbrakddns.myddns.me:536/mettreAJour?idUtilisateur=780&nvNom=" + nvNom + "&nvPrenom=" + nvPrenom + "&nvMdp=" + nvMdp + "&nvMail=" + nvMail + "&nvPseudo=" + nvPseudo);
     if (test(nvMdp, nvMdpConfirme)) {
         document.getElementById("erreur").innerHTML = "";
-        document.getElementById("erreur").innerHTML += "Vos modifications ont bien été enregistrées !";
+        alert("Modifcations Enregistrées avec succès !");
         xhr.send();
     } else {
         document.getElementById("erreur").innerHTML = "";
