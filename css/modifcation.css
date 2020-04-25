@@ -1,6 +1,5 @@
 body {
     width: 40%;
-    width: 60%;
     padding: 10px;
 }
 
@@ -9,7 +8,7 @@ div {
     margin-bottom: 5px;
 }
 
-#enregistrer {
+#enregistrer{
     float: right;
     margin: 5px;
 }
