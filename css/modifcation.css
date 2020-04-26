@@ -1,6 +1,5 @@
 body {
-    width: 40%;
-    width: 60%;
+    width: 30%;
     padding: 10px;
 }
 
@@ -15,7 +14,7 @@ div {
 }
 
 legend {
-    border: dotted black 1px;
+    border: solid black 1px;
 }
 
 label {
@@ -27,4 +26,5 @@ label {
 #erreur {
     background-color: red;
     color: white;
+    width: 50%
 }

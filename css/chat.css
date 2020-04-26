@@ -31,15 +31,20 @@ body {
     margin-top: -2.5em;
 }
 
+#divMessage {
+    max-width: 45em;
+}
+
 #msg {
-    display: flex;
-    box-sizing: border-box;
-    width: 100%;
+    background-color: transparent;
+    color: snow;
 }
 
 #MsgfomSub {
     min-width: 6%;
     max-width: 100%;
+    background-color: transparent;
+    color: turquoise;
 }
 
 .msg_cotainer {
@@ -83,4 +88,9 @@ body {
 .chatMessageContent {
     font-size: 2.5em;
     align-content: center;
+}
+
+body {
+    background: #222;
+    color: snow;
 }
