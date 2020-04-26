@@ -21,7 +21,7 @@ function remplirFormulaire() {
         "value='" + reponse[0].mdpUser + "'></div>";
 
 
-    document.getElementById("formulaire").innerHTML += "<div id='divNouveauMdp'><label for='nvMdp'>Confirmer MPD</label> <input id='nvMdp' name='nvMdp' type='password' " +
+    document.getElementById("formulaire").innerHTML += "<div id='divNouveauMdp'><label for='nvMdp'>Confirmer MDP</label> <input id='nvMdp' name='nvMdp' type='password' " +
 
         "value='" + reponse[0].mdpUser + "'></div>";
 
