@@ -1,11 +1,16 @@
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+let idUser = 0;
+idUser = urlParams.get('id');
+
 function initialiserFormulaire() {
     let xhr = new XMLHttpRequest();
-    xhr.open("get", "http://craftbrakddns.myddns.me:536/modification?idChoisi=780", true);
+    xhr.open("get", "http://craftbrakddns.myddns.me:536/modification?idChoisi=" + idUser +"", true);
     xhr.onload = remplirFormulaire;
     xhr.send();
 }
 
-function remplirFormulaire() {
+function remplirFormulaire(){
     let reponse = JSON.parse(this.responseText);
     console.log(reponse);
     console.log(reponse[0].idUser);
@@ -41,12 +46,16 @@ function enregistrerModifs() {
     let nvMail = document.getElementById("mail").value;
     let nvPseudo = document.getElementById("pseudo").value;
     let xhr = new XMLHttpRequest();
-    xhr.open("get", "http://craftbrakddns.myddns.me:536/mettreAJour?idUtilisateur=780&nvNom=" + nvNom + "&nvPrenom=" + nvPrenom + "&nvMdp=" + nvMdp + "&nvMail=" + nvMail + "&nvPseudo=" + nvPseudo);
+    xhr.open("get", "http://craftbrakddns.myddns.me:536/mettreAJour?idUtilisateur=" + idUser + "&nvNom=" + nvNom + "&nvPrenom=" + nvPrenom + "&nvMdp=" + nvMdp + "&nvMail=" + nvMail + "&nvPseudo=" + nvPseudo);
     if (test(nvMdp, nvMdpConfirme)) {
         document.getElementById("erreur").innerHTML = "";
         alert("Modifcations Enregistrées avec succès !");
+        console.log("ca passe");
+        window.location = "http://craftbrakddns.myddns.me:536/play.html?id=" + idUser;
         xhr.send();
-    } else {
+        return false;
+    }
+    else {
         document.getElementById("erreur").innerHTML = "";
 
         document.getElementById("erreur").innerHTML += "Mot de passe erroné, veuillez entrer deux fois le même nouveau mot de passe !";
@@ -55,10 +64,11 @@ function enregistrerModifs() {
     }
 }
 
-function test(a, b) {
-    if (a === b) {
+function test(a, b){
+    if(a === b){
         return true;
-    } else {
+    }
+    else {
         return false;
     }
 }
