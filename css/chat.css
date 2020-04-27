@@ -44,7 +44,7 @@ body {
     min-width: 6%;
     max-width: 100%;
     background-color: transparent;
-    color: turquoise;
+    color: red;
 }
 
 .msg_cotainer {
@@ -52,8 +52,8 @@ body {
     display: flex;
     flex-basis: auto;
     align-content: center;
-    background-color: aquamarine;
-    border: solid 0.3em aquamarine;
+    background-color: blue;
+    border: solid 0.3em blue;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     border-radius: 20px;
@@ -72,8 +72,8 @@ body {
     font-size: 0.8em;
     align-content: flex-start;
     min-width: 15%;
-    background-color: lightblue;
-    border: solid 0.3em lightblue;
+    background-color: red;
+    border: solid 0.3em red;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     border-radius: 20px;

@@ -14,7 +14,7 @@ div {
 }
 
 legend {
-    border: solid black 1px;
+    border: solid snow 1px;
 }
 
 label {
@@ -27,4 +27,9 @@ label {
     background-color: red;
     color: white;
     width: 50%
+}
+
+fieldset{
+    background: #222;
+    color: snow;
 }
