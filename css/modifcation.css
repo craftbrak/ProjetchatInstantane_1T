@@ -1,6 +1,8 @@
 body {
     width: 40%;
     padding: 10px;
+    background: #222;
+    color: snow;
 }
 
 div {
@@ -27,4 +29,8 @@ label {
     background-color: red;
     color: white;
     width: 50%
+}
+
+fieldset{
+    border: #222;
 }
