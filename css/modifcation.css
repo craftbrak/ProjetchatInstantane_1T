@@ -16,7 +16,7 @@ div {
 }
 
 legend {
-    border: solid black 1px;
+    border: solid snow 1px;
 }
 
 label {
@@ -34,3 +34,5 @@ label {
 fieldset{
     border: #222;
 }
+
+

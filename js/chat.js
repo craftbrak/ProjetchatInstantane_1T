@@ -1,16 +1,20 @@
 /*le temps du developement des autre partie du code */
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const product = urlParams.get('id')
-console.log(product);
-let idUser = product;
+let idUser = 0
+idUser = urlParams.get('id');
 
 let Conv = {
-    id: 1
+    id: 3
 }
 document.addEventListener('DOMContentLoaded', initPage);
 
 function initPage() {
+    if (idUser == null) {
+        document.write("veuiller vous connecter avant de participer au chat <a href='./connexion.html'>connection</a>")
+    } else {
+        document.querySelector("#LienModif").href = `./modificationProfile.html?id=${idUser}`;
+    }
     //document.getElementById("formMessage").addEventListener("submit",TraiterFormMessage(this));
     updateChat();
     setInterval(updateChat, 1000);
@@ -32,7 +36,7 @@ function TraiterFormMessage(formMessage) {
 
 function updateChat() {
     let chatUpdate = new XMLHttpRequest
-    chatUpdate.open("GET", "updateChat?idGameVar=" + Conv.id, true);
+    chatUpdate.open("GET", "updateChat?idConvVar=" + Conv.id, true);
     console.log("oupdate send");
     chatUpdate.onload = function() {
         let chat = JSON.parse(chatUpdate.responseText);
