@@ -5,7 +5,7 @@ const product = urlParams.get('id')
 console.log(product);
 let idUser = product;
 
-let Conv = {
+let Game = {
     id: 1
 }
 document.addEventListener('DOMContentLoaded', initPage);
@@ -19,7 +19,7 @@ function initPage() {
 function TraiterFormMessage(formMessage) {
     let message = formMessage.message.value;
     let envoiMsg = new XMLHttpRequest;
-    envoiMsg.open("GET", "newMsg?msgContentVar=" + message + "&idUserVar=" + idUser + "&idConvVar=" + Conv.id + "", true);
+    envoiMsg.open("GET", "newMsg?msgContentVar=" + message + "&idUserVar=" + idUser + "&idGameVar=" + Game.id + "", true);
     envoiMsg.onload = function() {
         //console.log("msg envoyer");
         updateChat();
@@ -32,7 +32,7 @@ function TraiterFormMessage(formMessage) {
 
 function updateChat() {
     let chatUpdate = new XMLHttpRequest
-    chatUpdate.open("GET", "updateChat?idGameVar=" + Conv.id, true);
+    chatUpdate.open("GET", "updateChat?idGameVar=" + Game.id, true);
     console.log("oupdate send");
     chatUpdate.onload = function() {
         let chat = JSON.parse(chatUpdate.responseText);
@@ -52,9 +52,3 @@ function updateChat() {
     chatUpdate.send()
 
 }
-$('document').ready(function() {
-    $('#msg').each(function() {
-
-        $(this).width($(this).parent().width());
-    });
-});
