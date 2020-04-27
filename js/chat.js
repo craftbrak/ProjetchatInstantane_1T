@@ -6,7 +6,7 @@ console.log(product);
 let idUser = product;
 
 let Game = {
-    id: 1
+    id: 2
 }
 document.addEventListener('DOMContentLoaded', initPage);
 
