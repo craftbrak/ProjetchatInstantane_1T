@@ -59,9 +59,14 @@ function updateChat() {
             element.heure = element.heure.slice(11, -4);
             //console.log(element.heure);
             chatFinal += `<div class="d-flex justify-content-start mb-4"><div class="chatPseudo"><p class="user_msg">${element.pseudo}</p></div><div class="msg_cotainer " id="${element.id}"><p class="pMsg">${element.msgContent}</p></div><span class="msg_time">${element.heure}</span></div>`
-
+            conv.lastMsgId = element.id;
         }
-        zoneChat.innerHTML = chatFinal;
+
+        zoneChat.innerHTML += chatFinal;
+        if (chatFinal != "") {
+            var element = document.getElementById("divChat");
+            element.scrollTop = element.scrollHeight;
+        }
     }
     chatUpdate.send()
 

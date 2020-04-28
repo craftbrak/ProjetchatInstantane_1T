@@ -92,6 +92,8 @@ body {
 .pMsg {
     word-wrap: break-word;
     max-width: 100%;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
 
 .msg_time {
@@ -111,6 +113,7 @@ body {
     -webkit-border-radius: 20px;
     border-radius: 20px;
     max-height: 2em;
+    padding-left: 0.5em;
 }
 
 .chatTimeCode {
