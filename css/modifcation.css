@@ -30,3 +30,9 @@ label {
     color: white;
     width: 50%
 }
+
+fieldset{
+    border: #222;
+}
+
+
