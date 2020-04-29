@@ -96,11 +96,35 @@ body {
     padding-right: 0.5em;
 }
 
+.OptionMsgDiv {
+    max-height: 3em;
+    max-width: 25%;
+}
+
 .msg_time {
     display: flex;
     flex-basis: auto;
     height: 3em;
     size: 2.5em;
+    font-size: 0.75em;
+}
+
+.modifyMsg {
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.deleteMsg {
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.msgSortant {
+    display: inline-block;
+    -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+    -moz-transform: matrix(-1, 0, 0, 1, 0, 0);
+    -o-transform: matrix(-1, 0, 0, 1, 0, 0);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
 }
 
 .chatPseudo {

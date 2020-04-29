@@ -25,9 +25,9 @@ function initPage() {
         obtinerUserId.send();
 
     }
-    //document.getElementById("formMessage").addEventListener("submit",TraiterFormMessage(this));
     updateChat();
     setInterval(updateChat, 1000);
+
 }
 
 function TraiterFormMessage(formMessage) {
@@ -47,7 +47,7 @@ function TraiterFormMessage(formMessage) {
 function updateChat() {
     let chatUpdate = new XMLHttpRequest
     chatUpdate.open("GET", `updateChat?idConvUserVar= ${conv.convUserId}&lastId=${conv.lastMsgId}`, true);
-    console.log("oupdate send");
+    //console.log("oupdate send");
     chatUpdate.onload = function() {
         let chat = JSON.parse(chatUpdate.responseText);
         // chat.date = chat.date.toLocaleDateString(locales, {});
@@ -58,7 +58,7 @@ function updateChat() {
             //console.log(element.heure);
             element.heure = element.heure.slice(11, -4);
             //console.log(element.heure);
-            chatFinal += `<div class="d-flex justify-content-start mb-4"><div class="chatPseudo"><p class="user_msg">${element.pseudo}</p></div><div class="msg_cotainer " id="${element.id}"><p class="pMsg">${element.msgContent}</p></div><span class="msg_time">${element.heure}</span></div>`
+            chatFinal += `<div class="d-flex justify-content-start mb-4${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}"><div class="chatPseudo"><p class="user_msg ${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}">${element.pseudo}</p></div><div class="msg_cotainer ${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}" id="${element.id}"><p class="pMsg">${element.msgContent}</p></div><span class="msg_time ${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}">${element.heure}</span><div class="OptionMsgDiv ${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}"><span class="deleteMsgSpan" msgId="${element.id}"><img class="deleteMsg"src="./img/delete.png"></span><span class="modifyMsgSpan" msgId="${element.id}"><img class="modifyMsg" src="./img/modifyIcon.png"></span></div></div>`
             conv.lastMsgId = element.id;
         }
 
@@ -67,10 +67,33 @@ function updateChat() {
             var element = document.getElementById("divChat");
             element.scrollTop = element.scrollHeight;
         }
+        $('.deleteMsgSpan').click(deleteMsg);
+        $('.modifyMsgSpan').click(modifyMsg);
     }
     chatUpdate.send()
 
 }
+
+function modifyMsg() {
+    console.log('modify');
+}
+
+function deleteMsg() {
+    console.log('delete');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // fixe dynamiquement la taile de l'input du message avec JQuerry 
 $('document').ready(function() { //quand le DOM est pret 
@@ -78,10 +101,4 @@ $('document').ready(function() { //quand le DOM est pret
 
         $(this).width($(this).parent().width() - $('#MsgfomSub').width() - 50); //fixe la tail de l'element par raporet a la largeur de son parent -la largeur du bouton -50px 
     });
-});
-//Determine si le navigateur suporte le webkit pour les barres de deffilement personalisée
-$(document).ready(function() { //quand le DOM est pret 
-    if (!$.browser.webkit) { //si le webkit n'exsite pas 
-        console.log('Sorry! Non webkit users. :('); //on affiche a l'utilisateru qu'il ne suporte pas la feature 
-    }
 });
