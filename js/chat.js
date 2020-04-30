@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', initPage);
 
 function initPage() {
     if (conv.convUserId == null) {
-        document.write("veuiller vous connecter avant de participer au chat <a href='./connexion.html'>connection</a>")
+        document.write("Vous êtes déconnecté. Veuillez vous connecter à un compte pour pouvoir participer au chat. <a href='./connexion.html'>Connexion</a>")
     } else {
         let obtinerUserId = new XMLHttpRequest;
         obtinerUserId.open('get', `obtenirUseId?convUserId=${conv.convUserId}`, true);
@@ -23,11 +23,9 @@ function initPage() {
             document.querySelector("#LienModif").href = `./modificationProfile.html?id=${conv.userId}`;
         }
         obtinerUserId.send();
-
     }
     updateChat();
     setInterval(updateChat, 1000);
-
 }
 
 function TraiterFormMessage(formMessage) {
@@ -35,7 +33,7 @@ function TraiterFormMessage(formMessage) {
     let envoiMsg = new XMLHttpRequest;
     envoiMsg.open("GET", "newMsg?msgContentVar=" + message + "&convUserIdVar=" + conv.convUserId + "", true);
     envoiMsg.onload = function() {
-        //console.log("msg envoyer");
+        //console.log("message envoyé");
         updateChat();
         document.getElementById("formMessage").message.value = null;
     };
@@ -47,7 +45,7 @@ function TraiterFormMessage(formMessage) {
 function updateChat() {
     let chatUpdate = new XMLHttpRequest
     chatUpdate.open("GET", `updateChat?idConvUserVar= ${conv.convUserId}&lastId=${conv.lastMsgId}`, true);
-    //console.log("oupdate send");
+    //console.log("update sent");
     chatUpdate.onload = function() {
             let chat = JSON.parse(chatUpdate.responseText);
             // chat.date = chat.date.toLocaleDateString(locales, {});
