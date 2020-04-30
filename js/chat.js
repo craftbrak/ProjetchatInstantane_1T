@@ -49,16 +49,24 @@ function updateChat() {
     chatUpdate.open("GET", `updateChat?idConvUserVar= ${conv.convUserId}&lastId=${conv.lastMsgId}`, true);
     //console.log("oupdate send");
     chatUpdate.onload = function() {
-        let chat = JSON.parse(chatUpdate.responseText);
-        // chat.date = chat.date.toLocaleDateString(locales, {});
-        //console.log(chat);
-        let zoneChat = document.getElementById("divChat");
-        let chatFinal = "";
-        for (const element of chat) {
-            //console.log(element.heure);
-            element.heure = element.heure.slice(11, -4);
-            //console.log(element.heure);
-            chatFinal += `<div class="d-flex justify-content-start mb-4${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}"><div class="chatPseudo"><p class="user_msg ${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}">${element.pseudo}</p></div><div class="msg_cotainer ${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}" id="${element.id}"><p class="pMsg">${element.msgContent}</p></div><span class="msg_time ${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}">${element.heure}</span><div class="OptionMsgDiv ${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}"><span class="deleteMsgSpan" msgId="${element.id}"><img class="deleteMsg"src="./img/delete.png"></span><span class="modifyMsgSpan" msgId="${element.id}"><img class="modifyMsg" src="./img/modifyIcon.png"></span></div></div>`
+            let chat = JSON.parse(chatUpdate.responseText);
+            // chat.date = chat.date.toLocaleDateString(locales, {});
+            //console.log(chat);
+            let zoneChat = document.getElementById("divChat");
+            let chatFinal = "";
+            for (const element of chat) {
+                //console.log(element.heure);
+                element.heure = element.heure.slice(11, -4);
+                //console.log(element.heure);
+                chatFinal += `<div class="d-flex justify-content-start mb-4${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}">
+                            <div class="chatPseudo">
+                                <p class="user_msg ${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}">${element.pseudo}</p>
+                            </div>
+                            <div class="msg_cotainer ${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}" id="${element.id}">
+                                <p class="pMsg">${element.msgContent}</p>
+                            </div>
+                            <span class="msg_time ${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}">${element.heure}</span>
+                            ${element.idUSer==conv.userId?`<div class="OptionMsgDiv ${element.idUSer==conv.userId?"msgSortant" : "msgEntrent"}"><span class="deleteMsgSpan" msgId="${element.id}"><img class="deleteMsg"src="./img/delete.png"></span><span class="modifyMsgSpan" msgId="${element.id}"><img class="modifyMsg" src="./img/modifyIcon.png"></span></div>`:""}</div>`
             conv.lastMsgId = element.id;
         }
 
@@ -81,17 +89,6 @@ function modifyMsg() {
 function deleteMsg() {
     console.log('delete');
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
