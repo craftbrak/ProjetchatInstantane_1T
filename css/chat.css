@@ -18,7 +18,7 @@ body {
 }
 
 .card-body {
-    max-height: calc(100%-2em);
+    max-height: 90vh;
     overflow: auto;
     /* max-width: 45em;*/
     margin: 0vh;
@@ -47,7 +47,6 @@ body {
     color: snow;
     border: solid 0.1em lightseagreen;
     -moz-border-radius: 10px;
-    border-radius: 10px;
     -webkit-border-radius: 10px;
 }
 
@@ -60,7 +59,6 @@ body {
 
 #divChat::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     background-color: #F5F5F5;
 }
@@ -73,7 +71,6 @@ body {
 #divChat::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
     background-color: #D62929;
 }
 
