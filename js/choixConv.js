@@ -2,9 +2,9 @@
 document.addEventListener('DOMContentLoaded', initConvs);
 
 function initConvs() {
-    if (session.convUserId != null) {
+    if (session.userId != null) {
         let getConvs = new XMLHttpRequest;
-        getConvs.open('get', `userConvs?userId=${session.convUserId}`, true);
+        getConvs.open('get', `userConvs?userId=${session.userId}`, true);
         getConvs.onload = () => {
             let liste = '';
             JSON.parse(getConvs.responseText).forEach(conv => {
