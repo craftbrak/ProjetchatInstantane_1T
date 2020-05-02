@@ -13,7 +13,7 @@ function initConvs() {
             });
             document.getElementById('listeConvs').innerHTML = liste;
             JSON.parse(getConvs.responseText).forEach(conv => {
-                $('.convListe').addEventListener('click', goToConv);
+                $('.convListe').click(goToConv);
             });
         }
         getConvs.send();
