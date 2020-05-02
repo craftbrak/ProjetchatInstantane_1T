@@ -25,6 +25,7 @@ function initPage() {
         obtinerUserId.send();
     }
     updateChat();
+    document.getElementById('msg').focus()
     setInterval(updateChat, 1000);
 }
 
@@ -56,36 +57,45 @@ function updateChat() {
                 //console.log(element.heure);
                 element.heure = element.heure.slice(11, -4);
                 //console.log(element.heure);
-                chatFinal += `<div class="d-flex justify-content-start mb-4${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}">
+                chatFinal += `<div class="d-flex justify-content-start mb-4${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}"id="${element.id}" >
                             <div class="chatPseudo">
                                 <p class="user_msg ${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}">${element.pseudo}</p>
                             </div>
-                            <div class="msg_cotainer ${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}" id="${element.id}">
+                            <div class="msg_cotainer ${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}" id="${element.id}Msg">
                                 <p class="pMsg">${element.msgContent}</p>
                             </div>
                             <span class="msg_time ${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}">${element.heure}</span>
-                            ${element.idUSer==conv.userId?`<div class="OptionMsgDiv ${element.idUSer==conv.userId?"msgSortant" : "msgEntrent"}"><span class="deleteMsgSpan" msgId="${element.id}"><img class="deleteMsg"src="./img/delete.png"></span><span class="modifyMsgSpan" msgId="${element.id}"><img class="modifyMsg" src="./img/modifyIcon.png"></span></div>`:""}</div>`
+                            ${element.idUSer==conv.userId?`<div class="OptionMsgDiv ${element.idUSer==conv.userId?"msgSortant" : "msgEntrent"}"><span class="deleteMsgSpan" ><img data-msgId="${element.id}" class="deleteMsg"src="./img/delete.png"></span><span class="modifyMsgSpan" ><img data-msgId="${element.id}" class="modifyMsg" src="./img/modifyIcon.png"></span></div>`:""}</div>`
             conv.lastMsgId = element.id;
         }
 
-        zoneChat.innerHTML += chatFinal;
+        
         if (chatFinal != "") {
+            zoneChat.innerHTML += chatFinal;
             var element = document.getElementById("divChat");
             element.scrollTop = element.scrollHeight;
+            console.log("scrollTop0" , element.scrollTop);
+            console.log("scrollHeight",element.scrollHeight);
+            $('.deleteMsgSpan').click(deleteMsg);
+            $('.modifyMsgSpan').click(modifyMsg);
         }
-        $('.deleteMsgSpan').click(deleteMsg);
-        $('.modifyMsgSpan').click(modifyMsg);
+        
     }
     chatUpdate.send()
 
 }
 
-function modifyMsg() {
-    console.log('modify');
+function modifyMsg(event) {
+   console.log("modify", event);
 }
 
 function deleteMsg() {
-    console.log('delete');
+ 
+     let msgId=event.target.getAttribute('data-msgId');
+  $.get(`deleteMsg?MsgId=${msgId}`,()=>{
+    $("#"+msgId).remove();
+ 
+  })
 }
 
 
