@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', initPage);
 
 function initPage() {
     if (session.convUserId == null) {
-        document.write("Vous êtes déconnecté. Veuillez vous connecter à un compte pour pouvoir participer au chat. <a href='./connexion.html'>Connexion</a>")
+        document.write("Vous êtes déconnecté. Veuillez vous connecter à un compte pour pouvoir participer au chat. <a href='./connexion.html'>Connexion</a>");
     } else {
         let obtinerUserId = new XMLHttpRequest;
         obtinerUserId.open('get', `obtenirUseId?convUserId=${session.convUserId}`, true);
