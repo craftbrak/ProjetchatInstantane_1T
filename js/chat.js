@@ -13,14 +13,14 @@ let session = {
 document.addEventListener('DOMContentLoaded', initPage);
 
 function initPage() {
-    if (conv.convUserId == null) {
+    if (session.convUserId == null) {
         document.write("Vous êtes déconnecté. Veuillez vous connecter à un compte pour pouvoir participer au chat. <a href='./connexion.html'>Connexion</a>")
     } else {
         let obtinerUserId = new XMLHttpRequest;
-        obtinerUserId.open('get', `obtenirUseId?convUserId=${conv.convUserId}`, true);
+        obtinerUserId.open('get', `obtenirUseId?convUserId=${session.convUserId}`, true);
         obtinerUserId.onload = () => {
-            conv.userId = JSON.parse(obtinerUserId.responseText)[0].UserId;
-            document.querySelector("#LienModif").href = `./modificationProfile.html?id=${conv.userId}`;
+            session.userId = JSON.parse(obtinerUserId.responseText)[0].UserId;
+            document.querySelector("#LienModif").href = `./modificationProfile.html?id=${session.userId}`;
         }
         obtinerUserId.send();
     }
@@ -32,7 +32,7 @@ function initPage() {
 function TraiterFormMessage(formMessage) {
     let message = formMessage.message.value;
     let envoiMsg = new XMLHttpRequest;
-    envoiMsg.open("GET", "newMsg?msgContentVar=" + message + "&convUserIdVar=" + conv.convUserId + "", true);
+    envoiMsg.open("GET", "newMsg?msgContentVar=" + message + "&convUserIdVar=" + session.convUserId + "", true);
     envoiMsg.onload = function() {
         //console.log("message envoyé");
         updateChat();
@@ -45,7 +45,7 @@ function TraiterFormMessage(formMessage) {
 
 function updateChat() {
     let chatUpdate = new XMLHttpRequest
-    chatUpdate.open("GET", `updateChat?idConvUserVar= ${conv.convUserId}&lastId=${conv.lastMsgId}`, true);
+    chatUpdate.open("GET", `updateChat?idConvUserVar= ${session.convUserId}&lastId=${session.lastMsgId}`, true);
     //console.log("update sent");
     chatUpdate.onload = function() {
             let chat = JSON.parse(chatUpdate.responseText);
@@ -57,16 +57,16 @@ function updateChat() {
                 //console.log(element.heure);
                 element.heure = element.heure.slice(11, -4);
                 //console.log(element.heure);
-                chatFinal += `<div class="d-flex justify-content-start mb-4${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}"id="${element.id}" >
+                chatFinal += `<div class="d-flex justify-content-start mb-4${element.idUSer==session.userId?" msgSortant":" msgEntrent"}"id="${element.id}" >
                             <div class="chatPseudo">
-                                <p class="user_msg ${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}">${element.pseudo}</p>
+                                <p class="user_msg ${element.idUSer==session.userId?" msgSortant":" msgEntrent"}">${element.pseudo}</p>
                             </div>
-                            <div class="msg_cotainer ${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}" id="${element.id}Msg">
+                            <div class="msg_cotainer ${element.idUSer==session.userId?" msgSortant":" msgEntrent"}" id="${element.id}Msg">
                                 <p class="pMsg">${element.msgContent}</p>
                             </div>
-                            <span class="msg_time ${element.idUSer==conv.userId?" msgSortant":" msgEntrent"}">${element.heure}</span>
-                            ${element.idUSer==conv.userId?`<div class="OptionMsgDiv ${element.idUSer==conv.userId?"msgSortant" : "msgEntrent"}"><span class="deleteMsgSpan" ><img data-msgId="${element.id}" class="deleteMsg"src="./img/delete.png"></span><span class="modifyMsgSpan" ><img data-msgId="${element.id}" class="modifyMsg" src="./img/modifyIcon.png"></span></div>`:""}</div>`
-            conv.lastMsgId = element.id;
+                            <span class="msg_time ${element.idUSer==session.userId?" msgSortant":" msgEntrent"}">${element.heure}</span>
+                            ${element.idUSer==session.userId?`<div class="OptionMsgDiv ${element.idUSer==session.userId?"msgSortant" : "msgEntrent"}"><span class="deleteMsgSpan" ><img data-msgId="${element.id}" class="deleteMsg"src="./img/delete.png"></span><span class="modifyMsgSpan" ><img data-msgId="${element.id}" class="modifyMsg" src="./img/modifyIcon.png"></span></div>`:""}</div>`
+            session.lastMsgId = element.id;
         }
 
         
