@@ -8,7 +8,7 @@ function initConvs() {
         getConvs.onload = () => {
             let liste = '';
             JSON.parse(getConvs.responseText).forEach(conv => {
-                liste += '<div class=\"convListe\" id=\"' + conv.nom + '\" href=\"http://craftbrakddns.myddns.me:536/play.html?id=' + conv.id + '\">' + conv.nom + '</div>';
+                liste += '<div class=\"convListe\" id=\"' + conv.nom + '\">' + conv.nom + '</div>';
             });
             document.getElementById('listeConvs').innerHTML = liste;
             JSON.parse(getConvs.responseText).forEach(conv => {
