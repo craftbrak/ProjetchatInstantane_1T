@@ -28,7 +28,6 @@ function initPage() {
         }
         obtinerUserId.send();
     }
-
 }
 
 function TraiterFormMessage(formMessage) {

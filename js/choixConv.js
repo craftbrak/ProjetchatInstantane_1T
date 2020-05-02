@@ -16,10 +16,15 @@ function initConvs() {
         }
         getConvs.send();
     }
+    let getName = new XMLHttpRequest;
+        getName.open('get', `getName?id=${session.convUserId}`, true);
+        getName.onload = () => {
+            document.title = getName.responseText;
+        }
+        getName.send();
 }
 
 function goToConv(event) {
     let lien = event.target.getAttribute('href');
     window.location = lien;
-    document.title = event.target.innerHTML;
 }
