@@ -4,7 +4,7 @@
 // on recuper l'id de lutilisateur passé en paramettre 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-let conv = {
+let session = {
     convUserId: urlParams.get('id'),
     lastMsgId: 0,
     userId: null
