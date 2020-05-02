@@ -1,6 +1,6 @@
 //Auteur : François Girondin
 document.addEventListener('DOMContentLoaded', initConvs);
-$(document).on('InitOver', initConvs)
+$(document).on('InitOver', initConvs);
 
 function initConvs() {
     if (session.userId != null) {
