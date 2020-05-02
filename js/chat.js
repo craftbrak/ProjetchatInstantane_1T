@@ -21,12 +21,14 @@ function initPage() {
         obtinerUserId.onload = () => {
             session.userId = JSON.parse(obtinerUserId.responseText)[0].UserId;
             document.querySelector("#LienModif").href = `./modificationProfile.html?id=${session.userId}`;
+            updateChat();
+            document.getElementById('msg').focus()
+            setInterval(updateChat, 1000);
+            $(document).trigger('InitOver');
         }
         obtinerUserId.send();
     }
-    updateChat();
-    document.getElementById('msg').focus()
-    setInterval(updateChat, 1000);
+
 }
 
 function TraiterFormMessage(formMessage) {

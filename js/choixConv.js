@@ -1,5 +1,6 @@
 //Auteur : François Girondin
 document.addEventListener('DOMContentLoaded', initConvs);
+$(document).on('InitOver', initConvs)
 
 function initConvs() {
     if (session.convUserId != null) {
@@ -12,7 +13,7 @@ function initConvs() {
             });
             document.getElementById('listeConvs').innerHTML = liste;
             JSON.parse(getConvs.responseText).forEach(conv => {
-                document.getElementById(conv.nom).addEventListener('click',goToConv);
+                document.getElementById(conv.nom).addEventListener('click', goToConv);
             });
         }
         getConvs.send();
