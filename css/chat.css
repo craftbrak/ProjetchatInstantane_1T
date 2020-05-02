@@ -54,8 +54,8 @@ body {
 #MsgfomSub {
     min-width: 6%;
     max-width: 30%;
-    background-color: lightgreen;
-    color: lightcoral;
+    background-color: rgb(40, 219, 40);
+    color: rgb(255, 255, 255);
 }
 
 #divChat::-webkit-scrollbar-track {
