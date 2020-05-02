@@ -19,6 +19,6 @@ function initConvs() {
 }
 
 function goToConv(event) {
-    let lien = event.target;
+    let lien = event.target.getAttribute('href');
     window.location = lien;
 }
