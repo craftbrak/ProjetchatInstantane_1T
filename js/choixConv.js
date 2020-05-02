@@ -21,13 +21,5 @@ function initConvs() {
 function goToConv(event) {
     let lien = event.target.getAttribute('href');
     window.location = lien;
-    let getConvName = new XMLHttpRequest;
     document.title = event.target.innerHTML;
-        getConvName.open('get', `convName?userId=${session.userId}`, true);
-        getConvName.onload = () => {
-            JSON.parse(getConvName.responseText).forEach(conv => {
-                liste += '<div class=\"convListe\" id=\"' + conv.id + '\" href=\"http://craftbrakddns.myddns.me:536/play.html?id=' + conv.id + '\">' + conv.nom + '</div>';
-            });
-        }
-        getConvName.send();
 }
