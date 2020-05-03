@@ -56,10 +56,7 @@ function enregistrerModifs() {
         return false;
     }
     else {
-        document.getElementById("erreur").innerHTML = "";
-
-        document.getElementById("erreur").innerHTML += "Mot de passe erroné, veuillez entrer deux fois le même nouveau mot de passe !";
-
+        document.getElementById("erreur").innerHTML = "Mot de passe erroné, veuillez entrer deux fois le même nouveau mot de passe !";
         return false;
     }
 }
