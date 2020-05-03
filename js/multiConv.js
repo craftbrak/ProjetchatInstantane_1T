@@ -14,12 +14,11 @@ function initLinks() {
 
 function créerListeConvs() {
     $.get(`userConvs?userId=${session.userId}`,(convs) => {
-        let liste;
+        let liste = '';
         convs.forEach(conv => {
             liste += '<div class=\"convListe convListeBox ' + conv.couleur + '\" id=\"' + conv.id + '\" href=\"./play.html?id=' + conv.id + '\">' + conv.nom + '</div>';
         });
-        liste += '<div id=\"ajouterConv\" class=\"convListeBox\">Nouvelle conversation</div>';
-        document.getElementById('listeConvs').innerHTML = liste;
+        document.getElementById('listeConvs').innerHTML = liste + '<div id=\"ajouterConv\" class=\"convListeBox\">Nouvelle conversation</div>';
         $('.convListe').click(goToConv);
         $('#ajouterConv').click(creerConv);
     });
