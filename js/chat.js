@@ -22,9 +22,9 @@ function initPage() {
             session.userId = JSON.parse(obtinerUserId.responseText)[0].UserId;
             $('#modif').href = `./modificationProfile.html?id=${session.userId}`;
             updateChat();
-            document.getElementById('msg').focus()
             setInterval(updateChat, 1000);
             $(document).trigger('InitOver');
+            $('#msg').focus()
         }
         obtinerUserId.send();
     }
