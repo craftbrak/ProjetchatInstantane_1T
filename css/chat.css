@@ -88,6 +88,7 @@ nav {
 .link {
     height: 3em;
     float: right;
+    cursor: pointer;
 }
 .modifyMsg {
     width: 2.5em;
