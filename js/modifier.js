@@ -51,7 +51,7 @@ function enregistrerModifs() {
         document.getElementById("erreur").innerHTML = "";
         alert("Modifcations Enregistrées avec succès !");
         console.log("ca passe");
-        renvoyerSurGeneral();
+        $.get(`./userToGeneral?id=${idUser}`,() => {window.location = `./play.html?id=${getIdUserConv.responseText}`});
         xhr.send();
         return false;
     }
@@ -68,14 +68,6 @@ function test(a, b){
     else {
         return false;
     }
-}
-
-function renvoyerSurGeneral() {
-    let getIdUserConv = new XMLHttpRequest();
-    getIdUserConv.open('get', `./userToGeneral?id=${idUser}`,true);
-    getIdUserConv.onload = function () {
-        window.location = `./play.html?id=${getIdUserConv.responseText}`;
-    };
 }
 
 //Arthur
