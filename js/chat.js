@@ -20,7 +20,6 @@ function initPage() {
         obtinerUserId.open('get', `obtenirUseId?convUserId=${session.convUserId}`, true);
         obtinerUserId.onload = () => {
             session.userId = JSON.parse(obtinerUserId.responseText)[0].UserId;
-            $('#modif').href = `./modificationProfil.html?id=${session.userId}`;
             updateChat();
             setInterval(updateChat, 1000);
             $(document).trigger('InitOver');
