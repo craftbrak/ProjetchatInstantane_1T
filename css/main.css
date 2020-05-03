@@ -1,10 +1,14 @@
 /* Propriétés de balises */
 
+body {
+    overflow: hidden;
+    min-height: 100vw;
+    background: #222;
+    color: snow;
+}
 
 
 /* Propriétés d'ids */
 
 
-
 /* Propriétés de classes */
-

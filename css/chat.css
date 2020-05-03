@@ -1,14 +1,9 @@
 /* Propriétés de balises */
 
-body {
-    overflow: hidden;
-    min-height: 100vw;    
-    background: #222;
-    color: snow;
-}
 nav {
     display: inline;
 }
+
 
 /* Propriétés d'ids */
 
@@ -16,21 +11,25 @@ nav {
     width: 12px;
     background-color: #222;
 }
+
 #divChat::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #D62929;
 }
+
 #divChat::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     background-color: #222;
 }
+
 #divMessage {
     display: inline;
 }
+
 #msg {
     background-color: transparent;
     color: snow;
@@ -39,12 +38,14 @@ nav {
     border-radius: 10px;
     -webkit-border-radius: 10px;
 }
+
 #MsgFormSub {
     min-width: 6%;
     max-width: 30%;
     background-color: rgb(40, 219, 40);
     color: rgb(255, 255, 255);
 }
+
 
 /* Propriétés de classes */
 
@@ -53,10 +54,12 @@ nav {
     overflow: auto;
     margin: 0vh;
 }
+
 .chatMessageContent {
     font-size: 2.5em;
     align-content: center;
 }
+
 .chatPseudo {
     font-size: 0.8em;
     align-content: flex-start;
@@ -69,21 +72,26 @@ nav {
     max-height: 2em;
     padding-left: 0.5em;
 }
+
 .chatTimeCode {
     font-size: 0.7em;
     align-content: bottom;
 }
+
 .convListe {
     display: block;
 }
+
 .deleteMsg {
     width: 2.5em;
     height: 2.5em;
 }
+
 .modifyMsg {
     width: 2.5em;
     height: 2.5em;
 }
+
 .msgContainer {
     word-wrap: break-word;
     align-content: center;
@@ -98,9 +106,11 @@ nav {
     min-width: 10%;
     max-width: 38%;
 }
+
 .msgEntrant {
     display: inline-block;
 }
+
 .msgSortant {
     display: inline-block;
     -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
@@ -108,6 +118,7 @@ nav {
     -o-transform: matrix(-1, 0, 0, 1, 0, 0);
     transform: matrix(-1, 0, 0, 1, 0, 0);
 }
+
 .msgTime {
     display: flex;
     flex-basis: auto;
@@ -116,16 +127,19 @@ nav {
     font-size: 0.75em;
     align-content: end;
 }
+
 .OptionMsgDiv {
     max-height: 3em;
     max-width: 25%;
 }
+
 .pMsg {
     word-wrap: break-word;
     max-width: 100%;
     padding-left: 0.5em;
     padding-right: 0.5em;
 }
+
 .userMsg {
     align-content: start;
 }
