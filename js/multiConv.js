@@ -13,7 +13,7 @@ function créerListeConvs() {
     getConvs.onload = () => {
         let liste = '';
         JSON.parse(getConvs.responseText).forEach(conv => {
-            liste += '<div class=\"convListe\" id=\"' + conv.id + '\" href=\"http://craftbrakddns.myddns.me:536/play.html?id=' + conv.id + '\">' + conv.nom + '</div>';
+            liste += '<div class=\"convListe ' + conv.couleur + '\" id=\"' + conv.id + '\" href=\"http://craftbrakddns.myddns.me:536/play.html?id=' + conv.id + '\">' + conv.nom + '</div>';
         });
         liste += '<div id=\"ajouterConv\">Nouvelle conversation</div>';
         document.getElementById('listeConvs').innerHTML = liste;
