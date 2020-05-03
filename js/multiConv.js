@@ -15,7 +15,7 @@ function créerListeConvs() {
         JSON.parse(getConvs.responseText).forEach(conv => {
             liste += '<div class=\"convListe\" id=\"' + conv.id + '\" href=\"http://craftbrakddns.myddns.me:536/play.html?id=' + conv.id + '\">' + conv.nom + '</div>';
         });
-        list += '<div id=\"ajouterConv\">Nouvelle conversation</div>';
+        liste += '<div id=\"ajouterConv\">Nouvelle conversation</div>';
         document.getElementById('listeConvs').innerHTML = liste;
         $('.convListe').click(goToConv);
         $('#ajouterConv').click(creerConv);
