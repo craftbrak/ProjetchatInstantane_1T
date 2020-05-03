@@ -20,7 +20,7 @@ function initPage() {
         obtinerUserId.open('get', `obtenirUseId?convUserId=${session.convUserId}`, true);
         obtinerUserId.onload = () => {
             session.userId = JSON.parse(obtinerUserId.responseText)[0].UserId;
-            document.querySelector("#modif").href = `./modificationProfile.html?id=${session.userId}`;
+            $('#modif').href = `./modificationProfile.html?id=${session.userId}`;
             updateChat();
             document.getElementById('msg').focus()
             setInterval(updateChat, 1000);
