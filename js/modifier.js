@@ -51,7 +51,7 @@ function enregistrerModifs() {
         document.getElementById("erreur").innerHTML = "";
         alert("Modifcations Enregistrées avec succès !");
         console.log("ca passe");
-        $.get(`./userToGeneral?id=${idUser}`,() => {window.location = `./play.html?id=${getIdUserConv.responseText}`});
+        $.get(`./userToGeneral?id=${idUser}`,(id) => {window.location = `./play.html?id=${id}`});
         xhr.send();
         return false;
     }
