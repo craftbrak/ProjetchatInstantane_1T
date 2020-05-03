@@ -6,34 +6,38 @@ body {
     background: #222;
     color: snow;
 }
+
 header {
     background-color: #333;
-    height : 3em;
+    height: 3em;
     margin-bottom: 15px;
 }
-footer {
+
+.credit {
     font-family: 'Times New Roman', Times, serif;
     font-size: 0.3em;
     text-align: right;
     margin-right: 30px;
     float: right;
     bottom: 0;
-    right:0;
+    right: 0;
     background-color: black;
-    color:antiquewhite;
+    color: antiquewhite;
     padding: 1px 1px 1px 1px;
-    margin:0;
+    margin: 0;
     margin-top: 10px;
-    font-size:10px;
+    font-size: 10px;
     width: 41em;
-    float : right;
+    float: right;
 }
+
 
 /* Propriétés d'ids */
 
 #logo {
-    float:left;
+    float: left;
     height: 3em;
 }
+
 
 /* Propriétés de classes */
