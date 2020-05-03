@@ -73,6 +73,9 @@ nav {
     font-size: 0.7em;
     align-content: bottom;
 }
+.convListe {
+    display: inline-block;
+}
 .deleteMsg {
     width: 2.5em;
     height: 2.5em;
