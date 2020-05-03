@@ -37,5 +37,5 @@ function actualiserNomPage() {
 }
 
 function creerConv() {
-    window.location = './new.html';
+    window.location = `./new.html?id=${session.userId}`;
 }
