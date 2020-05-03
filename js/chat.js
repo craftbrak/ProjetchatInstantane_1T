@@ -24,8 +24,8 @@ function initPage() {
             if (session.userId != null) {
                 $('#modif').href = `./modificationProfil.html?id=${session.userId}`;
 
-                $.get(`getName?id=${session.userId}`, (p) => { session.pseudo = p });
-                $('#iden').innerText = `Vous êtes connecté en tant que ${pseudo}.`;
+                $.get(`getPseudo?id=${session.userId}`, (p) => { $('#iden').append(`Vous êtes connecté en tant que ${p}.`); });
+
                 updateChat();
                 setInterval(updateChat, 1000);
                 $(document).trigger('InitOver');
