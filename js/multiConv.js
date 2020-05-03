@@ -9,9 +9,7 @@ function initConvs() {
 }
 
 function initLinks() {
-    $('.link').forEach(div => {
-        div.click(goToLink);
-    });
+    $('.link').click(goToLink);
 }
 
 function créerListeConvs() {
