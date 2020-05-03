@@ -14,6 +14,7 @@ function initLinks() {
 
 function créerListeConvs() {
     $.get(`userConvs?userId=${session.userId}`,(convs) => {
+        let liste;
         convs.forEach(conv => {
             liste += '<div class=\"convListe convListeBox ' + conv.couleur + '\" id=\"' + conv.id + '\" href=\"./play.html?id=' + conv.id + '\">' + conv.nom + '</div>';
         });
