@@ -51,7 +51,7 @@ function enregistrerModifs() {
         document.getElementById("erreur").innerHTML = "";
         alert("Modifcations Enregistrées avec succès !");
         console.log("ca passe");
-        window.location = "http://craftbrakddns.myddns.me:536/play.html?id=" + idUser;
+        renvoyerSurGeneral();
         xhr.send();
         return false;
     }
@@ -68,6 +68,14 @@ function test(a, b){
     else {
         return false;
     }
+}
+
+function renvoyerSurGeneral() {
+    let getIdUserConv = new XMLHttpRequest();
+    getIdUserConv.open('get', `./userToGeneral?id=${idUser}`,true);
+    getIdUserConv.onload = function () {
+        window.location = `./play.html?id=${getIdUserConv.responseText}`;
+    };
 }
 
 //Arthur
