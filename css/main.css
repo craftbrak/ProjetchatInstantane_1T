@@ -20,6 +20,7 @@ link:visited {
 #logo {
     float: left;
     height: 3em;
+    cursor: pointer;
 }
 
 /* Propriétés de classes */

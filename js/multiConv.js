@@ -33,7 +33,7 @@ function modif(event) {
 }
 
 function actualiserNomPage() {
-    $.get(`getName?id=${session.convUserId}`,()=>{document.title = getName.responseText});
+    $.get(`getName?id=${session.convUserId}`,(titre)=>{document.title = titre});
 }
 
 function creerConv() {
