@@ -22,7 +22,7 @@ function initPage() {
             session.userId = JSON.parse(obtinerUserId.responseText)[0].UserId;
             if (session.userId != null) {
                 $('#modif').href = `./modificationProfil.html?id=${session.userId}`;
-                $('#déco').innerHTML = `Vous este connecter en temps que ${}`
+                $.get(`getPseudo?id=${session.userId}`, (res) => { $('#déco').innerHTML = `Vous etes connecter en temps que ${res}  Deconnection` })
                 updateChat();
                 setInterval(updateChat, 1000);
                 $(document).trigger('InitOver');
