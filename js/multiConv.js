@@ -1,10 +1,17 @@
 //Auteur : François Girondin
 document.addEventListener('DOMContentLoaded', initConvs);
 $(document).on('InitOver', initConvs);
+$(document).on('InitOver', initLinks);
 
 function initConvs() {
     créerListeConvs();
     actualiserNomPage();
+}
+
+function initLinks() {
+    $('.link').forEach(div => {
+        div.click(goToLink);
+    });
 }
 
 function créerListeConvs() {
@@ -24,6 +31,11 @@ function créerListeConvs() {
 }
 
 function goToConv(event) {
+    let lien = event.target.getAttribute('href');
+    window.location = lien;
+}
+
+function goToLink(event) {
     let lien = event.target.getAttribute('href');
     window.location = lien;
 }
