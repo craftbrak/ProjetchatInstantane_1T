@@ -9,7 +9,8 @@ function initConvs() {
 }
 
 function initLinks() {
-    $('.link').click(goToLink);
+    $('#déco').click(modifProfil);
+    $('#modif').click(deconnexion);
 }
 
 function créerListeConvs() {
@@ -33,9 +34,13 @@ function goToConv(event) {
     window.location = lien;
 }
 
-function goToLink(event) {
+function modifProfil(event) {
     let lien = event.target.getAttribute('href') + session.userId;
     window.location = lien;
+}
+
+function deconnexion(event) {
+    window.location = './play.html';
 }
 
 function actualiserNomPage() {
