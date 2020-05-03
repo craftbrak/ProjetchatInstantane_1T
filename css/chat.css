@@ -1,13 +1,10 @@
 /* Propriétés de balises */
 
-body {
-    overflow: hidden;
-    min-height: 100vw;    
-    background: #222;
-    color: snow;
-}
 nav {
     display: inline;
+}
+header {
+    background-color: #333;
 }
 
 /* Propriétés d'ids */
@@ -30,6 +27,9 @@ nav {
 }
 #divMessage {
     display: inline;
+}
+#listeConvs {
+    background-color: #646464;
 }
 #msg {
     background-color: transparent;
