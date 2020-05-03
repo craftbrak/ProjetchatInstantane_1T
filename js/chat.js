@@ -20,11 +20,18 @@ function initPage() {
         obtinerUserId.open('get', `obtenirUseId?convUserId=${session.convUserId}`, true);
         obtinerUserId.onload = () => {
             session.userId = JSON.parse(obtinerUserId.responseText)[0].UserId;
-            $('#modif').href = `./modificationProfil.html?id=${session.userId}`;
-            updateChat();
-            setInterval(updateChat, 1000);
-            $(document).trigger('InitOver');
-            $('#msg').focus()
+            if (session.userId != null) {
+                $('#modif').href = `./modificationProfil.html?id=${session.userId}`;
+                $('#déco').innerHTML =
+                    updateChat();
+                setInterval(updateChat, 1000);
+                $(document).trigger('InitOver');
+                $('#msg').focus()
+            } else {
+                document.write("Vous êtes déconnecté. Veuillez vous connecter à un compte pour pouvoir participer au chat. <a href='./connexion.html'>Connexion</a>");
+            }
+
+
         }
         obtinerUserId.send();
     }
