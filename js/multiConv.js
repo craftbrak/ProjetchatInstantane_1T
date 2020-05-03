@@ -29,7 +29,7 @@ function créerListeConvs() {
 }
 
 function goToConv(event) {
-    let lien = event.target.getAttribute('href');
+    let lien = event.target.getAttribute('href') + session.userId;
     window.location = lien;
 }
 
