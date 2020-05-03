@@ -35,7 +35,6 @@ function TraiterFormMessage(formMessage) {
     let envoiMsg = new XMLHttpRequest;
     envoiMsg.open("GET", "newMsg?msgContentVar=" + message + "&convUserIdVar=" + session.convUserId + "", true);
     envoiMsg.onload = function() {
-        //console.log("message envoyé");
         updateChat();
         document.getElementById("formMessage").message.value = null;
     };
@@ -47,17 +46,13 @@ function TraiterFormMessage(formMessage) {
 function updateChat() {
     let chatUpdate = new XMLHttpRequest
     chatUpdate.open("GET", `updateChat?idConvUserVar= ${session.convUserId}&lastId=${session.lastMsgId}`, true);
-    //console.log("update sent");
     chatUpdate.onload = function() {
             let chat = JSON.parse(chatUpdate.responseText);
             // chat.date = chat.date.toLocaleDateString(locales, {});
-            //console.log(chat);
             let zoneChat = document.getElementById("divChat");
             let chatFinal = "";
             for (const element of chat) {
-                //console.log(element.heure);
                 element.heure = element.heure.slice(11, -4);
-                //console.log(element.heure);
                 chatFinal += `<div class="d-flex justify-content-start mb-4${element.idUSer==session.userId?" msgSortant":" msgEntrant"}"id="${element.id}" >
                             <div class="chatPseudo">
                                 <p class="userMsg ${element.idUSer==session.userId?" msgSortant":" msgEntrant"}">${element.pseudo}</p>

@@ -85,6 +85,10 @@ nav {
     width: 2.5em;
     height: 2.5em;
 }
+.link {
+    height: 3em;
+    float: right;
+}
 .modifyMsg {
     width: 2.5em;
     height: 2.5em;

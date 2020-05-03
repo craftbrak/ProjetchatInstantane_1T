@@ -1,2 +1,12 @@
+document.addEventListener('DOMContentLoaded', initHeader);
 
-console.log("bonjour comment ca va");
+function initHeader() {
+    $('.link').forEach(div => {
+        div.click(goToLink);
+    });
+}
+
+function goToLink(event) {
+    let lien = event.target.getAttribute('href');
+    window.location = lien;
+}
