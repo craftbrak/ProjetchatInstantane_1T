@@ -20,11 +20,13 @@ link:visited {
 #logo {
     float: left;
     height: 3em;
-    cursor: pointer;
 }
 
 /* Propriétés de classes */
 
+.click {
+    cursor: pointer;
+}
 .credit {
     font-family: 'Times New Roman', Times, serif;
     font-size: 0.3em;

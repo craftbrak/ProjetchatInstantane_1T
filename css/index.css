@@ -1,19 +1,17 @@
-/*balise CSS*/
+/* Propriétés de balises */
 
 body {
     padding-top: 50px;
 }
 
-
-/*Classes CSS*/
-
-.jumbotron {
-    background-color: rgb(240, 59, 59);
-}
-
-
-/*Id CSS*/
+/* Propriétés d'ids */
 
 #logoIndex {
     height: 3em;
+}
+
+/* Propriétés de classes */
+
+.jumbotron {
+    background-color: rgb(240, 59, 59);
 }

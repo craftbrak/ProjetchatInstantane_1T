@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,20 +18,12 @@
         <script src="js/new.js"></script>
     </head>
 </head>
-
 <body class="container-fluid">
     <header>
-        <img src="img/tchat.png" alt="tchat" id="logo">
-        <nav>
-            <ul>
-                <li>
-                    <a href="./modificationProfile.html" id="LienModif">Modifer Profil</a>
-                </li>
-                <li>
-                    <a href="./play.html" id='lienDeco'>Deconnexion</a>
-                </li>
-            </ul>
-        </nav>
+        <img src="img/tchat.png" alt="tchat" id="logo" class="click">
+        <div class="link click" id="déco" href="./play.html">Déconnexion</div>
+        <div class="link click" id="modif" href="./modificationProfil.html?id=">Modifier profil</div>
+        <div class="link" id="iden"></div>
     </header>
     <div class="row">
         <div id="listeUsers"></div>
@@ -42,5 +32,4 @@
         Ce site est l'oeuvre de Baptiste Bemelmans, Louis De Wilde, François Girondin et Arthur Schamroth.
     </footer>
 </body>
-
 </html>
