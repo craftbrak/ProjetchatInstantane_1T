@@ -7,7 +7,8 @@ const urlParams = new URLSearchParams(queryString);
 let session = {
     convUserId: urlParams.get('id'),
     lastMsgId: 0,
-    userId: null
+    userId: null,
+    pseudo: null
 }
 
 document.addEventListener('DOMContentLoaded', initPage);
@@ -22,8 +23,8 @@ function initPage() {
             session.userId = JSON.parse(obtinerUserId.responseText)[0].UserId;
             if (session.userId != null) {
                 $('#modif').href = `./modificationProfil.html?id=${session.userId}`;
-                let pseudo;
-                $.get(`getName?id=${session.userId}`,(p)=>{pseudo=p});
+
+                $.get(`getName?id=${session.userId}`, (p) => { session.pseudo = p });
                 $('#iden').innerText = `Vous êtes connecté en tant que ${pseudo}.`;
                 updateChat();
                 setInterval(updateChat, 1000);
