@@ -58,15 +58,15 @@ function updateChat() {
                 //console.log(element.heure);
                 element.heure = element.heure.slice(11, -4);
                 //console.log(element.heure);
-                chatFinal += `<div class="d-flex justify-content-start mb-4${element.idUSer==session.userId?" msgSortant":" msgEntrent"}"id="${element.id}" >
+                chatFinal += `<div class="d-flex justify-content-start mb-4${element.idUSer==session.userId?" msgSortant":" msgEntrant"}"id="${element.id}" >
                             <div class="chatPseudo">
-                                <p class="user_msg ${element.idUSer==session.userId?" msgSortant":" msgEntrent"}">${element.pseudo}</p>
+                                <p class="userMsg ${element.idUSer==session.userId?" msgSortant":" msgEntrant"}">${element.pseudo}</p>
                             </div>
-                            <div class="msg_cotainer ${element.idUSer==session.userId?" msgSortant":" msgEntrent"}" id="${element.id}Msg">
+                            <div class="msgContainer ${element.idUSer==session.userId?" msgSortant":" msgEntrant"}" id="${element.id}Msg">
                                 <p class="pMsg">${element.msgContent}</p>
                             </div>
-                            <span class="msg_time ${element.idUSer==session.userId?" msgSortant":" msgEntrent"}">${element.heure}</span>
-                            ${element.idUSer==session.userId?`<div class="OptionMsgDiv ${element.idUSer==session.userId?"msgSortant" : "msgEntrent"}"><span class="deleteMsgSpan" ><img data-msgId="${element.id}" class="deleteMsg"src="./img/delete.png"></span><span class="modifyMsgSpan" ><img data-msgId="${element.id}" class="modifyMsg" src="./img/modifyIcon.png"></span></div>`:""}</div>`
+                            <span class="msgTime ${element.idUSer==session.userId?" msgSortant":" msgEntrant"}">${element.heure}</span>
+                            ${element.idUSer==session.userId?`<div class="OptionMsgDiv ${element.idUSer==session.userId?"msgSortant" : "msgEntrant"}"><span class="deleteMsgSpan" ><img data-msgId="${element.id}" class="deleteMsg"src="./img/delete.png"></span><span class="modifyMsgSpan" ><img data-msgId="${element.id}" class="modifyMsg" src="./img/modifyIcon.png"></span></div>`:""}</div>`
             session.lastMsgId = element.id;
         }
 
@@ -105,6 +105,6 @@ function deleteMsg() {
 $('document').ready(function() { //quand le DOM est pret 
     $('#msg').each(function() { //pour tt les element qui correspondent a ce selecteur 
 
-        $(this).width($(this).parent().width() - $('#MsgfomSub').width() - 50); //fixe la tail de l'element par raporet a la largeur de son parent -la largeur du bouton -50px 
+        $(this).width($(this).parent().width() - $('#MsgFormSub').width() - 50); //fixe la tail de l'element par raporet a la largeur de son parent -la largeur du bouton -50px 
     });
 });

@@ -1,38 +1,37 @@
+/* Propriétés de balises */
+
 body {
     width: 40%;
     padding: 10px;
     background: #222;
     color: snow;
 }
-
 div {
     margin-top: 5px;
     margin-bottom: 5px;
 }
-
-#enregistrer {
-    float: right;
-    margin: 5px;
+fieldset{
+    border: #222;
 }
-
-legend {
-    border: solid snow 1px;
-}
-
 label {
     display: block;
     width: 130px;
     float: left;
 }
+legend {
+    border: solid snow 1px;
+}
 
+/* Propriétés d'ids */
+
+#enregistrer {
+    float: right;
+    margin: 5px;
+}
 #erreur {
     background-color: red;
     color: white;
     width: 50%
 }
 
-fieldset{
-    border: #222;
-}
-
-
+/* Propriétés de classes */
