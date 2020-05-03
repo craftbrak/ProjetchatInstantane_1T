@@ -9,8 +9,8 @@ function initConvs() {
 }
 
 function initLinks() {
-    $('#déco').click(modifProfil);
-    $('#modif').click(deconnexion);
+    $('#déco').click(deconnexion);
+    $('#modif').click(modifProfil);
 }
 
 function créerListeConvs() {
@@ -30,13 +30,11 @@ function créerListeConvs() {
 }
 
 function goToConv(event) {
-    let lien = event.target.getAttribute('href');
-    window.location = lien;
+    window.location = event.target.getAttribute('href');
 }
 
 function modifProfil(event) {
-    let lien = event.target.getAttribute('href') + session.userId;
-    window.location = lien;
+    window.location = event.target.getAttribute('href') + session.userId;
 }
 
 function deconnexion(event) {
