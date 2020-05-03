@@ -87,7 +87,7 @@
     float: right;
     cursor: pointer;
     padding: 5px;
-    border-left: 2px black solid;
+    border-left: 1px black solid;
 }
 .modifyMsg {
     width: 2.5em;
