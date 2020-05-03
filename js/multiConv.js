@@ -15,7 +15,7 @@ function créerListeConvs() {
     $.get(`userConvs?userId=${session.userId}`,(convs) => {
         let liste = '';
         convs.forEach(conv => {
-            liste += '<div class=\"convListe convListeBox ' + conv.couleur + '\" id=\"' + conv.id + '\" href=\"./play.html?id=' + conv.id + '\">' + conv.nom + '</div>';
+            liste += `<div class="convListe convListeBox ${conv.couleur}" id="${conv.id}" href="./play.html?id=${conv.id}">${conv.nom}</div>`;
         });
         document.getElementById('listeConvs').innerHTML = liste + '<div id=\"ajouterConv\" class=\"convListeBox\">Nouvelle conversation</div>';
         $('.convListe').click(goToConv);
@@ -33,7 +33,7 @@ function goToLink(event) {
 
 function actualiserNomPage() {
     let getName = new XMLHttpRequest;
-    getName.open('get', `getName?id=${session.convUserId}`, true);
+    getName.open('get', `getName?id=${session.convUserId}`,true);
     getName.onload = () => {
         document.title = getName.responseText;
     }
@@ -41,5 +41,5 @@ function actualiserNomPage() {
 }
 
 function creerConv() {
-    window.location = 'http://craftbrakddns.myddns.me:536/new.html';
+    window.location = './new.html';
 }
