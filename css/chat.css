@@ -1,47 +1,36 @@
-/*     #sectionChat {
-    float: right;
-     size: 10em;
-}
-*/
+/* Propriétés de balises */
 
+body {
+    overflow: hidden;
+    min-height: 100vw;    
+    background: #222;
+    color: snow;
+}
 nav {
     display: inline;
 }
 
-body {
-    overflow: hidden;
-    min-height: 100vw
+/* Propriétés d'ids */
+
+#divChat::-webkit-scrollbar {
+    width: 12px;
+    background-color: #222;
 }
-
-.user_msg {
-    align-content: start;
+#divChat::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #D62929;
 }
-
-.card-body {
-    max-height: 90vh;
-    overflow: auto;
-    /* max-width: 45em;*/
-    margin: 0vh;
+#divChat::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #222;
 }
-
-.msg_time {
-    align-content: end;
-}
-
-
-/*.fixedBottom {
-    position: fixed;
-    right: 0%;
-    top: 95%;
-    width: 45em;
-    margin-top: -2.5em;
-}*/
-
 #divMessage {
-    /*max-width: 45em;*/
     display: inline;
 }
-
 #msg {
     background-color: transparent;
     color: snow;
@@ -50,34 +39,49 @@ body {
     border-radius: 10px;
     -webkit-border-radius: 10px;
 }
-
-#MsgfomSub {
+#MsgFormSub {
     min-width: 6%;
     max-width: 30%;
     background-color: rgb(40, 219, 40);
     color: rgb(255, 255, 255);
 }
 
-#divChat::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    background-color: #222;
-}
+/* Propriétés de classes */
 
-#divChat::-webkit-scrollbar {
-    width: 12px;
-    background-color: #222;
+.cardBody {
+    max-height: 90vh;
+    overflow: auto;
+    margin: 0vh;
 }
-
-#divChat::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #D62929;
+.chatMessageContent {
+    font-size: 2.5em;
+    align-content: center;
 }
-
-.msg_cotainer {
+.chatPseudo {
+    font-size: 0.8em;
+    align-content: flex-start;
+    min-width: 15%;
+    background-color: #FF5733;
+    border: solid 0.3em lightsalmon;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    max-height: 2em;
+    padding-left: 0.5em;
+}
+.chatTimeCode {
+    font-size: 0.7em;
+    align-content: bottom;
+}
+.deleteMsg {
+    width: 2.5em;
+    height: 2.5em;
+}
+.modifyMsg {
+    width: 2.5em;
+    height: 2.5em;
+}
+.msgContainer {
     word-wrap: break-word;
     align-content: center;
     display: flex;
@@ -91,37 +95,9 @@ body {
     min-width: 10%;
     max-width: 38%;
 }
-
-.pMsg {
-    word-wrap: break-word;
-    max-width: 100%;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
+.msgEntrant {
+    display: inline-block;
 }
-
-.OptionMsgDiv {
-    max-height: 3em;
-    max-width: 25%;
-}
-
-.msg_time {
-    display: flex;
-    flex-basis: auto;
-    height: 3em;
-    size: 2.5em;
-    font-size: 0.75em;
-}
-
-.modifyMsg {
-    width: 2.5em;
-    height: 2.5em;
-}
-
-.deleteMsg {
-    width: 2.5em;
-    height: 2.5em;
-}
-
 .msgSortant {
     display: inline-block;
     -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
@@ -129,31 +105,24 @@ body {
     -o-transform: matrix(-1, 0, 0, 1, 0, 0);
     transform: matrix(-1, 0, 0, 1, 0, 0);
 }
-
-.chatPseudo {
-    font-size: 0.8em;
-    align-content: flex-start;
-    min-width: 15%;
-    background-color: #FF5733;
-    border: solid 0.3em lightsalmon;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    border-radius: 20px;
-    max-height: 2em;
+.msgTime {
+    display: flex;
+    flex-basis: auto;
+    height: 3em;
+    size: 2.5em;
+    font-size: 0.75em;
+    align-content: end;
+}
+.OptionMsgDiv {
+    max-height: 3em;
+    max-width: 25%;
+}
+.pMsg {
+    word-wrap: break-word;
+    max-width: 100%;
     padding-left: 0.5em;
+    padding-right: 0.5em;
 }
-
-.chatTimeCode {
-    font-size: 0.7em;
-    align-content: bottom;
-}
-
-.chatMessageContent {
-    font-size: 2.5em;
-    align-content: center;
-}
-
-body {
-    background: #222;
-    color: snow;
+.userMsg {
+    align-content: start;
 }
