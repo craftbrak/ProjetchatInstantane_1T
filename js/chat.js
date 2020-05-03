@@ -19,10 +19,10 @@ function initPage() {
         let obtinerUserId = new XMLHttpRequest;
         obtinerUserId.open('get', `obtenirUseId?convUserId=${session.convUserId}`, true);
         obtinerUserId.onload = () => {
-            session.userId = JSON.parse(obtinerUserId.responseText)[0].UserId;
-            if (session.userId != null) {
-                $('#modif').href = `./modificationProfil.html?id=${session.userId}`;
-                $.get(`getPseudo?id=${session.userId}`, (res) => { $('#déco').innerHTML = `Vous etes connecter en temps que ${res}  Deconnection` })
+                session.userId = JSON.parse(obtinerUserId.responseText)[0].UserId;
+                if (session.userId != null) {
+                    $('#modif').href = `./modificationProfil.html?id=${session.userId}`;
+                    $('#iden').innerText = `Vous êtes connecté en tant que ${$.get(`getName?id=${session.userId}`)}.`;
                 updateChat();
                 setInterval(updateChat, 1000);
                 $(document).trigger('InitOver');
