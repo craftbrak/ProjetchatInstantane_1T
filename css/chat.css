@@ -74,7 +74,7 @@ nav {
     align-content: bottom;
 }
 .convListe {
-    display: inline-block;
+    display: block;
 }
 .deleteMsg {
     width: 2.5em;
