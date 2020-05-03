@@ -13,19 +13,15 @@ function initLinks() {
 }
 
 function créerListeConvs() {
-    let getConvs = new XMLHttpRequest;
-    getConvs.open('get', `userConvs?userId=${session.userId}`, true);
-    getConvs.onload = () => {
-        let liste = '';
-        JSON.parse(getConvs.responseText).forEach(conv => {
+    $.get(`userConvs?userId=${session.userId}`,(convs) => {
+        convs.forEach(conv => {
             liste += '<div class=\"convListe convListeBox ' + conv.couleur + '\" id=\"' + conv.id + '\" href=\"./play.html?id=' + conv.id + '\">' + conv.nom + '</div>';
         });
         liste += '<div id=\"ajouterConv\" class=\"convListeBox\">Nouvelle conversation</div>';
         document.getElementById('listeConvs').innerHTML = liste;
         $('.convListe').click(goToConv);
         $('#ajouterConv').click(creerConv);
-    }
-    getConvs.send();
+    });
 }
 
 function goToConv(event) {
