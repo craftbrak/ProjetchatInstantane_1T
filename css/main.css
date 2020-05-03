@@ -6,12 +6,23 @@ body {
     background: #222;
     color: snow;
 }
-
 header {
     background-color: #333;
     height: 3em;
     margin-bottom: 15px;
 }
+link:visited {
+    color: blue;
+}
+
+/* Propriétés d'ids */
+
+#logo {
+    float: left;
+    height: 3em;
+}
+
+/* Propriétés de classes */
 
 .credit {
     font-family: 'Times New Roman', Times, serif;
@@ -30,14 +41,3 @@ header {
     width: 41em;
     float: right;
 }
-
-
-/* Propriétés d'ids */
-
-#logo {
-    float: left;
-    height: 3em;
-}
-
-
-/* Propriétés de classes */
