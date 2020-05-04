@@ -8,6 +8,6 @@ function formNewConv(formulaire) {
 }
 
 function setColor(select) {
-    select.removeClasss();
+    select.removeClass();
     select.classList.add(select.value);
 }
