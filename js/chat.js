@@ -15,10 +15,9 @@ $(document).ready(initPage);
 
 function initPage() {
     if (session.convUserId == null) {
-        alert("vous etes decinnecter veiller vous connectez pour acceder au chat");
+        alert("vous êtes deconnecté veuiller vous connectez pour accéder au chat");
         window.location = "http://craftbrakddns.myddns.me:536/index.html"
     } else {
-        let obtinerUserId = new XMLHttpRequest;
         $.post(`obtenirUseId`, { convUserId: session.convUserId }, (res) => {
             session.userId = res[0].UserId;
             if (session.userId != null) {
@@ -30,7 +29,7 @@ function initPage() {
                 $(document).trigger('InitOver');
                 $('#msg').focus()
             } else {
-                alert("vous etes decinnecter veiller vous connectez pour acceder au chat");
+                alert("vous êtes deconnecté veuiller vous connectez pour accéder au chat");
                 window.location = "http://craftbrakddns.myddns.me:536/index.html"
             }
 
@@ -41,8 +40,7 @@ function initPage() {
 
 function TraiterFormMessage(e) {
     e.preventDefault()
-    let message = e.target.message.value;
-    $.post("newMsg", { msgContentVar: message, convUserIdVar: session.convUserId }, () => {
+    $.post("newMsg", { msgContentVar: e.target.message.value, convUserIdVar: session.convUserId }, () => {
         updateChat();
         document.getElementById("formMessage").message.value = null;
     });
