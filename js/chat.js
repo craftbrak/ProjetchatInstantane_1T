@@ -11,7 +11,7 @@ let session = {
     pseudo: null
 }
 
-document.addEventListener('DOMContentLoaded', initPage);
+$(document).ready(initPage);
 
 function initPage() {
     if (session.convUserId == null) {
@@ -19,12 +19,10 @@ function initPage() {
         window.location = "http://craftbrakddns.myddns.me:536/index.html"
     } else {
         let obtinerUserId = new XMLHttpRequest;
-        obtinerUserId.open('get', `obtenirUseId?convUserId=${session.convUserId}`, true);
-        obtinerUserId.onload = () => {
-            session.userId = JSON.parse(obtinerUserId.responseText)[0].UserId;
+        $.post(`obtenirUseId`, { convUserId: session.convUserId }, (res) => {
+            session.userId = res[0].UserId;
             if (session.userId != null) {
                 $('#modif').href = `./modificationProfil.html?id=${session.userId}`;
-
                 $.get(`getPseudo?id=${session.userId}`, (p) => { $('#iden').append(`Vous êtes connecté en tant que ${p}.`); });
                 $('#formMessage').submit(TraiterFormMessage)
                 updateChat();
@@ -37,8 +35,7 @@ function initPage() {
             }
 
 
-        }
-        obtinerUserId.send();
+        });
     }
 }
 
@@ -69,7 +66,7 @@ function updateChat() {
                                 <p class="pMsg">${element.msgContent}</p>
                             </div>
                             <span class="msgTime ${element.idUSer==session.userId?" msgSortant":" msgEntrant"}">${element.heure}</span>
-                            ${/*element.idUSer==session.userId?`<div class="OptionMsgDiv ${element.idUSer==session.userId?"msgSortant" : "msgEntrant"}"><span class="deleteMsgSpan" ><img data-msgId="${element.id}" class="deleteMsg"src="./img/delete.png"></span><span class="modifyMsgSpan" ><img data-msgId="${element.id}" class="modifyMsg" src="./img/modifyIcon.png"></span></div>`:""*/}</div>`
+                            <!--${element.idUSer==session.userId?`<div class="OptionMsgDiv ${element.idUSer==session.userId?"msgSortant" : "msgEntrant"}"><span class="deleteMsgSpan" ><img data-msgId="${element.id}" class="deleteMsg"src="./img/delete.png"></span><span class="modifyMsgSpan" ><img data-msgId="${element.id}" class="modifyMsg" src="./img/modifyIcon.png"></span></div>`:""}--></div>`
             session.lastMsgId = element.id;
         } 
         if (chatFinal != "") {
