@@ -17,7 +17,6 @@ function creerCompte(email, nom, prenom, pseudo, mdp, mdpVerif) {
     } else {
         let newId = Math.round(Math.random() * 10000)
         let xmlId = new XMLHttpRequest();
-        let idTest;
         xmlId.open('get', 'verifId?id=' + newId, true);
         xmlId.onload =
             function testId() {
