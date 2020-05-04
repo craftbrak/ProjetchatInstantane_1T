@@ -26,15 +26,15 @@
         <div id="formSection" class="col col-xs-8 col-lg-8 ">
             <form method="POST" onsubmit="return formNewConv(this);">
                 <label for="name">Nom de la conversation :&nbsp;</label><input name="name" type="text">
-                <label for="name">Couleur de la conversation :&nbsp;</label><select name="color" class="gris" onchange="setColor(this);">
-                    <option value="gris"   class="gris">   Gris   </option>
-                    <option value="rouge"  class="rouge">  Rouge  </option>
-                    <option value="orange" class="orange"> Orange </option>
-                    <option value="jaune"  class="jaune">  Jaune  </option>
-                    <option value="vert"   class="vert">   Vert   </option>
-                    <option value="bleu"   class="bleu">   Bleu   </option>
-                    <option value="violet" class="violet"> Violet </option>
-                    <option value="rose"   class="rose">   Rose   </option>
+                <label for="name">Couleur de la conversation :&nbsp;</label><select id="color" name="color" class="gris" onchange="setColor();" value="gris">
+                    <option value="gris" class="gris" selected="selected">Gris</option>
+                    <option value="rouge" class="rouge">Rouge</option>
+                    <option value="orange" class="orange">Orange</option>
+                    <option value="jaune" class="jaune">Jaune</option>
+                    <option value="vert" class="vert">Vert</option>
+                    <option value="bleu" class="bleu">Bleu</option>
+                    <option value="violet" class="violet">Violet</option>
+                    <option value="rose" class="rose">Rose</option>
                 </select>
             </form>
         </div>

@@ -7,7 +7,7 @@ function formNewConv(formulaire) {
     return false;
 }
 
-function setColor(select) {
-    select.removeClass();
+function setColor() {
+    $('#color').removeClass();
     select.classList.add(select.value);
 }
