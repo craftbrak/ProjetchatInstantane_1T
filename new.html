@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,27 +18,34 @@
         <script src="js/new.js"></script>
     </head>
 </head>
-
-<body class="container-fluid">
+<body>
     <header>
-        <img src="img/tchat.png" alt="tchat" id="logo">
-        <nav>
-            <ul>
-                <li>
-                    <a href="./modificationProfile.html" id="LienModif">Modifer Profil</a>
-                </li>
-                <li>
-                    <a href="./play.html" id='lienDeco'>Deconnexion</a>
-                </li>
-            </ul>
-        </nav>
+        <img src="img/tchat.png" alt="tchat" id="logo" class="click">
+        <div class="link click" id="déco" href="./play.html">Déconnexion</div>
+        <div class="link click" id="modif" href="./modificationProfil.html?id=">Modifier profil</div>
+        <div class="link" id="iden"></div>
     </header>
     <div class="row">
-        <div id="listeUsers"></div>
+        <div id="listeUsers" class="col col-xs-4">
+        </div>
+        <div id="formSection" class="col col-xs-8 col-lg-8 ">
+            <form method="POST" onsubmit="return formNewConv(this);">
+                <label for="name">Nom de la conversation : </label><input name="name" type="text">
+                <label for="name">Couleur de la conversation :</label><select name="color">
+                <option value="gris"   class="gris">   Gris   </option>
+                <option value="rouge"  class="rouge">  Rouge  </option>
+                <option value="orange" class="orange"> Orange </option>
+                <option value="jaune"  class="jaune">  Jaune  </option>
+                <option value="vert"   class="vert">   Vert   </option>
+                <option value="bleu"   class="bleu">   Bleu   </option>
+                <option value="violet" class="violet"> Violet </option>
+                <option value="rose"   class="rose">   Rose   </option>
+                </select>
+            </form>
+        </div>
     </div>
     <footer class="credit">
         Ce site est l'oeuvre de Baptiste Bemelmans, Louis De Wilde, François Girondin et Arthur Schamroth.
     </footer>
 </body>
-
 </html>
