@@ -30,8 +30,8 @@
         </div>
         <div id="formSection" class="col col-xs-8 col-lg-8 ">
             <form method="POST" onsubmit="return formNewConv(this);">
-                <label for="name">Nom de la conversation : </label><input name="name" type="text">
-                <label for="name">Couleur de la conversation :</label><select name="color">
+                <label for="name">Nom de la conversation :&nbsp;</label><input name="name" type="text">
+                <label for="name">Couleur de la conversation :&nbsp;</label><select name="color" class="gris" onchange="setColor(this);">
                 <option value="gris"   class="gris">   Gris   </option>
                 <option value="rouge"  class="rouge">  Rouge  </option>
                 <option value="orange" class="orange"> Orange </option>
