@@ -9,5 +9,5 @@ function formNewConv(formulaire) {
 
 function setColor() {
     $('#color').removeClass();
-    select.classList.add(select.value);
+    $('#color').classList.add($('#color').value);
 }
