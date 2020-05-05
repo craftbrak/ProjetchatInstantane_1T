@@ -32,7 +32,7 @@ function deleteUser(id) {
 function créerListe(users) {
     let liste = '';
     users.forEach(user => {
-        liste += `<div class="user" id=${user.id}>${user.name}<span class="right">Chats communs : ${user.commonChats}</span></div>`;
+        liste += `<div class="user" id=${user.id}>${user.name}<span class="right">${user.commonChats}</span></div>`;
     });
     document.getElementById('listeUsers').innerHTML = liste;
     $('.user').click(addUser);
