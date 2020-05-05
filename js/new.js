@@ -35,7 +35,7 @@ function deleteUser(id) {
 function créerListe(users) {
     let liste = '';
     users.forEach(user => {
-        liste += `<div class="user" id=${user.id}><div class="pseudo">${user.name}</div><div class="commonChats">${user.commonChats}</div></div>`;
+        liste += `<div class="user click" id=${user.id}><div class="pseudo click">${user.name}</div><div class="commonChats click">${user.commonChats}</div></div>`;
     });
     document.getElementById('listeUsers').innerHTML = liste;
     $('#listeUsers .user').click(addUser);
@@ -46,7 +46,7 @@ function créerListe(users) {
 function addUser(event) {
     let id = event.target.id;
     usersToAdd.push(id);
-    $.get(`getPseudo?id=${id}`,(pseudo)=>{$('#users').append(`<div class="pseudo" id=${id}>${pseudo}</div>`)});
+    $.get(`getPseudo?id=${id}`,(pseudo)=>{$('#users').append(`<div class="pseudo click" id=${id}>${pseudo}</div>`)});
     $('#'+id).remove();
 }
 
