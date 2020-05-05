@@ -19,5 +19,8 @@
 }
 .pseudo {
     display: inline-block;
-    width: calc(100%-8em);
+    width: calc(100% - 8em);
+}
+.user {
+    width : 40%;
 }
