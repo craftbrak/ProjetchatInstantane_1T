@@ -18,5 +18,7 @@ function setColor() {
 }
 
 function initNew() {
+    document.getElementById('color').selectedIndex = 0;
+    setColor();
     $.get(`getPseudo?id=${userId}`,(pseudo)=>{document.getElementById('iden').innerText = `Vous êtes connecté en tant que ${pseudo}.`;});
 }
