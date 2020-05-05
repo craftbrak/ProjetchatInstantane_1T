@@ -7,12 +7,14 @@
 #listeUsers {
     margin:15px;
 }
+#titres {
+    margin: 15px;
+}
 
 /* Propriétés de classes */
 
 .commonChats {
     display: inline-block;
-    float : right;
     width: 8em;
 }
 .pseudo {
