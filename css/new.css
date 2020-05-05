@@ -10,6 +10,9 @@
 #titres {
     margin: 15px;
 }
+#formContent {
+    margin: 15px auto;
+}
 
 /* Propriétés de classes */
 
@@ -21,4 +24,7 @@
 .pseudo {
     display: inline-block;
     width: calc(100% - 8em);
+}
+.error {
+    background-color: tomato;
 }
