@@ -52,5 +52,5 @@ function addUser(event) {
 }
 
 function triggerAddUser(event) {
-    event.target.parent().trigger('childClicked');
+    $('#'+event.target.parentElement.id).trigger('childClicked');
 }
