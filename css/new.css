@@ -10,6 +10,7 @@
 
 /* Propriétés de classes */
 
-.right {
+.commonChats {
     float : right;
+    width: 3em;
 }
