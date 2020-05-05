@@ -3,7 +3,7 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 let userId = urlParams.get('id');
 
-$(document).ready(initAlias);
+$(document).ready(initNew);
 
 function formNewConv(formulaire) {
 
@@ -17,6 +17,8 @@ function setColor() {
     document.getElementById('color').classList.add(document.getElementById('color').value);
 }
 
-function initAlias() {
+function initNew() {
+    document.getElementById('color').selectedIndex = 0;
+    setColor();
     $.get(`getPseudo?id=${userId}`,(pseudo)=>{document.getElementById('iden').innerText = `Vous êtes connecté en tant que ${pseudo}.`;});
 }
