@@ -16,11 +16,9 @@
 .commonChats {
     display: inline-block;
     width: 8em;
+    text-align: center;
 }
 .pseudo {
     display: inline-block;
     width: calc(100% - 8em);
-}
-.user {
-    width : 40%;
 }
