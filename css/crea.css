@@ -69,7 +69,7 @@
     width: 100%;
     min-height: 100%;
     padding: 20px;
-    margin-top: auto;
+    position: absolute;
     margin-left: auto;
     margin-right: auto;
 }
