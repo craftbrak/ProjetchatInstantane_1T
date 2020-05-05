@@ -69,8 +69,11 @@
     width: 100%;
     min-height: 100%;
     padding: 20px;
+    margin-top: auto;
     margin-left: auto;
     margin-right: auto;
+    position: absolute;
+    top: -5%;
 }
 
 
@@ -116,10 +119,11 @@ input[type=reset]:active {
     transform: scale(0.95);
 }
 
-input[type=text] {
-    background-color: #f6f6f6;
+input[type=password],
+input[type=email] {
+    background-color: #acacac;
     border: none;
-    color: #ffffff;
+    color: #000000;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -127,7 +131,7 @@ input[type=text] {
     font-size: 16px;
     margin: 5px;
     width: 85%;
-    border: 2px solid #f6f6f6;
+    border: 2px solid #acacac;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -ms-transition: all 0.5s ease-in-out;
