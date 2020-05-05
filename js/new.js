@@ -10,8 +10,8 @@ function formNewConv(formulaire) {
 }
 
 function setColor() {
-    $('#color').removeClass();
-    $('#color').addClass($('#color').value);
+    document.getElementById('color').removeClass();
+    document.getElementById('color').addClass($('#color').value);
 }
 
 function initAlias() {
