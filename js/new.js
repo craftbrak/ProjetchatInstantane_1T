@@ -38,8 +38,8 @@ function créerListe(users) {
         liste += `<div class="user" id=${user.id}><div class="pseudo">${user.name}</div><div class="commonChats">${user.commonChats}</div></div>`;
     });
     document.getElementById('listeUsers').innerHTML = liste;
-    $('.user').click(addUser);
-    $('.user').on('childClicked',addUser);
+    $('#listeUsers .user').click(addUser);
+    $('#listeUsers .user').on('childClicked',addUser);
     $('#listeUsers .user div').click(triggerAddUser);
 }
 
@@ -52,5 +52,5 @@ function addUser(event) {
 }
 
 function triggerAddUser(event) {
-    event.target.parent.trigger('childClicked');
+    event.target.parent().trigger('childClicked');
 }
