@@ -21,8 +21,11 @@ function setColor() {
 function initNew() {
     document.getElementById('color').selectedIndex = 0;
     setColor();
-    $.get(`getPseudo?id=${userId}`,(pseudo)=>{document.getElementById('iden').innerText = `Vous êtes connecté en tant que ${pseudo}.`;});
-    $.get(`getAllUsers?id=${userId}`,créerListe)
+    $.get(`getPseudo?id=${userId}`,(pseudo)=>{
+        document.getElementById('iden').innerText = `Vous êtes connecté en tant que ${pseudo}.`;
+        document.getElementById('owner').innerText = `${pseudo} (vous);`;
+    });
+    $.get(`getAllUsers?id=${userId}`,créerListe);
 }
 
 function deleteUser(id) {
@@ -40,4 +43,5 @@ function créerListe(users) {
 
 function addUser(event) {
     usersToAdd.push(event.target.getAttribute('id'));
+    document.getElementById('users').innerText = `${pseudo} (vous);`
 }
