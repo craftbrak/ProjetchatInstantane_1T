@@ -43,6 +43,7 @@ function créerListe(users) {
 
 function addUser(event) {
     let id = event.target.id;
+    console.log(id);
     usersToAdd.push(id);
     $.get(`getPseudo?id=${id}`,(pseudo)=>{document.getElementById('users').HTML += `<div class="pseudo" id=${id}>${pseudo}</div>`;});
     document.getElementById('listeUsers').removeChild(document.getElementById(id));
