@@ -23,7 +23,7 @@ function initNew() {
     setColor();
     $.get(`getPseudo?id=${userId}`,(pseudo)=>{
         document.getElementById('iden').innerText = `Vous êtes connecté en tant que ${pseudo}.`;
-        document.getElementById('owner').innerText = `${pseudo} (vous);`;
+        document.getElementById('owner').innerText = `${pseudo} (vous)`;
     });
     $.get(`getAllUsers?id=${userId}`,créerListe);
 }
@@ -42,6 +42,11 @@ function créerListe(users) {
 }
 
 function addUser(event) {
-    usersToAdd.push(event.target.getAttribute('id'));
-    document.getElementById('users').innerText = `${pseudo} (vous);`
+    let id = event.target.getAttribute('id');
+    usersToAdd.push(id);
+    $.get(`getPseudo?id=${id}`,(pseudo)=>{document.getElementById('users').HTML += `<div class="pseudo" id=${id}>${pseudo}</div>`;});
+    let users = document.getElementsByClassName('.user');
+    for(let i = 0;i<users.length;++i){
+        users[i].removeChild(document.getElementById(id))
+    }
 }
