@@ -39,6 +39,7 @@ function créerListe(users) {
     });
     document.getElementById('listeUsers').innerHTML = liste;
     $('.user').click(addUser);
+    $('#listeUsers div').click(triggerAddUser);
 }
 
 function addUser(event) {
@@ -47,4 +48,8 @@ function addUser(event) {
     usersToAdd.push(id);
     $.get(`getPseudo?id=${id}`,(pseudo)=>{document.getElementById('users').HTML += `<div class="pseudo" id=${id}>${pseudo}</div>`;});
     document.getElementById('listeUsers').removeChild(document.getElementById(id));
+}
+
+function triggerAddUser(event) {
+    event.target.parent.trigger(addUser);
 }
