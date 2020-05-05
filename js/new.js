@@ -39,7 +39,8 @@ function créerListe(users) {
     });
     document.getElementById('listeUsers').innerHTML = liste;
     $('.user').click(addUser);
-    $('#listeUsers div').click(triggerAddUser);
+    $('.user').on('childClicked',addUser);
+    $('#listeUsers .user div').click(triggerAddUser);
 }
 
 function addUser(event) {
@@ -51,5 +52,5 @@ function addUser(event) {
 }
 
 function triggerAddUser(event) {
-    event.target.parent.trigger(addUser);
+    event.target.parent.trigger('childClicked');
 }
