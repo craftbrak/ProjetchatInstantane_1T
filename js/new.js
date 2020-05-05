@@ -6,9 +6,33 @@ let usersToAdd = [];
 
 $(document).ready(initNew);
 
-function formNewConv(formulaire) {
-
+function formNewConv(form) {
+    if (testParticipants()){
+        document.getElementById('errorName').innerText = '';
+        $('#convName').removeClass('error');
+        if(testNomUnique()){
+            let listeParticipants = ``
+            $.post(`newConv?name=${form.convName.value}&color=${form.color.value}&admin=${userId}&users=${usersToAdd}`)
+        }
+        else {
+            document.getElementById('erreur').innerText = 'Votre conversation doit comporter au moins deux participants !';
+        }
+    }
+    else {
+        document.getElementById('errorName').innerText = 'Ce nom est déjà pris !';
+        $('#convName').addClass('error');
+    }
     return false;
+}
+
+function testParticipants() {
+
+}
+
+function testNomUnique() {
+    let unique = true;
+    $.get(`getNoms`,(noms)=>{noms.forEach(nom=>{if(nom==document.getElementById('form').convName.value){unique=false}})});
+    return unique;
 }
 
 function setColor() {
@@ -35,7 +59,9 @@ function deleteUser(id) {
 function créerListe(users) {
     let liste = '';
     users.forEach(user => {
-        liste += `<div class="user click" id=${user.id}><div class="pseudo click">${user.name}</div><div class="commonChats click">${user.commonChats}</div></div>`;
+        if(notInList(id)){
+            liste += `<div class="user click" id=${user.id}><div class="pseudo click">${user.name}</div><div class="commonChats click">${user.commonChats}</div></div>`;
+        }
     });
     document.getElementById('listeUsers').innerHTML = liste;
     $('#listeUsers .user').click(addUser);
@@ -45,11 +71,36 @@ function créerListe(users) {
 
 function addUser(event) {
     let id = event.target.id;
-    usersToAdd.push(id);
-    $.get(`getPseudo?id=${id}`,(pseudo)=>{$('#users').append(`<div class="pseudo click" id=${id}>${pseudo}</div>`)});
+    usersToAdd.push({id : id});
     $('#'+id).remove();
+    $.get(`getPseudo?id=${id}`,(pseudo)=>{$('#users').append(`<div class="pseudo click" id=${id}>${pseudo}</div>`)});
+    $('#'+id).click(removeUser);
 }
 
 function triggerAddUser(event) {
     $('#'+event.target.parentElement.id).trigger('childClicked');
+}
+
+function removeUser(event) {
+    let id = event.target.id;
+    let index = -1;
+    usersToAdd.forEach(user => {
+        if(user.id==id){
+            index = usersToAdd.indexOf(user);
+        }
+    });
+    if(index != -1){
+        usersToAdd.splice(index,1);
+    }
+    créerListe();
+}
+
+function notInList(id) {
+    let isNotInList = true;
+    usersToAdd.forEach(user=>{
+        if(user.id==id){
+            isNotInList=false;
+        }
+    });
+    return isNotInList;
 }
