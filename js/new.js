@@ -48,7 +48,7 @@ function addUser(event) {
     console.log(id);
     usersToAdd.push(id);
     $.get(`getPseudo?id=${id}`,(pseudo)=>{document.getElementById('users').HTML += `<div class="pseudo" id=${id}>${pseudo}</div>`;});
-    document.getElementById('listeUsers').removeChild(document.getElementById(id));
+    $('#'+id).remove();
 }
 
 function triggerAddUser(event) {
