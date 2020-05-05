@@ -1,3 +1,4 @@
+const couleurs = ['gris','rose','jaune','orange','rouge','vert','bleu','violet'];
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 let userId = urlParams.get('id');
@@ -10,8 +11,10 @@ function formNewConv(formulaire) {
 }
 
 function setColor() {
-    document.getElementById('color').removeClass();
-    document.getElementById('color').addClass($('#color').value);
+    couleurs.forEach(couleur => {
+        document.getElementById('color').classList.remove(couleur)
+    });
+    document.getElementById('color').classList.add(document.getElementById('color').value);
 }
 
 function initAlias() {
