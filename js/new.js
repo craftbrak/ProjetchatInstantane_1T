@@ -15,5 +15,5 @@ function setColor() {
 }
 
 function initAlias() {
-    $.get(`getPseudo?id=${userId}`,(pseudo)=>{$('#iden').innerText = `Vous êtes connecté en tant que ${pseudo}.`;});
+    $.get(`getPseudo?id=${userId}`,(pseudo)=>{document.getElementById('iden').innerText = `Vous êtes connecté en tant que ${pseudo}.`;});
 }
