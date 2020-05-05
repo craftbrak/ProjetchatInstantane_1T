@@ -2,6 +2,7 @@ const couleurs = ['gris','rose','jaune','orange','rouge','vert','bleu','violet']
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 let userId = urlParams.get('id');
+let usersToAdd = [];
 
 $(document).ready(initNew);
 
@@ -21,4 +22,22 @@ function initNew() {
     document.getElementById('color').selectedIndex = 0;
     setColor();
     $.get(`getPseudo?id=${userId}`,(pseudo)=>{document.getElementById('iden').innerText = `Vous êtes connecté en tant que ${pseudo}.`;});
+    $.get(`getAllUsers?id=${userId}`,créerListe)
+}
+
+function deleteUser(id) {
+
+}
+
+function créerListe(users) {
+    let liste = '';
+    users.forEach(user => {
+        liste += `<div class="user" id=${user.id}>${user.name}<span class="right">Chats communs : ${user.commonChats}</span></div>`;
+    });
+    document.getElementById('listeUsers').innerHTML = liste;
+    $('.user').click(addUser);
+}
+
+function addUser(event) {
+    usersToAdd.push(event.target.getAttribute('id'));
 }
