@@ -11,9 +11,11 @@
 /* Propriétés de classes */
 
 .commonChats {
+    display: inline-block;
     float : right;
-    width: 3em;
+    width: 8em;
 }
 .pseudo {
     display: inline-block;
+    width: calc(100%-8em);
 }
