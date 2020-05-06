@@ -78,7 +78,7 @@ function removeUser(event) {
 }
 function formNewConv(form) {
     if (testParticipants()){
-        document.getElementById('errorName').innerText = '';
+        document.getElementById('erreur').innerText = '';
         $('#convName').removeClass('error');
         if(testNomUnique()){
             $.post(`newConv?name=${form.convName.value}&color=${form.color.value}&admin=${userId}`,()=>{
