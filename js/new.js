@@ -26,7 +26,7 @@ function formNewConv(form) {
 }
 
 function testParticipants() {
-
+    return Boolean(usersToAdd.length>0);
 }
 
 function testNomUnique() {
@@ -83,9 +83,10 @@ function triggerAddUser(event) {
 
 function removeUser(event) {
     let id = event.target.id;
+    console.log(id);
     let index = -1;
     usersToAdd.forEach(user => {
-        if(user.id==id){
+        if(user==id){
             index = usersToAdd.indexOf(user);
         }
     });
