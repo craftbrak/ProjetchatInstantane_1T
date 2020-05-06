@@ -4,6 +4,9 @@
 
 /* Propriétés d'ids */
 
+#errorName {
+    color : red;
+}
 #listeUsers {
     margin:15px;
 }
