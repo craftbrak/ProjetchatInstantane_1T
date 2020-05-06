@@ -38,7 +38,6 @@ function créerListe(users) {
 }
 function triggerAddUser(event) {
     let classes = event.target.classList;
-    let id;
     classes.forEach(classe => {
         if(classe!='click'&&classe!='user'&&classe!='pseudo'&&classe!='commonChats'){
             $(`#listeUsers.${classe}`).trigger('childClicked');
@@ -82,7 +81,12 @@ function formNewConv(form) {
         document.getElementById('errorName').innerText = '';
         $('#convName').removeClass('error');
         if(testNomUnique()){
-            $.post(`newConv?name=${form.convName.value}&color=${form.color.value}&admin=${userId}&users=${usersToAdd}`,()=>{})
+            $.post(`newConv?name=${form.convName.value}&color=${form.color.value}&admin=${userId}`,()=>{
+                usersToAdd.forEach(user => {
+                    $.post(`addUsersToConv?id=${user.id}&name=${form.convName.value}`);
+                });
+                $.get(`userToGeneral?id=${userId}`,(id)=>{window.location = `./play.html?id=${id}`});
+            });
         }
         else {
             document.getElementById('erreur').innerText = 'Votre conversation doit comporter au moins deux participants !';
