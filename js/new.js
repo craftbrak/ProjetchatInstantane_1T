@@ -31,7 +31,7 @@ function créerListe(users) {
         listeToAdd += `<div class="user click ${user.id}">${user.name}</div>`;
     });
     document.getElementById('listeUsers').innerHTML = liste;
-    document.getElementById('users').innerHTML = listeToAdd;
+    document.getElementById('listeUsersToAdd').innerHTML = listeToAdd;
     $('#listeUsers .user').click(addUser);
     $('#listeUsers .user').on('childClicked',addUser);
     $('#listeUsers .user div').click(triggerAddUser);
