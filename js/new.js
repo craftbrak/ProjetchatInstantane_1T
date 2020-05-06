@@ -89,7 +89,7 @@ function formNewConv(form) {
             });
         }
         else {
-            document.getElementById('errorName').innerText = 'Ce nom est déjà pris !';
+            document.getElementById('erreur').innerText = 'Ce nom est déjà pris !';
         }
     }
     else {
