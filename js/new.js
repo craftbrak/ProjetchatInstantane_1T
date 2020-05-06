@@ -58,7 +58,7 @@ function addUser(event) {
         }
     });
     usersToAdd.push({id : id});
-    $('#listeUsers .'+id).show();
+    $('#listeUsersToAdd .'+id).show();
     $('#listeUsers .'+id).hide();
 }
 
@@ -79,8 +79,8 @@ function removeUser(event) {
     if(index != -1){
         usersToAdd.splice(index,1);
     }
-    $('#listeUsers .'+id).hide();
-    $('#listeUsersToAdd .'+id).show();   
+    $('#listeUsers .'+id).show();
+    $('#listeUsersToAdd .'+id).hide();
 }
 
 function formNewConv(form) {
