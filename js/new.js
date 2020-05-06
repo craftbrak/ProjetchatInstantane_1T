@@ -43,13 +43,16 @@ function triggerAddUser(event) {
 }
 
 function addUser(event) {
+    console.log('addUser');
     let classes = event.target.classList;
+    console.log(classes);
     let id;
     classes.forEach(classe => {
         if(classe!='click'&&classe!='user'){
             id = Number(classe);
         }
     });
+    console.log(id);
     usersToAdd.push({id : id});
     $('#listeUsersToAdd .'+id).hide();
 }
