@@ -27,7 +27,7 @@ function créerListe(users) {
     let liste = '';
     let listeToAdd = '';
     users.forEach(user => {
-        liste += `<div class="user click ${user.id}"><div class="pseudo click">${user.name}</div><div class="commonChats click">${user.commonChats}</div></div>`;
+        liste += `<div class="user click ${user.id}"><div class="pseudo click ${user.id}">${user.name}</div><div class="commonChats click ${user.id}">${user.commonChats}</div></div>`;
         listeToAdd += `<div class="user click ${user.id}">${user.name}</div>`;
     });
     document.getElementById('listeUsers').innerHTML = liste;
@@ -39,7 +39,14 @@ function créerListe(users) {
 }
 
 function triggerAddUser(event) {
-    $('#'+event.target.parentElement.id).trigger('childClicked');
+    let classes = event.target.classList;
+    console.log(classes);
+    let id;
+    classes.forEach(classe => {
+        if(classe!='click'&&classe!='user'&&classe!='pseudo'&&classe!='commonChats'){
+            $(`#listeUsers.${classe}`).trigger('childClicked');
+        }
+    });
 }
 
 function addUser(event) {
