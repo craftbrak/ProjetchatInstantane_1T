@@ -82,11 +82,11 @@ function triggerAddUser(event) {
 }
 
 function removeUser(event) {
-    let id = event.target.id;
-    console.log(id);
+    let idCible = event.target.id;
+    console.log(idCible);
     let index = -1;
     usersToAdd.forEach(user => {
-        if(user==id){
+        if(user.id==idCible){
             index = usersToAdd.indexOf(user);
         }
     });
@@ -98,8 +98,8 @@ function removeUser(event) {
 
 function notInList(idRecu) {
     let isNotInList = true;
-    usersToAdd.forEach(id=>{
-        if(id==idRecu){
+    usersToAdd.forEach(user=>{
+        if(user.id==idRecu){
             isNotInList=false;
         }
     });
