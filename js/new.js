@@ -33,6 +33,7 @@ function créerListe(users) {
     $('#listeUsers .user').click(addUser);
     $('#listeUsers .user').on('childClicked',addUser);
     $('#listeUsers .user div').click(triggerAddUser);
+    $('#listeUsersToAdd div.user').click(removeUser);
     $('#listeUsersToAdd div.user').hide();
 }
 function triggerAddUser(event) {
