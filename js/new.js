@@ -60,7 +60,7 @@ function créerListe(users) {
     let liste = '';
     users.forEach(user => {
         if(notInList(user.id)){
-            liste += `<div class="user click" id=${user.id}><div class="pseudo click">${user.name}</div><div class="commonChats click">${user.commonChats}</div></div>`;
+            liste += `<div class="user click" id="${user.id}"><div class="pseudo click">${user.name}</div><div class="commonChats click">${user.commonChats}</div></div>`;
         }
     });
     document.getElementById('listeUsers').innerHTML = liste;
@@ -70,10 +70,10 @@ function créerListe(users) {
 }
 
 function addUser(event) {
-    let id = event.target.id;
+    let id = Number(event.target.id);
     usersToAdd.push({id : id});
     $('#'+id).remove();
-    $.get(`getPseudo?id=${id}`,(pseudo)=>{$('#users').append(`<div class="pseudo click" id=${id}>${pseudo}</div>`)});
+    $.get(`getPseudo?id=${id}`,(pseudo)=>{$('#users').append(`<div class="pseudo click" id="${id}">${pseudo}</div>`)});
     $('#'+id).click(removeUser);
 }
 
@@ -82,7 +82,7 @@ function triggerAddUser(event) {
 }
 
 function removeUser(event) {
-    let idCible = event.target.id;
+    let idCible = Number(event.target.id);
     console.log(idCible);
     let index = -1;
     usersToAdd.forEach(user => {
