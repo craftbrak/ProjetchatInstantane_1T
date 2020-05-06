@@ -36,9 +36,9 @@
         <div id="formContent" class="col col-xs-6 col-lg-6">
             <form method="POST" onsubmit="return formNewConv(this);" id="form">
                 <fieldset>
-                    <legend>Créer une nouvelle conversation :</legend><span id="errorName" class="error"></span>
-                    <label for="convName">Nom de la conversation :&nbsp;</label><input id="convName" name="convName" type="text" required><br>
-                    <label for="color">Couleur de la conversation :&nbsp;</label><select id="color" name="color" class="gris" onchange="setColor();" value="gris">
+                    <legend>Créer une nouvelle conversation :</legend>
+                    <label for="convName">Nom de la conversation :&nbsp;</label><input id="convName" name="convName" type="text" required><span id="errorName" class="error"></span><br>
+                    <label for="color">Couleur de la conversation :&nbsp;</label><select id="color" name="color" class="gris" onchange="setColor();" value="gris"><br>
                         <option value="gris" class="gris">Gris</option>
                         <option value="rouge" class="rouge">Rouge</option>
                         <option value="orange" class="orange">Orange</option>
