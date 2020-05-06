@@ -28,7 +28,7 @@ function créerListe(users) {
     let listeToAdd = '';
     users.forEach(user => {
         liste += `<div class="user click ${user.id}"><div class="pseudo click">${user.name}</div><div class="commonChats click">${user.commonChats}</div></div>`;
-        listeToAdd += `<div class="user click ${id}">${user.name}</div>`;
+        listeToAdd += `<div class="user click ${user.id}">${user.name}</div>`;
     });
     document.getElementById('listeUsers').innerHTML = liste;
     document.getElementById('users').innerHTML = listeToAdd;
