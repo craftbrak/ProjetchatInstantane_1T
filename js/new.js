@@ -89,11 +89,11 @@ function formNewConv(form) {
             });
         }
         else {
-            document.getElementById('erreur').innerText = 'Votre conversation doit comporter au moins deux participants !';
+            document.getElementById('errorName').innerText = 'Ce nom est déjà pris !';
         }
     }
     else {
-        document.getElementById('errorName').innerText = 'Ce nom est déjà pris !';
+        document.getElementById('erreur').innerText = 'Votre conversation doit comporter au moins deux participants !';
         $('#convName').addClass('error');
     }
     return false;
