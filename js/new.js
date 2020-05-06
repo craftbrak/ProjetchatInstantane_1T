@@ -93,7 +93,7 @@ function removeUser(event) {
     if(index != -1){
         usersToAdd.splice(index,1);
     }
-    créerListe();
+    $.get(`getAllUsers?id=${userId}`,créerListe);
 }
 
 function notInList(id) {
