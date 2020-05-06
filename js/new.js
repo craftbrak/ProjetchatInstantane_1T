@@ -59,7 +59,7 @@ function deleteUser(id) {
 function créerListe(users) {
     let liste = '';
     users.forEach(user => {
-        if(notInList(id)){
+        if(notInList(user.id)){
             liste += `<div class="user click" id=${user.id}><div class="pseudo click">${user.name}</div><div class="commonChats click">${user.commonChats}</div></div>`;
         }
     });
@@ -96,10 +96,10 @@ function removeUser(event) {
     $.get(`getAllUsers?id=${userId}`,créerListe);
 }
 
-function notInList(id) {
+function notInList(idRecu) {
     let isNotInList = true;
-    usersToAdd.forEach(user=>{
-        if(user==id){
+    usersToAdd.forEach(id=>{
+        if(id==idRecu){
             isNotInList=false;
         }
     });
