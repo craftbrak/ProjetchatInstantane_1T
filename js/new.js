@@ -81,9 +81,9 @@ function formNewConv(form) {
         document.getElementById('erreur').innerText = '';
         $('#convName').removeClass('error');
         if(testNomUnique()){
-            $.post(`newConv?name="${form.convName.value}"&color=${form.color.value}&admin=${userId}`,()=>{
+            $.post(`newConv?name=${form.convName.value}&color=${form.color.value}&admin=${userId}`,()=>{
                 usersToAdd.forEach(user => {
-                    $.post(`addUsersToConv?id=${user.id}&name="${form.convName.value}"`);
+                    $.post(`addUsersToConv?id=${user.id}&name=${form.convName.value}`);
                 });
                 $.get(`userToGeneral?id=${userId}`,(id)=>{window.location = `./play.html?id=${id}`});
             });
