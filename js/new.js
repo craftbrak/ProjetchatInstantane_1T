@@ -43,13 +43,25 @@ function triggerAddUser(event) {
 }
 
 function addUser(event) {
-    let id = Number(event.target.id);
+    let classes = event.target.classList;
+    let id;
+    classes.forEach(classe => {
+        if(classe!='click'&&classe!='user'){
+            id = Number(classe);
+        }
+    });
     usersToAdd.push({id : id});
     $('#listeUsersToAdd .'+id).hide();
 }
 
 function removeUser(event) {
-    let id = Number(event.target.id);
+    let classes = event.target.classList;
+    let id;
+    classes.forEach(classe => {
+        if(classe!='click'&&classe!='user'){
+            id = Number(classe);
+        }
+    });
     let index = -1;
     usersToAdd.forEach(user => {
         if(user.id==idCible){
