@@ -15,14 +15,12 @@ function initNew() {
     });
     $.get(`getAllUsers?id=${userId}`,créerListe);
 }
-
 function setColor() {
     couleurs.forEach(couleur => {
         document.getElementById('color').classList.remove(couleur)
     });
     document.getElementById('color').classList.add(document.getElementById('color').value);
 }
-
 function créerListe(users) {
     let liste = '';
     let listeToAdd = '';
@@ -37,10 +35,8 @@ function créerListe(users) {
     $('#listeUsers .user div').click(triggerAddUser);
     $('#listeUsersToAdd div.user').hide();
 }
-
 function triggerAddUser(event) {
     let classes = event.target.classList;
-    console.log(classes);
     let id;
     classes.forEach(classe => {
         if(classe!='click'&&classe!='user'&&classe!='pseudo'&&classe!='commonChats'){
@@ -48,7 +44,6 @@ function triggerAddUser(event) {
         }
     });
 }
-
 function addUser(event) {
     let classes = event.target.classList;
     let id;
@@ -61,7 +56,6 @@ function addUser(event) {
     $('#listeUsersToAdd .'+id).show();
     $('#listeUsers .'+id).hide();
 }
-
 function removeUser(event) {
     let classes = event.target.classList;
     let id;
@@ -72,7 +66,7 @@ function removeUser(event) {
     });
     let index = -1;
     usersToAdd.forEach(user => {
-        if(user.id==idCible){
+        if(user.id==id){
             index = usersToAdd.indexOf(user);
         }
     });
@@ -82,7 +76,6 @@ function removeUser(event) {
     $('#listeUsers .'+id).show();
     $('#listeUsersToAdd .'+id).hide();
 }
-
 function formNewConv(form) {
     if (testParticipants()){
         document.getElementById('errorName').innerText = '';
@@ -100,11 +93,9 @@ function formNewConv(form) {
     }
     return false;
 }
-
 function testParticipants() {
     return Boolean(usersToAdd.length>0);
 }
-
 function testNomUnique() {
     let unique = true;
     $.get(`getNoms`,(noms)=>{noms.forEach(nom=>{if(nom==document.getElementById('form').convName.value){unique=false}})});
