@@ -99,7 +99,7 @@ function removeUser(event) {
 function notInList(id) {
     let isNotInList = true;
     usersToAdd.forEach(user=>{
-        if(user.id==id){
+        if(user==id){
             isNotInList=false;
         }
     });
