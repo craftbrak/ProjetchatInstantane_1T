@@ -6,6 +6,7 @@ body {
     background: #222;
     color: snow;
 }
+
 div {
     margin-top: 5px;
     margin-bottom: 5px;
@@ -13,11 +14,13 @@ div {
 fieldset{
     border: #222;
 }
+
 label {
     display: block;
     width: 130px;
     float: left;
 }
+
 legend {
     border: solid snow 1px;
 }
@@ -28,6 +31,7 @@ legend {
     float: right;
     margin: 5px;
 }
+
 #erreur {
     background-color: red;
     color: white;
