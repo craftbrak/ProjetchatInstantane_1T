@@ -15,22 +15,26 @@ $(document).ready(initPage);
 
 function initPage() {
     if (session.convUserId == null) {
-        alert("vous etes decinnecter veiller vous connectez pour acceder au chat");
+        alert("vous êtes deconnecté veuiller vous connectez pour accéder au chat");
         window.location = "http://craftbrakddns.myddns.me:536/index.html"
     } else {
-        let obtinerUserId = new XMLHttpRequest;
         $.post(`obtenirUseId`, { convUserId: session.convUserId }, (res) => {
             session.userId = res[0].UserId;
             if (session.userId != null) {
                 $('#modif').href = `./modificationProfil.html?id=${session.userId}`;
-                $.get(`getPseudo?id=${session.userId}`, (p) => { $('#iden').append(`Vous êtes connecté en tant que ${p}.`); });
+                $.get(`getPseudo?id=${session.userId}`, (p) => {
+                    $('#iden').append(`Vous êtes connecté en tant que ${p}.`);
+                    session.pseudo = p
+                });
                 $('#formMessage').submit(TraiterFormMessage)
                 updateChat();
                 setInterval(updateChat, 1000);
                 $(document).trigger('InitOver');
+                $('.listeParticipantFooter').hide()
+                listeParticipant();
                 $('#msg').focus()
             } else {
-                alert("vous etes decinnecter veiller vous connectez pour acceder au chat");
+                alert("vous êtes deconnecté veuiller vous connectez pour accéder au chat");
                 window.location = "http://craftbrakddns.myddns.me:536/index.html"
             }
 
@@ -41,14 +45,32 @@ function initPage() {
 
 function TraiterFormMessage(e) {
     e.preventDefault()
-    let message = e.target.message.value;
-    $.post("newMsg", { msgContentVar: message, convUserIdVar: session.convUserId }, () => {
+    $.post("newMsg", { msgContentVar: e.target.message.value, convUserIdVar: session.convUserId }, () => {
         updateChat();
         document.getElementById("formMessage").message.value = null;
     });
 
     return false;
 
+}
+
+function listeParticipant() {
+
+    $.post('chatParticipant', { convUserIdVar: session.convUserId }, (res) => {
+        $('#chatName').append(res[0].convName)
+        let liste = ""
+        res.forEach(element => {
+            liste += `<div class="userContainer ${element.participant === session.pseudo? "me":"notMe"} ${element.isAdmin == true ? "admin":""}">${element.participant}</div>`
+        })
+        $('.listeParticipantBody').append(liste)
+        if ($('.userContainer').hasClass('admin')) {
+            if ($('.admin').html() === session.pseudo) {
+                $('.listeParticipantFooter').show().click(() => { window.location = `./modifConv.html?id=${session.convUserId}` })
+            }
+        }
+
+
+    })
 }
 
 function updateChat() {

@@ -21,6 +21,7 @@
     <script src="js/chat.js"></script>
     <script src="js/multiConv.js"></script>
 </head>
+
 <body>
     <header>
         <img src="img/tchat.png" alt="tchat" id="logo" class="click">
@@ -29,9 +30,9 @@
         <div class="link" id="iden"></div>
     </header>
     <div class="row">
-        <div id="listeConvs" class="col col-xs-4">
+        <div id="listeConvs" class="col col-xs-3">
         </div>
-        <div id="sectionChat" class="col col-xs-8 col-lg-8 ">
+        <div id="sectionChat" class="col col-xs-7 col-lg-7 ">
             <div id="divChat" class="cardBody"></div>
             <div id="divMessage" class="fixedBottom">
                 <form id="formMessage" method="POST">
@@ -40,9 +41,15 @@
                 </form>
             </div>
         </div>
+        <div class="col col-xs-1">
+            <h3 id="chatName"></h3>
+            <div id="listeParticipant">
+                <div class="listeParticipantBody"></div>
+                <div class="listeParticipantFooter click">ajouter des Utilisateur</div>
+            </div>
+        </div>
     </div>
-    <footer class="credit">
-        Ce site est l'oeuvre de Baptiste Bemelmans, Louis De Wilde, François Girondin et Arthur Schamroth.
-    </footer>
+
 </body>
+
 </html>

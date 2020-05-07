@@ -6,10 +6,18 @@ body {
     background: #222;
     color: snow;
 }
+button {
+    border-radius: 3px;
+    background-color: #C0C0C0;
+}
 header {
     background-color: #333;
     height: 3em;
     border-bottom: 2px solid black;
+}
+input{
+    border-radius: 3px;
+    background-color: #C0C0C0;
 }
 link:visited {
     color: blue;

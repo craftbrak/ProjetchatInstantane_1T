@@ -1,21 +1,20 @@
 /* Propriétés de balises */
 
 
-
 /* Propriétés d'ids */
 
-#errorName {
-    color : red;
-}
 #listeUsers {
-    margin:15px;
+    margin: 15px;
 }
+
 #titres {
     margin: 15px;
 }
+
 #formContent {
     margin: 15px auto;
 }
+
 
 /* Propriétés de classes */
 
@@ -24,10 +23,12 @@
     width: 8em;
     text-align: center;
 }
+
 .pseudo {
     display: inline-block;
     width: calc(100% - 8em);
 }
+
 .error {
     background-color: tomato;
 }
