@@ -19,20 +19,20 @@ function creerCompte(email, nom, prenom, pseudo, mdp, mdpVerif) {
         let creation = new XMLHttpRequest();
         creation.open('get', 'creation?newEmail=' + email + '&newNom=' + nom + '&newPrenom=' + prenom + '&newPseudo=' + pseudo + '&newMdpUser=' + mdp, true); //crée le user
         creation.onload =
-            function (){
+            function() {
                 let getId = new XMLHttpRequest();
                 getId.open('get', 'redirectCreation?emailRecherche=' + email, true); //reçoit l'id
-                getId.onload = 
-                    function (){
+                getId.onload =
+                    function() {
                         let idCompte = JSON.parse(getId.response)[0].idUser;
                         let addGeneral = new XMLHttpRequest();
-                        addGeneral.open('get', 'addUsersToConv?id=' + idCompte + '&name=Général', true);
+                        addGeneral.open('get', 'addUsersToConv?id=' + idCompte + '&nom=Général', true);
                         addGeneral.onload =
-                            function (){
+                            function() {
                                 let redirect = new XMLHttpRequest();
                                 redirect.open('get', 'userToGeneral?id=' + idCompte, true); //récupère le convId
-                                redirect.onload = 
-                                    function (){
+                                redirect.onload =
+                                    function() {
                                         idConv = redirect.response;
                                         window.location = "http://craftbrakddns.myddns.me:536/play.html?id=" + idConv;
                                     };

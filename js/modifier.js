@@ -5,37 +5,38 @@ idUser = urlParams.get('id');
 
 function initialiserFormulaire() {
     let xhr = new XMLHttpRequest();
-    xhr.open("get", "http://craftbrakddns.myddns.me:536/modification?idChoisi=" + idUser +"", true);
+    xhr.open("get", "http://craftbrakddns.myddns.me:536/modification?idChoisi=" + idUser + "", true);
     xhr.onload = remplirFormulaire;
     xhr.send();
 }
 
-function remplirFormulaire(){
+function remplirFormulaire() {
     let reponse = JSON.parse(this.responseText);
     console.log(reponse);
     console.log(reponse[0].idUser);
 
 
-    document.getElementById("formulaire").innerHTML += "<div id='divName'><label for='name'>Nom</label> <input id='name' name='name' type='text' " +
-        "value='" + reponse[0].nom + "'></div>";
+    document.getElementById("formulaire").innerHTML += "<input id='name' name='name' type='text' placeholder='Nom'" + 'class="fadeIn second"' +
+        "value='" + reponse[0].nom + "'>";
 
-    document.getElementById("formulaire").innerHTML += "<div id='divSurname'><label for='surname'>Prenom</label> <input id='surname' name='surname' type='text' " +
-        "value='" + reponse[0].prenom + "'></div>";
+    document.getElementById("formulaire").innerHTML += "<input id='surname' name='surname' type='text'placeholder='prenom' " + 'class="fadeIn second"' +
+        "value='" + reponse[0].prenom + "'>";
 
-    document.getElementById("formulaire").innerHTML += "<div id='divMdp'><label for='mdpUser'>Mot De Passe</label> <input id='mdpUser' name='mdpUser' type='password' " +
-        "value='" + reponse[0].mdpUser + "'></div>";
+    document.getElementById("formulaire").innerHTML += "<input id='mdpUser' name='mdpUser' type='password'placeholder='mot de passe' " + 'class="fadeIn second"' +
+        "value='" + reponse[0].mdpUser + "'>";
 
 
-    document.getElementById("formulaire").innerHTML += "<div id='divNouveauMdp'><label for='nvMdp'>Confirmer MDP</label> <input id='nvMdp' name='nvMdp' type='password' " +
+    document.getElementById("formulaire").innerHTML += "<input id='nvMdp' name='nvMdp' type='password' placeholder='verification mot de passe'" + 'class="fadeIn third"' +
 
-        "value='" + reponse[0].mdpUser + "'></div>";
+        "value='" + reponse[0].mdpUser + "'>";
 
-    document.getElementById("formulaire").innerHTML += "<div id='divMail'><label for='mail'>Adresse mail</label> <input id='mail' name='mail' type='text' " +
-        "value='" + reponse[0].mail + "'></div>";
+    document.getElementById("formulaire").innerHTML += "<input id='mail' name='mail' type='text' placeholder='email'" + 'class="fadeIn third"' +
+        "value='" + reponse[0].mail + "'>";
 
-    document.getElementById("formulaire").innerHTML += "<div id='divPseudo'><label for='pseudo'>Pseudo</label> <input id='pseudo' name='pseudo' type='text' " +
-        "value='" + reponse[0].pseudo + "'></div>";
-    console.log("bonjour");
+    document.getElementById("formulaire").innerHTML += "<input id='pseudo' name='pseudo' type='text' placeholder='pseudo'" + 'class="fadeIn third"' +
+        "value='" + reponse[0].pseudo + "'>";
+    document.getElementById("formulaire").innerHTML += `<input type="submit" name="enregistrer" id="enregistrer" value="Enregistrer" class="fadeIn fourth">`;
+
 }
 
 function enregistrerModifs() {
@@ -51,21 +52,19 @@ function enregistrerModifs() {
         document.getElementById("erreur").innerHTML = "";
         alert("Modifcations Enregistrées avec succès !");
         console.log("ca passe");
-        $.get(`./userToGeneral?id=${idUser}`,(id) => {window.location = `./play.html?id=${id}`});
+        $.get(`./userToGeneral?id=${idUser}`, (id) => { window.location = `./play.html?id=${id}` });
         xhr.send();
         return false;
-    }
-    else {
+    } else {
         document.getElementById("erreur").innerHTML = "Mot de passe erroné, veuillez entrer deux fois le même nouveau mot de passe !";
         return false;
     }
 }
 
-function test(a, b){
-    if(a === b){
+function test(a, b) {
+    if (a === b) {
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 }

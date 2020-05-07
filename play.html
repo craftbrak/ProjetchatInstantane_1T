@@ -25,12 +25,15 @@
 <body>
     <header>
         <img src="img/tchat.png" alt="tchat" id="logo" class="click">
-        <div class="link click" id="déco" href="./play.html">Déconnexion</div>
+        <div class="link click" id="déco" href="./index.html">Déconnexion</div>
         <div class="link click" id="modif" href="./modificationProfil.html?id=">Modifier profil</div>
         <div class="link" id="iden"></div>
     </header>
     <div class="row">
-        <div id="listeConvs" class="col col-xs-3">
+        <div id="listeConvContainer" class="col col-xs-1 sidebar">
+            <h3 class="sideBarTitle">Tes autres Conversation:</h3>
+            <div id="listeConvs" class="sidebarBody"> </div>
+            <div id="ajouterConv" class="convListeBox sidebarFooter">Nouvelle conversation</div>
         </div>
         <div id="sectionChat" class="col col-xs-7 col-lg-7 ">
             <div id="divChat" class="cardBody"></div>
@@ -41,15 +44,14 @@
                 </form>
             </div>
         </div>
-        <div class="col col-xs-1">
-            <h3 id="chatName"></h3>
+        <div class="col col-xs-1 sidebar" id=administration>
+            <h3 id="chatName" class="sideBarTitle"></h3>
             <div id="listeParticipant">
-                <div class="listeParticipantBody"></div>
-                <div class="listeParticipantFooter click">ajouter des Utilisateur</div>
+                <div class="listeParticipantBody sidebarBody"></div>
+                <div class="listeParticipantFooter click sidebarFooter">Modifier Conversation</div>
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

@@ -17,6 +17,7 @@
     <link type="text/css" rel="stylesheet" href="css/main.css">
     <link type="text/css" rel="stylesheet" href="css/colors.css">
     <link type="text/css" rel="stylesheet" href="css/new.css">
+    <link type="text/css" rel="stylesheet" href="css/crea.css">
     <script src="js/modConv.js"></script>
     <script src="js/main.js"></script>
 </head>
@@ -29,21 +30,26 @@
         <div class="link" id="iden"></div>
     </header>
     <div class="row">
-        <div class="col col-xs-3 col-lg-3">
-            <div id="titres">
-                <div class="pseudo">Pseudo :</div>
-                <div class="commonChats">Chats communs :</div>
-            </div>
-            <div id="listeUsers">
+        <div class="col col-xs-3 col-lg-3 sidebar">
+            <div>
+                <div id="titres">
+                    <div class="pseudo">Pseudo :</div>
+                    <div class="commonChats">Chats communs :</div>
+                </div>
+                <div id="listeUsers">
 
+                </div>
             </div>
         </div>
-        <div id="formContent" class="col col-xs-6 col-lg-6">
-            <form method="POST" id="form">
-                <fieldset>
-                    <legend>Créer une nouvelle conversation :</legend><span id="errorName" class="error"></span>
-                    <label for="convName">Nom de la conversation :&nbsp;</label><input id="convName" name="convName" type="text" required><br>
-                    <label for="color">Couleur de la conversation :&nbsp;</label><select id="color" name="color" class="gris" onchange="setColor();" value="gris">
+        <div class="col col-xs-6 col-lg-6">
+            <div class="wrapper fadeInDown">
+                <div id="formContent">
+                    <form method="POST" id="form">
+                        <fieldset>
+                            <legend>Créer une nouvelle conversation :</legend><span id="errorName" class="error"></span>
+                            <input class="fadeIn second" id="convName" name="convName" type="text" required placeholder="Nom de la conversation :"><br>
+                            <label for="color">Couleur de la conversation :&nbsp;</label>
+                            <select id="color" name="color" class="gris fadeIn third" onchange="setColor();" value="gris">
                         <option value="gris" class="gris">Gris</option>
                         <option value="rouge" class="rouge">Rouge</option>
                         <option value="orange" class="orange">Orange</option>
@@ -53,11 +59,14 @@
                         <option value="violet" class="violet">Violet</option>
                         <option value="rose" class="rose">Rose</option>
                     </select>
-                    <input type="submit" name="valider" value="ModifierConv">
-                </fieldset>
-            </form>
+                            <input type="submit" name="valider" value="ModifierConv" class="fadeIn fourth">
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div id="participants" class="col col-xs-3 col-lg-3">
+
+        <div id="participants" class="col col-xs-3 col-lg-3 sidebar">
             Participants :
             <div id="owner"></div>
             <div id="listeUsersToAdd"></div>

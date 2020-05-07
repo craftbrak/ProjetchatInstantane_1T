@@ -6,22 +6,27 @@ body {
     background: #222;
     color: snow;
 }
+
 button {
     border-radius: 3px;
     background-color: #C0C0C0;
 }
+
 header {
     background-color: #333;
     height: 3em;
     border-bottom: 2px solid black;
 }
-input{
+
+input {
     border-radius: 3px;
     background-color: #C0C0C0;
 }
+
 link:visited {
     color: blue;
 }
+
 
 /* Propriétés d'ids */
 
@@ -30,11 +35,13 @@ link:visited {
     height: 3em;
 }
 
+
 /* Propriétés de classes */
 
 .click {
     cursor: pointer;
 }
+
 .credit {
     font-family: 'Times New Roman', Times, serif;
     font-size: 0.3em;
@@ -52,10 +59,14 @@ link:visited {
     width: 41em;
     float: right;
 }
+
 .link {
     height: 3em;
     float: right;
     cursor: pointer;
     padding: 5px 10px;
     border-left: 1px black solid;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
 }

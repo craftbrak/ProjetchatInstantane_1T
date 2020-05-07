@@ -26,10 +26,29 @@
     display: inline;
 }
 
+#ajouterConv {
+    background-color: lightslategrey;
+    border: none 0.3em lightslategray;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+    margin: 5px auto;
+    padding: 5px;
+}
+
 #listeConvs {
-    background-color: #646464;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: #444;
+    border: solid 0.3em #444;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+    margin: 5px auto;
+    width: 20em;
+    padding: 5px;
 }
 
 #msg {
@@ -51,7 +70,84 @@
 
 /* Propriétés de classes */
 
-.listeParticipantFooter {}
+.sidebar {
+    background-color: #646464;
+    border: solid 0.3em #646464;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+    margin: 5px auto;
+    width: 20em;
+    padding: 5px;
+    overflow: auto;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 12px;
+    background-color: #222;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #D62929;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #222;
+}
+
+.sideBarTitle {
+    display: block;
+    text-align: center;
+}
+
+.me {
+    font-style: oblique;
+}
+
+.userContainer {
+    border: solid 0.3em #111;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+    margin: 5px auto;
+    padding: 5px;
+}
+
+.sidebarBody {
+    background-color: #444;
+    border: solid 0.3em #444;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+    margin: 5px auto;
+    width: 20em;
+    padding: 5px;
+}
+
+.sidebarFooter {
+    background-color: lightslategrey;
+    border: none 0.3em lightslategray;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+    margin: 5px auto;
+    width: 20em;
+    padding: 5px;
+}
 
 .userContainer {
     border-style: solid 60px lightgray;
@@ -91,10 +187,13 @@
 .convListeBox {
     display: block;
     margin: 5px auto;
-    width: 20em;
     padding: 5px;
     border: 3px solid #333;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
     cursor: pointer;
+    text-align: center;
 }
 
 .deleteMsg {
@@ -112,7 +211,6 @@
     align-content: center;
     display: flex;
     flex-basis: auto;
-    align-content: center;
     background-color: lightseagreen;
     border: solid 0.3em lightseagreen;
     -moz-border-radius: 20px;
