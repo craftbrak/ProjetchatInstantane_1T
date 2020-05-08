@@ -167,6 +167,7 @@
 /* FORM TYPOGRAPHY*/
 
 input[type=button],
+select,
 input[type=submit],
 input[type=reset] {
     background-color: #56baed;
@@ -197,6 +198,7 @@ input[type=reset]:hover {
 }
 
 input[type=button]:active,
+select:active,
 input[type=submit]:active,
 input[type=reset]:active {
     -moz-transform: scale(0.95);
@@ -207,6 +209,7 @@ input[type=reset]:active {
 }
 
 input[type=password],
+select,
 input[type=text],
 input[type=email] {
     background-color: #acacac;

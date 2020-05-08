@@ -5,13 +5,17 @@ let userId = urlParams.get('userId');
 let usersToAdd = [];
 
 $(document).ready(initNew);
-
+/**
+ * @author François Girondin
+ */
 function initNew() {
     document.getElementById('color').selectedIndex = 0;
     setColor();
     $.get(`getPseudo?id=${userId}`, (pseudo) => {
         document.getElementById('iden').innerText = `Vous êtes connecté en tant que ${pseudo}.`;
         document.getElementById('owner').innerText = `${pseudo} (vous)`;
+        $('#modif').click(() => { window.location = "./modificationProfil.html?id=" + userId });
+        $('#déco').click(() => { window.location = 'index.html' })
     });
     $.get(`getAllUsers?id=${userId}`, créerListe);
 }
