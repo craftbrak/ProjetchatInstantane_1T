@@ -1,7 +1,7 @@
 const couleurs = ['gris', 'rose', 'jaune', 'orange', 'rouge', 'vert', 'bleu', 'violet'];
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-let userId = urlParams.get('id');
+let userId = urlParams.get('userId');
 let usersToAdd = [];
 
 $(document).ready(initNew);
