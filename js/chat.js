@@ -1,6 +1,3 @@
-/*le temps du developement des autre partie du code */
-
-
 // on recuper l'id de lutilisateur passé en paramettre 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -15,7 +12,7 @@ $(document).ready(initPage);
 
 function initPage() {
     if (session.convUserId == null) {
-        alert("Vous êtes deconnecté. Veuillez vous connecter pour accéder au chat.");
+        alert(alertDeconnecte);
         window.location = "./index.html"
     } else {
         $.post(`./obtenirUserId`, { convUserId: session.convUserId }, (res) => {
@@ -33,7 +30,7 @@ function initPage() {
                 listeParticipants();
                 $('#msg').focus()
             } else {
-                alert("Vous êtes deconnecté. Veuillez vous connecter pour accéder au chat.");
+                alert(alertDeconnecte);
                 window.location = "./index.html"
             }
         });

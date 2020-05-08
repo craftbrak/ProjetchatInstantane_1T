@@ -17,7 +17,7 @@ function initNew() {
     document.getElementById('color').selectedIndex = 0;
     setColor();
     if (session.convUserId == null) {
-        alert("Vous êtes deconnecté. Veuillez vous connecter pour accéder au chat.");
+        alert(alertDeconnecte);
         window.location = "./index.html"
     } else {
         $.post(`./obtenirUserId`, { convUserId: session.convUserId }, (res) => {
@@ -35,7 +35,7 @@ function initNew() {
                     $('#form').submit(formConv)
                 });
             } else {
-                alert("Vous êtes deconnecté. Veuillez vous connecter pour accéder au chat.");
+                alert(alertDeconnecte);
                 window.location = "./index.html"
             }
         });
