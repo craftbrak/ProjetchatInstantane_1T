@@ -1,8 +1,24 @@
+//Auteur : Schamroth Arthur
+
+/**
+ * Récupération du paramètre "id" dans l'url de la  page.
+ */
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 let idUser = 0;
 idUser = urlParams.get('id');
 
+
+/**
+ * @author Arthur schamroth
+ * Appel au service Modification lié à la procédure infos qui :
+ * - retourne l'id de l'utilisateur,
+ * - retourne le nom de l'utilisateur,
+ * - retourne le prenom de l'utilisateur,
+ * - retourne le mot de passe de l'utilisateur,
+ * - retourne l'adresse mail de l'utilisateur,
+ * - retourne le pseudo de l'utilisateur.
+ */
 function initialiserFormulaire() {
     let xhr = new XMLHttpRequest();
     xhr.open("get", "./modification?idChoisi=" + idUser + "", true);
@@ -10,6 +26,10 @@ function initialiserFormulaire() {
     xhr.send();
 }
 
+/**
+ * @author Arthur schamroth
+ * Remplit le formulaire avec les données chargées précédemment.
+ */
 function remplirFormulaire() {
     let reponse = JSON.parse(this.responseText)[0];
 
@@ -23,6 +43,17 @@ function remplirFormulaire() {
     form.pseudo.value  =  reponse.pseudo;
 }
 
+/**
+ * @author Arthur schamroth
+ * récupère les valeurs présentes dans le formulaire
+ * Appel au service MettreAJour, avec les différentes valeurs des inputs, lié à la procédure du même nom et qui a pour objectif de :
+ * - remplacer le nom actuel par le nouveau entré dans le formulaire,
+ * - remplacer le prénom actuel par le nouveau entré entrée dans le formulaire,
+ * - remplacer le mot de passe actuel par le nouveau entré entrée dans le formulaire,
+ * - remplacer l'adresse mail actuelle par la nouvelle entrée dans le formulaire,
+ * - remplacer le pseudo actuel par le nouveau entré dans le formulaire,
+ * Avec une validation de nouveau mot de passe.
+ */
 function enregistrerModifs() {
     let nvNom = document.getElementById("name").value;
     let nvPrenom = document.getElementById("surname").value;
@@ -44,6 +75,11 @@ function enregistrerModifs() {
     }
 }
 
+
+/**
+ * @author Arthur schamroth
+ * Function de test pour la fonction enregistrerModifs. 
+ */
 function test(a, b) {
     if (a === b) {
         return true;
@@ -51,5 +87,3 @@ function test(a, b) {
         return false;
     }
 }
-
-//Arthur
