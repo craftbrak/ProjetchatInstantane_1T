@@ -10,7 +10,9 @@ let session = {
 let usersToAdd = [];
 let usersToRemove = [];
 $(document).ready(initNew);
-
+/**
+ * @author Louis De Wilde
+ */
 function initNew() {
     document.getElementById('color').selectedIndex = 0;
     setColor();
@@ -25,6 +27,8 @@ function initNew() {
                 $.get(`getPseudo?id=${session.userId}`, (p) => {
                     $('#iden').append(`Vous êtes connecté en tant que ${p}.`);
                     session.pseudo = p
+                    $('#modif').click(() => { window.location = "./modificationProfil.html?id=" + sessi.userId });
+                    $('#déco').click(() => { window.location = './index.html' })
                     document.getElementById('owner').innerText = `${p} (vous)`;
                     $.get(`getAllUsers?id=${session.userId}`, créerListe);
                     $(document).on('listeCree', initModif);
@@ -41,7 +45,11 @@ function initNew() {
 
 
 }
-
+/**
+ * pre fill in the form 
+ * @returns {void} nothing
+ * @author Louis De Wilde 
+ */
 function initModif() {
     $.post('ObtenirInfoConv', { convUserIdVar: session.convUserId }, (res) => {
         $('#convName').val(res[0].convName);
@@ -50,9 +58,15 @@ function initModif() {
 
         session.participant = res;
         creeListeParticipant(res);
+        console.log(typeof res);
     })
 }
-
+/**
+ * generate liste Participant
+ * @param  {object} users
+ * @returns {void} nothing
+ * @author Louis De Wilde
+ */
 function creeListeParticipant(users) {
 
     users.forEach(user => {
@@ -69,14 +83,22 @@ function creeListeParticipant(users) {
 
     })
 }
-
+/**
+ * set color of select and select objectPosition
+ * @author François Girondin
+ */
 function setColor() {
     couleurs.forEach(couleur => {
         document.getElementById('color').classList.remove(couleur)
     });
     document.getElementById('color').classList.add(document.getElementById('color').value);
 }
-
+/**
+ * generate User list 
+ * @param {object} users
+ * @author François Girondin
+ * @returns {void} nothing
+ */
 function créerListe(users) {
     let liste = '';
     let listeToAdd = '';
@@ -93,7 +115,12 @@ function créerListe(users) {
     $('#listeUsersToAdd div.user').hide();
     $(document).trigger('listeCree');
 }
-
+/**
+ * Triger event on event's target's parent
+ * @author François Girondin
+ * @param {event} event
+ * @returns {void} nothing
+ */
 function triggerAddUser(event) {
     let classes = event.target.classList;
 
@@ -103,7 +130,13 @@ function triggerAddUser(event) {
         }
     });
 }
-
+/**
+ * add user to userToAdd array
+ * @author François Girondin
+ * @param {event} event
+ * @param {Array} userToAdd
+ * @returns {void} nothing
+ */
 function addUser(event) {
     let classes = event.target.classList;
     let id;
@@ -116,7 +149,15 @@ function addUser(event) {
     $('#listeUsersToAdd .' + id).show();
     $('#listeUsers .' + id).hide();
 }
-
+/**
+ * remove user from userToAdd array
+ * @author François Girondin
+ * @author Louis De Wilde
+ * @param {event} event
+ * @param {Array} userToAdd
+ * @param {Array} userToRemove
+ * @returns {void} nothing
+ */
 function removeUser(event) {
     let classes = event.target.classList;
     let id;
@@ -144,7 +185,14 @@ function removeUser(event) {
     $('#listeUsers .' + id).show();
     $('#listeUsersToAdd .' + id).hide();
 }
-
+/**
+ * modify data in date base based on the form 
+ * @author Louis De Wilde
+ * @param {Array} UserToRemove
+ * @param {Array} UserToAdd
+ * @param {event} event
+ * @returns {void} nothing
+ */
 function formConv(event) {
     if (testNomUnique()) {
         event.preventDefault();
@@ -165,11 +213,11 @@ function formConv(event) {
         document.getElementById('erreur').innerText = 'Votre conversation doit comporter au moins deux participants !';
     }
 }
-
-function testParticipants() {
-    return Boolean(usersToAdd.length > 0);
-}
-
+/**
+ * verify if the name in the form is not existing in database
+ * @author François Girondin
+ * @returns {void} nothing
+ */
 function testNomUnique() {
     let unique = true;
     $.get(`getNoms`, (noms) => { noms.forEach(nom => { if (nom == document.getElementById('form').convName.value) { unique = false } }) });
