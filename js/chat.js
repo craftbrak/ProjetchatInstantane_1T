@@ -29,7 +29,7 @@ function initPage() {
                 $('#formMessage').submit(TraiterFormMessage)
                 updateChat();
                 setInterval(updateChat, 1000);
-                $('.listeParticipantFooter').hide()
+                $('.listeParticipantsFooter').hide()
                 listeParticipant();
                 $('#msg').focus()
             } else {
@@ -50,7 +50,6 @@ function TraiterFormMessage(e) {
 }
 
 function listeParticipant() {
-
     $.post('chatParticipant', { convUserIdVar: session.convUserId }, (res) => {
         $('#chatName').append(res[0].convName)
         let liste = ""
@@ -60,11 +59,9 @@ function listeParticipant() {
         $('.listeParticipantBody').append(liste)
         if ($('.userContainer').hasClass('admin')) {
             if ($('.admin').html() === session.pseudo) {
-                $('.listeParticipantFooter').show().click(() => { window.location = `./modifConv.html?id=${session.convUserId}` })
+                $('.listeParticipantsFooter').show().click(() => { window.location = `./modifConv.html?id=${session.convUserId}` })
             }
         }
-
-
     })
 }
 
