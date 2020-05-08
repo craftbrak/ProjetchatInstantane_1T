@@ -22,10 +22,15 @@ function initPage() {
             session.userId = res[0].UserId;
             if (session.userId != null) {
                 $('#modif').href = `./modificationProfil.html?id=${session.userId}`;
-                $.get(`getPseudo?id=${session.userId}`, (p) => { $('#iden').append(`Vous êtes connecté en tant que ${p}.`); });
+                $.get(`getPseudo?id=${session.userId}`, (p) => {
+                    $('#iden').append(`Vous êtes connecté en tant que ${p}.`);
+                    session.pseudo = p
+                });
                 $('#formMessage').submit(TraiterFormMessage)
                 updateChat();
                 setInterval(updateChat, 1000);
+                $('.listeParticipantFooter').hide()
+                listeParticipant();
                 $('#msg').focus()
             } else {
                 alert("vous êtes deconnecté. Veuillez vous connecter pour accéder au chat.");
@@ -42,6 +47,25 @@ function TraiterFormMessage(e) {
         document.getElementById("formMessage").message.value = null;
     });
     return false;
+}
+
+function listeParticipant() {
+
+    $.post('chatParticipant', { convUserIdVar: session.convUserId }, (res) => {
+        $('#chatName').append(res[0].convName)
+        let liste = ""
+        res.forEach(element => {
+            liste += `<div class="userContainer ${element.participant === session.pseudo? "me":"notMe"} ${element.isAdmin == true ? "admin":""}">${element.participant}</div>`
+        })
+        $('.listeParticipantBody').append(liste)
+        if ($('.userContainer').hasClass('admin')) {
+            if ($('.admin').html() === session.pseudo) {
+                $('.listeParticipantFooter').show().click(() => { window.location = `./modifConv.html?id=${session.convUserId}` })
+            }
+        }
+
+
+    })
 }
 
 function updateChat() {

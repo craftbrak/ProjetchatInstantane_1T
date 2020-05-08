@@ -1,0 +1,34 @@
+/* Propriétés de balises */
+
+
+/* Propriétés d'ids */
+
+#listeUsers {
+    margin: 15px;
+}
+
+#titres {
+    margin: 15px;
+}
+
+#formContent {
+    margin: 15px auto;
+}
+
+
+/* Propriétés de classes */
+
+.commonChats {
+    display: inline-block;
+    width: 8em;
+    text-align: center;
+}
+
+.pseudo {
+    display: inline-block;
+    width: calc(100% - 8em);
+}
+
+.error {
+    background-color: tomato;
+}
