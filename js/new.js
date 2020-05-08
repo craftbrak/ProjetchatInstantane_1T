@@ -17,7 +17,7 @@ function initNew() {
         $('#modif').click(() => { window.location = "./modificationProfil.html?id=" + userId });
         $('#déco').click(() => { window.location = 'index.html' })
     });
-    $.get(`getAllUsers?id=${userId}`, créerListe);
+    $.get(`getAllUsers?id=${userId}`,créerListe);
 }
 
 function setColor() {
