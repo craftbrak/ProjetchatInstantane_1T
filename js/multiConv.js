@@ -1,11 +1,11 @@
 //Auteur : François Girondin
 
 $(document).on('initOver',initMulticonvs);
+$(document).on('listeCréée',initLinks);
 
 function initMulticonvs() {
     creerListeConvs();
     actualiserNomPage();
-    initLinks();
 }
 
 /**
@@ -17,6 +17,7 @@ function creerListeConvs() {
     $.get(`userConvs?userId=${session.userId}`, (convs) => {
         convs.forEach(conv => {
             $('#listeConvs').append(`<div class="convListe convListeBox ${conv.couleur}" id="${conv.id}" href="./play.html?id=${conv.id}">${conv.nom}</div>`);
+            $(document).trigger('listeCréée');
         });
     });
 }
