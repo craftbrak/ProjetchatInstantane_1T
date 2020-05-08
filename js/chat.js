@@ -30,7 +30,7 @@ function initPage() {
                 updateChat();
                 setInterval(updateChat, 1000);
                 $('.listeParticipantsFooter').hide()
-                listeParticipant();
+                listeParticipants();
                 $('#msg').focus()
             } else {
                 alert("vous êtes deconnecté. Veuillez vous connecter pour accéder au chat.");
@@ -49,14 +49,14 @@ function TraiterFormMessage(e) {
     return false;
 }
 
-function listeParticipant() {
+function listeParticipants() {
     $.post('chatParticipant', { convUserIdVar: session.convUserId }, (res) => {
         $('#chatName').append(res[0].convName)
         let liste = ""
         res.forEach(element => {
             liste += `<div class="userContainer ${element.participant === session.pseudo? "me":"notMe"} ${element.isAdmin == true ? "admin":""}">${element.participant}</div>`
         })
-        $('.listeParticipantBody').append(liste)
+        $('.listeParticipantsBody').append(liste)
         if ($('.userContainer').hasClass('admin')) {
             if ($('.admin').html() === session.pseudo) {
                 $('.listeParticipantsFooter').show().click(() => { window.location = `./modifConv.html?id=${session.convUserId}` })
