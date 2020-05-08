@@ -1,41 +1,54 @@
 //Auteur : François Girondin
-$(document).on('InitOver', initConvs);
-$(document).on('InitOver', initLinks);
 
-function initConvs() {
+$(document).ready(initMulticonvs);
+
+function initMulticonvs() {
     créerListeConvs();
     actualiserNomPage();
+    initLinks();
 }
 
-function initLinks() {
-    $('#modif').click(modif);
-    $('#déco').click(goToLink);
-}
-
+/**
+ * Effectue une requête à la base de donnée, qui renvoie toutes les conversations dans lesquelles se trouve l'utilisateur.
+ * Génère dynamiquement la liste de ces conversations.
+ * Génère le bouton "Nouvelle conversation".
+ */
 function créerListeConvs() {
     $.get(`userConvs?userId=${session.userId}`,(convs) => {
-        let liste = '';
         convs.forEach(conv => {
-            liste += `<div class="convListe convListeBox ${conv.couleur}" id="${conv.id}" href="./play.html?id=${conv.id}">${conv.nom}</div>`;
+            $('#listeConvs').append(`<div class="convListe convListeBox ${conv.couleur}" id="${conv.id}" href="./play.html?id=${conv.id}">${conv.nom}</div>`);
         });
-        document.getElementById('listeConvs').innerHTML = liste + '<div id=\"ajouterConv\" class=\"convListeBox\">Nouvelle conversation</div>';
-        $('.convListe').click(goToLink);
-        $('#ajouterConv').click(creerConv);
+        $('#listeConvs').append('<div id="ajouterConv" class="convListeBox">Nouvelle conversation</div>');
     });
 }
 
-function goToLink(event) {
-    window.location = event.target.getAttribute('href');
+/**
+ * Envoie une requête au serveur afin d'obtenir le nom de la conversation actuelle, et remplace le titre du document par celui-ci.
+ */
+function actualiserNomPage() {
+    $.get(`getName?id=${session.convUserId}`,(titre)=>{document.title = titre});
+}
+
+/**
+ * Créée les événements survenant lors du clic sur les éléments cliquables du site :
+ * -Le lien de modification de profil.
+ * -Le bouton déconnexion et les boutons de conversations.
+ * -Le bouton "Nouvelle conversation".
+ */
+function initLinks() {
+    $('#modif').click(modif);
+    $('#déco, .convListe').click(goToLink);
+    $('#ajouterConv').click(creerConv);
 }
 
 function modif(event) {
     window.location = event.target.getAttribute('href') + session.userId;
 }
 
-function actualiserNomPage() {
-    $.get(`getName?id=${session.convUserId}`,(titre)=>{document.title = titre});
+function goToLink(event) {
+    window.location = event.target.getAttribute('href');
 }
 
 function creerConv() {
-    window.location = `./new.html?id=${session.userId}`;
+    window.location = `./new.html?userId=${session.userId}`;
 }

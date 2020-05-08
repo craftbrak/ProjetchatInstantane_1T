@@ -18,7 +18,7 @@ function initPage() {
         alert("vous êtes deconnecté veuiller vous connectez pour accéder au chat");
         window.location = "http://craftbrakddns.myddns.me:536/index.html"
     } else {
-        $.post(`obtenirUseId`, { convUserId: session.convUserId }, (res) => {
+        $.post(`obtenirUserId`, { convUserId: session.convUserId }, (res) => {
             session.userId = res[0].UserId;
             if (session.userId != null) {
                 $('#modif').href = `./modificationProfil.html?id=${session.userId}`;
@@ -26,14 +26,11 @@ function initPage() {
                 $('#formMessage').submit(TraiterFormMessage)
                 updateChat();
                 setInterval(updateChat, 1000);
-                $(document).trigger('InitOver');
                 $('#msg').focus()
             } else {
-                alert("vous êtes deconnecté veuiller vous connectez pour accéder au chat");
+                alert("vous êtes deconnecté. Veuillez vous connecter pour accéder au chat.");
                 window.location = "http://craftbrakddns.myddns.me:536/index.html"
             }
-
-
         });
     }
 }
@@ -44,15 +41,11 @@ function TraiterFormMessage(e) {
         updateChat();
         document.getElementById("formMessage").message.value = null;
     });
-
     return false;
-
 }
 
 function updateChat() {
     $.post(`updateChat`, { idConvUserVar: session.convUserId, lastId: session.lastMsgId }, (chat) => {
-
-
                 let chatFinal = "";
                 for (const element of chat) {
                     element.heure = element.heure.slice(11, -4);
@@ -79,8 +72,6 @@ function updateChat() {
         }
      } );
 }
-    
-
 
 /* fonction de traitement des bouton d'administation
 
@@ -97,7 +88,6 @@ function deleteMsg() {
   })
 }
 */
-
 
 // fixe dynamiquement la taile de l'input du message avec JQuerry 
 $('document').ready(function() { //quand le DOM est pret 
