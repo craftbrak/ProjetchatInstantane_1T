@@ -35,7 +35,7 @@ function initNew() {
                     $('#form').submit(formConv)
                 });
             } else {
-                alert("vous êtes deconnecté veuiller vous connectez pour accéder au chat");
+                alert("Vous êtes deconnecté. Veuillez vous connecter pour accéder au chat.");
                 window.location = "http://craftbrakddns.myddns.me:536/index.html"
             }
         });
@@ -117,14 +117,13 @@ function créerListe(users) {
 }
 
 /**
- * Triger event on event's target's parent
+ * Trigger event on event's target's parent
  * @author François Girondin
  * @param {event} event
  * @returns {void} nothing
  */
 function triggerAddUser(event) {
     let classes = event.target.classList;
-
     classes.forEach(classe => {
         if (classe != 'click' && classe != 'user' && classe != 'pseudo' && classe != 'commonChats') {
             $(`#listeUsers.${classe}`).trigger('childClicked');
