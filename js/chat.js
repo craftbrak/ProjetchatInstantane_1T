@@ -42,15 +42,14 @@ function initPage() {
 
 function TraiterFormMessage(e) {
     e.preventDefault()
-    $.post("newMsg", { msgContentVar: e.target.message.value, convUserIdVar: session.convUserId }, () => {
+    $.post("./newMsg", { msgContentVar: e.target.message.value, convUserIdVar: session.convUserId }, () => {
         updateChat();
         document.getElementById("formMessage").message.value = null;
     });
-    return false;
 }
 
 function listeParticipants() {
-    $.post('chatParticipant', { convUserIdVar: session.convUserId }, (res) => {
+    $.post('./chatParticipant', { convUserIdVar: session.convUserId }, (res) => {
         $('#chatName').append(res[0].convName);
         res.sort((a, b) => {
             if (a.participant > b.participant) {

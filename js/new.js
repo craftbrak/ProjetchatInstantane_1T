@@ -44,7 +44,7 @@ function créerListe(users) {
     document.getElementById('listeUsers').innerHTML = liste;
     document.getElementById('listeUsersToAdd').innerHTML = listeToAdd;
     $('#listeUsers .user').click(addUser);
-    $('#listeUsers .user').on('childClicked',addUser);
+    $('#listeUsers .user').on('childClicked', addUser);
     $('#listeUsers .user div').click(triggerAddUser);
     $('#listeUsersToAdd div.user').click(removeUser);
     $('#listeUsersToAdd div.user').hide();
@@ -73,6 +73,7 @@ function addUser(event) {
             id = Number(classe);
         }
     });
+    usersToAdd.push({ id: id });
     $(`#listeUsersToAdd  .${id}`).show();
     $(`#listeUsers .${id}`).hide();
 }
