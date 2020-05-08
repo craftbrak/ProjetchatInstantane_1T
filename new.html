@@ -42,12 +42,12 @@
         <div class="col col-xs-6 col-lg-6">
             <div class="wrapper fadeInDown">
                 <div id="formContent">
-                    <form method="POST" onsubmit="return formNewConv(this);" id="form">
+                    <form method="POST" onsubmit="return testForm(this);" id="form">
                         <fieldset>
                             <legend>Créer une nouvelle conversation :</legend>
                             <input class="fadeIn second" id="convName" name="convName" type="text" required placeholder="Nom de la conversation"><br>
                             <label for="color">Couleur de la conversation :&nbsp;</label>
-                            <select id="color" name="color" class="gris fadeIn third" onchange="setColor();" value="gris">
+                            <select id="color" name="color" class="gris fadeIn third" onchange="setColor();">
                                 <option value="gris" class="gris">Gris</option>
                                 <option value="rouge" class="rouge">Rouge</option>
                                 <option value="orange" class="orange">Orange</option>

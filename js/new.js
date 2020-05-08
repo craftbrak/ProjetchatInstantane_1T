@@ -5,6 +5,8 @@ let userId = urlParams.get('userId');
 let usersToAdd = [];
 
 $(document).ready(initNew);
+$(document).on('nomUnique', sumbitForm);
+$(document).on('nomPasUnique', nomPasUnique);
 
 /**
  * @author François Girondin
@@ -105,26 +107,13 @@ function removeUser(event) {
 /**
  * @author François Girondin
  */
-function formNewConv(form) {
+function testForm(form) {
     if (testParticipants()) {
         document.getElementById('erreur').innerText = '';
         $('#convName').removeClass('error');
-        if (testNomUnique()) {
-            $.post(`./newConv`, { name: form.convName.value, color: form.color.value, admin: userId }, (res) => {
-                usersToAdd.forEach(user => {
-                    $.post(`./addUsersToConv`, { id: user.id, nom: form.convName.value }, (ress) => {
-
-                        $.get(`./userToGeneral?id=${userId}`, (id) => { window.location = `./play.html?id=${id}` });
-                    });
-                });
-
-            });
-        } else {
-            document.getElementById('erreur').innerText = 'Ce nom est déjà pris !';
-        }
+        testNomUnique();
     } else {
         document.getElementById('erreur').innerText = 'Votre conversation doit comporter au moins deux participants !';
-        $('#convName').addClass('error');
     }
     return false;
 }
@@ -140,7 +129,29 @@ function testParticipants() {
  * @author François Girondin
  */
 function testNomUnique() {
-    let unique = true;
-    $.get(`getNoms`, (noms) => { noms.forEach(nom => { if (nom == document.getElementById('form').convName.value) { unique = false } }) });
-    return unique;
+    $.get(`getNoms`, (noms) => {
+        let unique = true;
+        noms.forEach(nom => {
+            if (nom == document.getElementById('form').convName.value) { unique = false }
+        });
+        if (unique) {
+            $(document).trigger('nomUnique');
+        } else {
+            $(document).trigger('nomPasUnique');
+        }
+    });
+}
+
+function sumbitForm() {
+    $.post(`./newConv`, { name: form.convName.value, color: form.color.value, admin: userId }, (res) => {
+        usersToAdd.forEach(user => {
+            $.post(`./addUsersToConv`, { id: user.id, nom: form.convName.value }, (ress) => {});
+        });
+        $.get(`./userToGeneral?id=${userId}`, (id) => { window.location = `./play.html?id=${id}` });
+    });
+}
+
+function nomPasUnique() {
+    $('#convName').addClass('error');
+    document.getElementById('erreur').innerText = 'Ce nom est déjà pris !';
 }
