@@ -3,6 +3,17 @@ const urlParams = new URLSearchParams(queryString);
 let idUser = 0;
 idUser = urlParams.get('id');
 
+
+/**
+ * @author Arthur schamroth
+ *Appel au service Modification lié à la procédure infos qui :
+ * - retourne l'id de l'utilisateur,
+ * - retourne le nom de l'utilisateur,
+ * - retourne le prenom de l'utilisateur,
+ * - retourne le mot de passe de l'utilisateur,
+ * - retourne l'adresse mail de l'utilisateur,
+ * - retourne le pseudo de l'utilisateur.
+ */
 function initialiserFormulaire() {
     let xhr = new XMLHttpRequest();
     xhr.open("get", "./modification?idChoisi=" + idUser + "", true);
@@ -10,6 +21,10 @@ function initialiserFormulaire() {
     xhr.send();
 }
 
+/**
+ * @author Arthur schamroth
+ * Remplit le formulaire avec les données chargées précédemment.
+ */
 function remplirFormulaire() {
     let reponse = JSON.parse(this.responseText)[0];
 
