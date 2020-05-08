@@ -209,7 +209,7 @@ function formConv(event) {
  * @returns {void} nothing
  */
 function testNomUnique() {
-    $.get(`getNoms`, (convs) => {
+    $.get(`getAllConvNames`, (convs) => {
         let estUnique = true;
         convs.forEach(conv => {
             if (conv.nom == document.getElementById('form').convName.value && conv.nom != ancienNom) {

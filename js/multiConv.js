@@ -26,7 +26,7 @@ function creerListeConvs() {
  * Envoie une requête au serveur afin d'obtenir le nom de la conversation actuelle, et remplace le titre du document par celui-ci.
  */
 function actualiserNomPage() {
-    $.get(`./getName?id=${session.convUserId}`, (titre) => { document.title = titre });
+    $.get(`./getConvName?id=${session.convUserId}`, (titre) => { document.title = titre });
 }
 
 /**
