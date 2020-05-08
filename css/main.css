@@ -119,12 +119,8 @@ link:visited {
     background-color: #FF66B2;
 }
 
-
 /* Test : style des formulaires migré vers main.css */
 
-input[type=button],
-input[type=submit],
-input[type=reset],
 select {
     background-color: #56baed;
     border: none;
@@ -146,12 +142,10 @@ select {
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
-input[type=button]:hover,
 input[type=submit]:hover,
 input[type=reset]:hover {
     background-color: #39ace7;
 }
-input[type=button]:active,
 input[type=submit]:active,
 input[type=reset]:active,
 select:active {
@@ -163,6 +157,7 @@ select:active {
 }
 input[type=password],
 input[type=email],
+input[type=text],
 select {
     background-color: #acacac;
     border: none;
