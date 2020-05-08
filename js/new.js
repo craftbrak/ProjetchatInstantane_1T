@@ -5,8 +5,8 @@ let userId = urlParams.get('userId');
 let usersToAdd = [];
 
 $(document).ready(initNew);
-$(document).on('nomUnique',sumbitForm);
-$(document).on('nomPasUnique',nomPasUnique);
+$(document).on('nomUnique', sumbitForm);
+$(document).on('nomPasUnique', nomPasUnique);
 
 /**
  * @author François Girondin
@@ -46,7 +46,7 @@ function créerListe(users) {
     document.getElementById('listeUsers').innerHTML = liste;
     document.getElementById('listeUsersToAdd').innerHTML = listeToAdd;
     $('#listeUsers .user').click(addUser);
-    $('#listeUsers .user').on('childClicked',addUser);
+    $('#listeUsers .user').on('childClicked', addUser);
     $('#listeUsers .user div').click(triggerAddUser);
     $('#listeUsersToAdd div.user').click(removeUser);
     $('#listeUsersToAdd div.user').hide();
@@ -75,7 +75,7 @@ function addUser(event) {
             id = Number(classe);
         }
     });
-    usersToAdd.push({id:id});
+    usersToAdd.push({ id: id });
     $(`#listeUsersToAdd  .${id}`).show();
     $(`#listeUsers .${id}`).hide();
 }
@@ -112,8 +112,7 @@ function testForm(form) {
         document.getElementById('erreur').innerText = '';
         $('#convName').removeClass('error');
         testNomUnique();
-    }
-    else {
+    } else {
         document.getElementById('erreur').innerText = 'Votre conversation doit comporter au moins deux participants !';
     }
     return false;
@@ -135,22 +134,20 @@ function testNomUnique() {
         convs.forEach(conv => {
             if (conv.nom == document.getElementById('form').convName.value) { unique = false }
         });
-        if(unique){
+        if (unique) {
             $(document).trigger('nomUnique');
-        }
-        else{
+        } else {
             $(document).trigger('nomPasUnique');
         }
     });
 }
 
 function sumbitForm() {
-    $.post(`./newConv`, {name: form.convName.value, color: form.color.value, admin: userId }, (res) => {
+    $.post(`./newConv`, { name: form.convName.value, color: form.color.value, admin: userId }, (res) => {
         usersToAdd.forEach(user => {
-            $.post(`./addUsersToConv`,{id:user.id, nom:form.convName.value}, (ress) => {
-            });
+            $.post(`./addUsersToConv`, { id: user.id, nom: form.convName.value }, (ress) => {});
         });
-        $.get(`./userToGeneral?id=${userId}`, (id) => {window.location = `./play.html?id=${id}`});
+        $.get(`./userToGeneral?id=${userId}`, (id) => { window.location = `./play.html?id=${id}` });
     });
 }
 

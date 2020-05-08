@@ -55,7 +55,6 @@ function initModif() {
 
         session.participant = res;
         creerListeParticipants(res);
-        console.log(typeof res);
     })
 }
 
