@@ -17,10 +17,10 @@ function initNew() {
     document.getElementById('color').selectedIndex = 0;
     setColor();
     if (session.convUserId == null) {
-        alert("vous êtes deconnecté veuiller vous connectez pour accéder au chat");
+        alert("Vous êtes deconnecté. Veuillez vous connecter pour accéder au chat.");
         window.location = "http://craftbrakddns.myddns.me:536/index.html"
     } else {
-        $.post(`obtenirUseId`, { convUserId: session.convUserId }, (res) => {
+        $.post(`obtenirUserId`, { convUserId: session.convUserId }, (res) => {
             session.userId = res[0].UserId;
             if (session.userId != null) {
                 $('#modif').href = `./modificationProfil.html?id=${session.userId}`;
@@ -38,13 +38,10 @@ function initNew() {
                 alert("vous êtes deconnecté veuiller vous connectez pour accéder au chat");
                 window.location = "http://craftbrakddns.myddns.me:536/index.html"
             }
-
-
         });
     }
-
-
 }
+
 /**
  * pre fill in the form 
  * @returns {void} nothing
@@ -61,6 +58,7 @@ function initModif() {
         console.log(typeof res);
     })
 }
+
 /**
  * generate liste Participant
  * @param  {object} users
@@ -83,6 +81,7 @@ function creerListeParticipants(users) {
 
     })
 }
+
 /**
  * set color of select and select objectPosition
  * @author François Girondin
@@ -93,6 +92,7 @@ function setColor() {
     });
     document.getElementById('color').classList.add(document.getElementById('color').value);
 }
+
 /**
  * generate User list 
  * @param {object} users
@@ -115,6 +115,7 @@ function créerListe(users) {
     $('#listeUsersToAdd div.user').hide();
     $(document).trigger('listeCree');
 }
+
 /**
  * Triger event on event's target's parent
  * @author François Girondin
@@ -130,6 +131,7 @@ function triggerAddUser(event) {
         }
     });
 }
+
 /**
  * add user to userToAdd array
  * @author François Girondin
@@ -149,6 +151,7 @@ function addUser(event) {
     $('#listeUsersToAdd .' + id).show();
     $('#listeUsers .' + id).hide();
 }
+
 /**
  * remove user from userToAdd array
  * @author François Girondin
@@ -185,6 +188,7 @@ function removeUser(event) {
     $('#listeUsers .' + id).show();
     $('#listeUsersToAdd .' + id).hide();
 }
+
 /**
  * modify data in date base based on the form 
  * @author Louis De Wilde
@@ -213,6 +217,7 @@ function formConv(event) {
         document.getElementById('erreur').innerText = 'Votre conversation doit comporter au moins deux participants !';
     }
 }
+
 /**
  * verify if the name in the form is not existing in database
  * @author François Girondin

@@ -6,27 +6,22 @@ body {
     background: #222;
     color: snow;
 }
-
 button {
     border-radius: 3px;
     background-color: #C0C0C0;
 }
-
 header {
     background-color: #333;
     height: 3em;
     border-bottom: 2px solid black;
 }
-
 input {
     border-radius: 3px;
     background-color: #C0C0C0;
 }
-
 link:visited {
     color: blue;
 }
-
 
 /* Propriétés d'ids */
 
@@ -35,13 +30,11 @@ link:visited {
     height: 3em;
 }
 
-
 /* Propriétés de classes */
 
 .click {
     cursor: pointer;
 }
-
 .credit {
     font-family: 'Times New Roman', Times, serif;
     font-size: 0.3em;
@@ -59,7 +52,6 @@ link:visited {
     width: 41em;
     float: right;
 }
-
 .link {
     height: 3em;
     float: right;
@@ -71,42 +63,107 @@ link:visited {
     border-radius: 5px;
 }
 
-
 /* Classes de couleurs */
 
 .gris {
     background-color: #C0C0C0;
     color: black;
 }
-
 .rouge {
     background-color: #F33;
 }
-
 .orange {
     color: black;
     background-color: #F93;
 }
-
 .jaune {
     color: black;
     background-color: #FF6;
 }
-
 .vert {
     color: black;
     background-color: #6F6;
 }
-
 .bleu {
     background-color: #06C;
 }
-
 .violet {
     background-color: #93F;
 }
-
 .rose {
     color: black;
     background-color: #FF66B2;
+}
+
+
+/* Test : style des formulaires migré vers main.css */
+
+input[type=button],
+input[type=submit],
+input[type=reset],
+select {
+    background-color: #56baed;
+    border: none;
+    color: white;
+    padding: 15px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    -webkit-box-shadow: 0 10px 20px 0 rgba(95, 186, 233, 0.4);
+    box-shadow: 0 10px 20px 0 rgba(95, 186, 233, 0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px 20px 40px 20px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+input[type=button]:hover,
+input[type=submit]:hover,
+input[type=reset]:hover {
+    background-color: #39ace7;
+}
+input[type=button]:active,
+input[type=submit]:active,
+input[type=reset]:active,
+select:active {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+}
+input[type=password],
+input[type=email],
+input[type=text],
+select {
+    background-color: #acacac;
+    border: none;
+    color: #000000;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    width: 85%;
+    border: 2px solid #acacac;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+input[type=text]:focus {
+    background-color: rgb(172, 170, 170);
+    border-bottom: 2px solid #5fbae9;
+}
+input[type=text]:placeholder {
+    color: #c0c0c0;
 }
