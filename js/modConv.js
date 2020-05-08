@@ -27,7 +27,7 @@ function initNew() {
                 $.get(`./getPseudo?id=${session.userId}`, (p) => {
                     $('#iden').append(`Vous êtes connecté en tant que ${p}.`);
                     session.pseudo = p
-                    $('#modif').click(() => { window.location = "./modificationProfil.html?id=" + sessi.userId });
+                    $('#modif').click(() => { window.location = `./modificationProfil.html?id=${sessi.userId}`});
                     $('#déco').click(() => { window.location = './index.html' })
                     document.getElementById('owner').innerText = `${p} (vous)`;
                     $.get(`./getAllUsers?id=${session.userId}`, créerListe);
