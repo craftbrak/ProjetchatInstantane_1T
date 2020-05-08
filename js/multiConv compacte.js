@@ -1,9 +1,8 @@
-$(document).ready(()=>{
+$(document).on('initOver',()=>{
     $.get(`userConvs?userId=${session.userId}`,(v)=>{
         v.forEach(c=>{
             $('#listeConvs').append(`<div class="convListe convListeBox ${c.couleur}" id="${c.id}" href="./play.html?id=${c.id}">${c.nom}</div>`);
         });
-        $('#listeConvs').append('<div id="ajouterConv" class="convListeBox">Nouvelle conversation</div>');
     });
     $.get(`getName?id=${session.convUserId}`,(t)=>{document.title=t});
     $('#modif').click((e)=>{window.location=e.target.getAttribute('href')+session.userId});

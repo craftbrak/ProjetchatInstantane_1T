@@ -18,7 +18,6 @@ function creerListeConvs() {
         convs.forEach(conv => {
             $('#listeConvs').append(`<div class="convListe convListeBox ${conv.couleur}" id="${conv.id}" href="./play.html?id=${conv.id}">${conv.nom}</div>`);
         });
-        $('#listeConvs').append('<div id="ajouterConv" class="convListeBox">Nouvelle conversation</div>');
     });
 }
 
