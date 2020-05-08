@@ -20,7 +20,7 @@ function initNew() {
         alert("vous êtes deconnecté veuiller vous connectez pour accéder au chat");
         window.location = "http://craftbrakddns.myddns.me:536/index.html"
     } else {
-        $.post(`obtenirUseId`, { convUserId: session.convUserId }, (res) => {
+        $.post(`obtenirUserId`, { convUserId: session.convUserId }, (res) => {
             session.userId = res[0].UserId;
             if (session.userId != null) {
                 $('#modif').href = `./modificationProfil.html?id=${session.userId}`;
