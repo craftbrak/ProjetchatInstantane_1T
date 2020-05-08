@@ -17,7 +17,7 @@ function initNew() {
         $('#modif').click(() => { window.location = "./modificationProfil.html?id=" + userId });
         $('#déco').click(() => { window.location = 'index.html' })
     });
-    $.get(`getAllUsers?id=${userId}`, créerListe);
+    $.get(`./getAllUsers?id=${userId}`, créerListe);
 }
 document.addEventListener('DOMContentLoaded')
 
@@ -92,12 +92,12 @@ function formNewConv(form) {
         document.getElementById('erreur').innerText = '';
         $('#convName').removeClass('error');
         if (testNomUnique()) {
-            $.post(`newConv`, { name: form.convName.value, color: form.color.value, admin: userId }, (res) => {
+            $.post(`./newConv`, { name: form.convName.value, color: form.color.value, admin: userId }, (res) => {
 
                 usersToAdd.forEach(user => {
-                    $.post(`addUsersToConv`, { id: user.id, nom: form.convName.value }, (ress) => {
+                    $.post(`./addUsersToConv`, { id: user.id, nom: form.convName.value }, (ress) => {
 
-                        $.get(`userToGeneral?id=${userId}`, (id) => { window.location = `./play.html?id=${id}` });
+                        $.get(`./userToGeneral?id=${userId}`, (id) => { window.location = `./play.html?id=${id}` });
                     });
                 });
 

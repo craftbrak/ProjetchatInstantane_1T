@@ -5,7 +5,7 @@ idUser = urlParams.get('id');
 
 function initialiserFormulaire() {
     let xhr = new XMLHttpRequest();
-    xhr.open("get", "http://craftbrakddns.myddns.me:536/modification?idChoisi=" + idUser + "", true);
+    xhr.open("get", "./modification?idChoisi=" + idUser + "", true);
     xhr.onload = remplirFormulaire;
     xhr.send();
 }
@@ -47,7 +47,7 @@ function enregistrerModifs() {
     let nvMail = document.getElementById("mail").value;
     let nvPseudo = document.getElementById("pseudo").value;
     let xhr = new XMLHttpRequest();
-    xhr.open("get", "http://craftbrakddns.myddns.me:536/mettreAJour?idUtilisateur=" + idUser + "&nvNom=" + nvNom + "&nvPrenom=" + nvPrenom + "&nvMdp=" + nvMdp + "&nvMail=" + nvMail + "&nvPseudo=" + nvPseudo);
+    xhr.open("get", "./mettreAJour?idUtilisateur=" + idUser + "&nvNom=" + nvNom + "&nvPrenom=" + nvPrenom + "&nvMdp=" + nvMdp + "&nvMail=" + nvMail + "&nvPseudo=" + nvPseudo);
     if (test(nvMdp, nvMdpConfirme)) {
         document.getElementById("erreur").innerHTML = "";
         alert("Modifcations Enregistrées avec succès !");

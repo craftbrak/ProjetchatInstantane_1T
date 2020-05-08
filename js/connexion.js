@@ -17,20 +17,18 @@ function soumettreForm(event) {
 //Crée un XHR (connexion), envoie une requête get au serveur pour vérifier si l'email existe et si il existe, le serveur renvoie le bon mdp qui est comparé à celui du form - Si c'est correct il renvoie sur la page play avec l'id correspondant
 function envoyerEmail(emailVerif, mdpVerif) {
     let connexion = new XMLHttpRequest();
-    connexion.open('get', 'connexion?emailVerif=' + emailVerif, true);
+    connexion.open('get', './connexion?emailVerif=' + emailVerif, true);
     connexion.onload =
         function testMdp() {
             let mdp;
-            if(JSON.parse(connexion.response)[0] != undefined){
-                mdp = JSON.parse(connexion.response)[0].mdp; 
-            }
-            else{
+            if (JSON.parse(connexion.response)[0] != undefined) {
+                mdp = JSON.parse(connexion.response)[0].mdp;
+            } else {
                 document.getElementById("erreur").innerText = "Email ou mot de passe éronné! Réessayez.";
             }
-            if (mdp == mdpVerif) {   
-                $.get(`./userToGeneral?id=${JSON.parse(connexion.response)[0].idUser}`,(id) => {window.location = `./play.html?id=${id}`});
-            }
-            else{
+            if (mdp == mdpVerif) {
+                $.get(`./userToGeneral?id=${JSON.parse(connexion.response)[0].idUser}`, (id) => { window.location = `./play.html?id=${id}` });
+            } else {
                 document.getElementById("erreur").innerText = "Email ou mot de passe éronné! Réessayez.";
             }
         };

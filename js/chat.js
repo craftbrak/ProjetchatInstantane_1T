@@ -18,7 +18,7 @@ function initPage() {
         alert("vous êtes deconnecté veuiller vous connectez pour accéder au chat");
         window.location = "./index.html"
     } else {
-        $.post(`obtenirUserId`, { convUserId: session.convUserId }, (res) => {
+        $.post(`./obtenirUserId`, { convUserId: session.convUserId }, (res) => {
             session.userId = res[0].UserId;
             if (session.userId != null) {
                 $.get(`getPseudo?id=${session.userId}`, (p) => {
@@ -34,7 +34,7 @@ function initPage() {
                 $('#msg').focus()
             } else {
                 alert("Vous êtes deconnecté. Veuillez vous connecter pour accéder au chat.");
-                window.location = "http://craftbrakddns.myddns.me:536/index.html"
+                window.location = "./index.html"
             }
         });
     }
@@ -52,14 +52,12 @@ function TraiterFormMessage(e) {
 function listeParticipants() {
     $.post('chatParticipant', { convUserIdVar: session.convUserId }, (res) => {
         $('#chatName').append(res[0].convName);
-        res.sort((a,b)=>{
-            if(a.participant>b.participant){
+        res.sort((a, b) => {
+            if (a.participant > b.participant) {
                 return 1
-            }
-            else if(b.participant>a.participant){
+            } else if (b.participant > a.participant) {
                 return -1
-            }
-            else{
+            } else {
                 return 0
             }
         });
@@ -77,7 +75,7 @@ function listeParticipants() {
 }
 
 function updateChat() {
-    $.post(`updateChat`, { idConvUserVar: session.convUserId, lastId: session.lastMsgId }, (chat) => {
+    $.post(`./updateChat`, { idConvUserVar: session.convUserId, lastId: session.lastMsgId }, (chat) => {
                 let chatFinal = "";
                 for (const element of chat) {
                     element.heure = element.heure.slice(11, -4);

@@ -1,6 +1,6 @@
 $(document).ready(() => {
     $('#newEmail').change((e) => {
-        $.post('verifEmail', { emailVar: e.target.value }, (res) => {
+        $.post('./verifEmail', { emailVar: e.target.value }, (res) => {
             if (res != "") {
                 //changer le css de l'element
                 $('#erreurCrea').html("Email deja utiliser");
@@ -20,7 +20,7 @@ $(document).ready(() => {
         })
     });
     $('#newPseudo').change((e) => {
-        $.post('verifPseudo', { pseudoVar: e.target.value }, (res) => {
+        $.post('./verifPseudo', { pseudoVar: e.target.value }, (res) => {
             if (res != "") {
 
                 $('#erreurCrea').html("Pseudo deja utiliser");
