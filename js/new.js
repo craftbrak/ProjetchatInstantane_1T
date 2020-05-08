@@ -5,6 +5,7 @@ let userId = urlParams.get('userId');
 let usersToAdd = [];
 
 $(document).ready(initNew);
+
 /**
  * @author François Girondin
  */
@@ -20,6 +21,9 @@ function initNew() {
     $.get(`getAllUsers?id=${userId}`,créerListe);
 }
 
+/**
+ * @author François Girondin
+ */
 function setColor() {
     couleurs.forEach(couleur => {
         document.getElementById('color').classList.remove(couleur)
@@ -27,6 +31,9 @@ function setColor() {
     document.getElementById('color').classList.add(document.getElementById('color').value);
 }
 
+/**
+ * @author François Girondin
+ */
 function créerListe(users) {
     let liste = '';
     let listeToAdd = '';
@@ -37,12 +44,15 @@ function créerListe(users) {
     document.getElementById('listeUsers').innerHTML = liste;
     document.getElementById('listeUsersToAdd').innerHTML = listeToAdd;
     $('#listeUsers .user').click(addUser);
-    $('#listeUsers .user').on('childClicked', addUser);
+    $('#listeUsers .user').on('childClicked',addUser);
     $('#listeUsers .user div').click(triggerAddUser);
     $('#listeUsersToAdd div.user').click(removeUser);
     $('#listeUsersToAdd div.user').hide();
 }
 
+/**
+ * @author François Girondin
+ */
 function triggerAddUser(event) {
     let classes = event.target.classList;
     classes.forEach(classe => {
@@ -52,6 +62,9 @@ function triggerAddUser(event) {
     });
 }
 
+/**
+ * @author François Girondin
+ */
 function addUser(event) {
     let classes = event.target.classList;
     let id;
@@ -60,11 +73,13 @@ function addUser(event) {
             id = Number(classe);
         }
     });
-    usersToAdd.push({ id: id });
-    $('#listeUsersToAdd .' + id).show();
-    $('#listeUsers .' + id).hide();
+    $(`#listeUsersToAdd  .${id}`).show();
+    $(`#listeUsers .${id}`).hide();
 }
 
+/**
+ * @author François Girondin
+ */
 function removeUser(event) {
     let classes = event.target.classList;
     let id;
@@ -82,21 +97,22 @@ function removeUser(event) {
     if (index != -1) {
         usersToAdd.splice(index, 1);
     }
-    $('#listeUsers .' + id).show();
-    $('#listeUsersToAdd .' + id).hide();
+    $(`#listeUsers  .${id}`).show();
+    $(`#listeUsersToAdd  .${id}`).hide();
 }
 
+/**
+ * @author François Girondin
+ */
 function formNewConv(form) {
     if (testParticipants()) {
         document.getElementById('erreur').innerText = '';
         $('#convName').removeClass('error');
         if (testNomUnique()) {
             $.post(`newConv`, { name: form.convName.value, color: form.color.value, admin: userId }, (res) => {
-
                 usersToAdd.forEach(user => {
                     $.post(`addUsersToConv`, { id: user.id, nom: form.convName.value }, (ress) => {
-
-                        $.get(`userToGeneral?id=${userId}`, (id) => { window.location = `./play.html?id=${id}` });
+                        $.get(`userToGeneral?id=${userId}`, (id) => { window.location = `./play.html?id=${id}`});
                     });
                 });
 
@@ -111,10 +127,16 @@ function formNewConv(form) {
     return false;
 }
 
+/**
+ * @author François Girondin
+ */
 function testParticipants() {
     return Boolean(usersToAdd.length > 0);
 }
 
+/**
+ * @author François Girondin
+ */
 function testNomUnique() {
     let unique = true;
     $.get(`getNoms`, (noms) => { noms.forEach(nom => { if (nom == document.getElementById('form').convName.value) { unique = false } }) });

@@ -18,7 +18,7 @@ function initNew() {
     setColor();
     if (session.convUserId == null) {
         alert("Vous êtes deconnecté. Veuillez vous connecter pour accéder au chat.");
-        window.location = "http://craftbrakddns.myddns.me:536/index.html"
+        window.location = "./index.html"
     } else {
         $.post(`obtenirUserId`, { convUserId: session.convUserId }, (res) => {
             session.userId = res[0].UserId;
@@ -36,7 +36,7 @@ function initNew() {
                 });
             } else {
                 alert("Vous êtes deconnecté. Veuillez vous connecter pour accéder au chat.");
-                window.location = "http://craftbrakddns.myddns.me:536/index.html"
+                window.location = "./index.html"
             }
         });
     }

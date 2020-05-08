@@ -34,7 +34,7 @@ function creerCompte(email, nom, prenom, pseudo, mdp, mdpVerif) {
                                 redirect.onload =
                                     function() {
                                         idConv = redirect.response;
-                                        window.location = "http://craftbrakddns.myddns.me:536/play.html?id=" + idConv;
+                                        window.location = "./play.html?id=" + idConv;
                                     };
                                 redirect.send();
                             };

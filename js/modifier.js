@@ -31,11 +31,10 @@ function enregistrerModifs() {
     let nvMail = document.getElementById("mail").value;
     let nvPseudo = document.getElementById("pseudo").value;
     let xhr = new XMLHttpRequest();
-    xhr.open("get", "http://craftbrakddns.myddns.me:536/mettreAJour?idUtilisateur=" + idUser + "&nvNom=" + nvNom + "&nvPrenom=" + nvPrenom + "&nvMdp=" + nvMdp + "&nvMail=" + nvMail + "&nvPseudo=" + nvPseudo);
+    xhr.open("get", "./mettreAJour?idUtilisateur=" + idUser + "&nvNom=" + nvNom + "&nvPrenom=" + nvPrenom + "&nvMdp=" + nvMdp + "&nvMail=" + nvMail + "&nvPseudo=" + nvPseudo);
     if (test(nvMdp, nvMdpConfirme)) {
         document.getElementById("erreur").innerHTML = "";
         alert("Modifcations Enregistrées avec succès !");
-        console.log("ca passe");
         $.get(`./userToGeneral?id=${idUser}`, (id) => { window.location = `./play.html?id=${id}` });
         xhr.send();
         return false;

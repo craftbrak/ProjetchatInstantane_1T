@@ -1,6 +1,6 @@
 $(document).ready(() => {
     $('#logo').click(() => {
-            window.location = "http://craftbrakddns.myddns.me:536/index.html"
+            window.location = "./index.html"
         })
         /*const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);

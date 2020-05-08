@@ -15,7 +15,7 @@ $(document).ready(initPage);
 
 function initPage() {
     if (session.convUserId == null) {
-        alert("vous êtes deconnecté veuiller vous connectez pour accéder au chat");
+        alert("Vous êtes deconnecté. Veuillez vous connecter pour accéder au chat.");
         window.location = "./index.html"
     } else {
         $.post(`obtenirUserId`, { convUserId: session.convUserId }, (res) => {
@@ -34,7 +34,7 @@ function initPage() {
                 $('#msg').focus()
             } else {
                 alert("Vous êtes deconnecté. Veuillez vous connecter pour accéder au chat.");
-                window.location = "http://craftbrakddns.myddns.me:536/index.html"
+                window.location = "./index.html"
             }
         });
     }
