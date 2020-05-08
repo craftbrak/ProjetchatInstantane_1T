@@ -1,16 +1,11 @@
-/* Propriétés de balises */
-
-
 /* Propriétés d'ids */
 
 #errorName {
     color: red;
 }
-
 #listeUsers {
     margin: 15px;
 }
-
 #titres {
     background-color: #444;
     border: solid 0.03em #333;
@@ -23,7 +18,6 @@
     margin: 15px;
 }
 
-
 /* Propriétés de classes */
 
 .commonChats {
@@ -31,57 +25,13 @@
     width: 8em;
     text-align: center;
 }
-
+.error {
+    background-color: tomato;
+}
 .pseudo {
     display: inline-block;
     width: calc(100% - 10em);
 }
-
-.error {
-    background-color: tomato;
-}
-
-.sidebar {
-    background-color: #646464;
-    border: solid 0.3em #646464;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    display: block;
-    margin: 5px auto;
-    width: 20em;
-    padding: 5px;
-    overflow: auto;
-}
-
-.sidebar::-webkit-scrollbar {
-    width: 12px;
-    background-color: #222;
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #D62929;
-}
-
-.sidebar::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    background-color: #222;
-}
-
-.sideBarTitle {
-    display: block;
-    text-align: center;
-}
-
-.me {
-    font-style: oblique;
-}
-
 .user {
     background-color: rgb(49, 49, 49);
     border: solid 0.03em #333333;
@@ -91,31 +41,5 @@
     text-align: center;
     display: block;
     margin: 5px auto;
-    padding: 5px;
-}
-
-.sidebarBody {
-    background-color: #444;
-    border: solid 0.3em #444;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    text-align: center;
-    display: block;
-    margin: 5px auto;
-    width: 20em;
-    padding: 5px;
-}
-
-.sidebarFooter {
-    background-color: lightslategrey;
-    border: none 0.3em lightslategray;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    text-align: center;
-    display: block;
-    margin: 5px auto;
-    width: 20em;
     padding: 5px;
 }

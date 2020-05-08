@@ -16,7 +16,7 @@ $(document).ready(initPage);
 function initPage() {
     if (session.convUserId == null) {
         alert("vous êtes deconnecté veuiller vous connectez pour accéder au chat");
-        window.location = "http://craftbrakddns.myddns.me:536/index.html"
+        window.location = "./index.html"
     } else {
         $.post(`obtenirUserId`, { convUserId: session.convUserId }, (res) => {
             session.userId = res[0].UserId;
@@ -33,7 +33,7 @@ function initPage() {
                 listeParticipants();
                 $('#msg').focus()
             } else {
-                alert("vous êtes deconnecté. Veuillez vous connecter pour accéder au chat.");
+                alert("Vous êtes deconnecté. Veuillez vous connecter pour accéder au chat.");
                 window.location = "http://craftbrakddns.myddns.me:536/index.html"
             }
         });
@@ -51,12 +51,23 @@ function TraiterFormMessage(e) {
 
 function listeParticipants() {
     $.post('chatParticipant', { convUserIdVar: session.convUserId }, (res) => {
-        $('#chatName').append(res[0].convName)
-        let liste = ""
+        $('#chatName').append(res[0].convName);
+        res.sort((a,b)=>{
+            if(a.participant>b.participant){
+                return 1
+            }
+            else if(b.participant>a.participant){
+                return -1
+            }
+            else{
+                return 0
+            }
+        });
+        let liste = "";
         res.forEach(element => {
             liste += `<div class="userContainer ${element.participant === session.pseudo? "me":"notMe"} ${element.isAdmin == true ? "admin":""}">${element.participant}</div>`
-        })
-        $('.listeParticipantsBody').append(liste)
+        });
+        $('.listeParticipantsBody').append(liste);
         if ($('.userContainer').hasClass('admin')) {
             if ($('.admin').html() === session.pseudo) {
                 $('.listeParticipantsFooter').show().click(() => { window.location = `./modifConv.html?id=${session.convUserId}` })
