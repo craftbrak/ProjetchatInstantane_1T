@@ -6,10 +6,14 @@ let session = {
     userId: null,
     pseudo: null,
     participant: null,
+    ancienNom : null
 }
 let usersToAdd = [];
 let usersToRemove = [];
 $(document).ready(initNew);
+$(document).on('nomUnique',sendForm);
+$(document).on('nomPasUnique',nomPasUnique);
+
 /**
  * @author Louis De Wilde
  */
@@ -48,6 +52,7 @@ function initNew() {
 function initModif() {
     $.post('ObtenirInfoConv', { convUserIdVar: session.convUserId }, (res) => {
         $('#convName').val(res[0].convName);
+        session.ancienNom = res[0].convName;
         $('#color').val(res[0].convColor);
         setColor();
 
@@ -194,24 +199,8 @@ function removeUser(event) {
  * @returns {void} nothing
  */
 function formConv(event) {
-    if (testNomUnique()) {
-        event.preventDefault();
-        $.post('Updateconv', { nouveauNom: event.target.convName.value, convColorVar: event.target.color.value, convUserId: session.convUserId }, (res) => {
-            $.when(usersToAdd.forEach(usertoadd => {
-                $.post('addUsersToConv', { id: usertoadd.id, nom: res }, () => {
-
-                })
-            }), usersToRemove.forEach(userToRemove => {
-                $.post('removeUserFromConv', { id: userToRemove.idUser, nom: res }, () => {
-
-                })
-            })).done(() => {
-                window.location = `./play.html?id=${session.convUserId}`
-            })
-        })
-    } else {
-        document.getElementById('erreur').innerText = 'Votre conversation doit comporter au moins deux participants !';
-    }
+    testNomUnique();
+    return false;
 }
 
 /**
@@ -220,7 +209,35 @@ function formConv(event) {
  * @returns {void} nothing
  */
 function testNomUnique() {
-    let unique = true;
-    $.get(`getNoms`, (noms) => { noms.forEach(nom => { if (nom == document.getElementById('form').convName.value) { unique = false } }) });
-    return unique;
+    $.get(`getNoms`, (convs) => {
+        let estUnique = true;
+        convs.forEach(conv => {
+            if (conv.nom == document.getElementById('form').convName.value && conv.nom != ancienNom) {
+                estUnique = false
+            }
+        });
+        if(estUnique){
+            $(document).trigger('nomUnique');
+        }
+        else {
+            $(document).trigger('nomPasUnique');
+        }
+    });
+}
+
+function sendForm() {
+    $.post('Updateconv', { nouveauNom: event.target.convName.value, convColorVar: event.target.color.value, convUserId: session.convUserId }, (res) => {
+        $.when(usersToAdd.forEach(usertoadd => {
+            $.post('addUsersToConv', { id: usertoadd.id, nom: res }, () => {})
+        }), usersToRemove.forEach(userToRemove => {
+            $.post('removeUserFromConv', { id: userToRemove.idUser, nom: res }, () => {})
+        })).done(() => {
+            window.location = `./play.html?id=${session.convUserId}`
+        })
+    })
+}
+
+function nomPasUnique() {
+    document.getElementById('erreur').innerText = 'Ce nom est déjà pris !';
+    $('#convName').addClass('error');
 }
