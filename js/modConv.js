@@ -17,8 +17,7 @@ function initNew() {
     document.getElementById('color').selectedIndex = 0;
     setColor();
     if (session.convUserId == null) {
-        alert(alertDeconnecte);
-        window.location = "./index.html"
+        alerteDeconnecte();
     } else {
         $.post(`./obtenirUserId`, { convUserId: session.convUserId }, (res) => {
             session.userId = res[0].UserId;
@@ -35,8 +34,7 @@ function initNew() {
                     $('#form').submit(formConv)
                 });
             } else {
-                alert(alertDeconnecte);
-                window.location = "./index.html"
+                alerteDeconnecte();
             }
         });
     }

@@ -12,8 +12,7 @@ $(document).ready(initPage);
 
 function initPage() {
     if (session.convUserId == null) {
-        alert(alertDeconnecte);
-        window.location = "./index.html"
+        alerteDeconnecte();
     } else {
         $.post(`./obtenirUserId`, { convUserId: session.convUserId }, (res) => {
             session.userId = res[0].UserId;
@@ -30,8 +29,7 @@ function initPage() {
                 listeParticipants();
                 $('#msg').focus()
             } else {
-                alert(alertDeconnecte);
-                window.location = "./index.html"
+                alerteDeconnecte();
             }
         });
     }

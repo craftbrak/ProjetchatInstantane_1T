@@ -8,4 +8,7 @@ $(document).ready(() => {
     $('#modif').href = `./modificationProfil.html?id=${userId}`;
     $.get(`getPseudo?id=${userId}`, (p) => { $('#iden').append(`Vous êtes connecté en tant que ${p}.`); });*/
 })
-const alertDeconnecte = "Vous êtes deconnecté. Veuillez vous connecter pour accéder au chat."
+function alerteDeconnecte() {
+    alert("Vous êtes deconnecté. Veuillez vous connecter pour accéder au chat.");
+    window.location = "./index.html"
+}
