@@ -84,14 +84,17 @@ link:visited {
 }
 
 .orange {
+    color: black;
     background-color: #F93;
 }
 
 .jaune {
+    color: black;
     background-color: #FF6;
 }
 
 .vert {
+    color: black;
     background-color: #6F6;
 }
 
@@ -104,5 +107,6 @@ link:visited {
 }
 
 .rose {
+    color: black;
     background-color: #FF66B2;
 }
