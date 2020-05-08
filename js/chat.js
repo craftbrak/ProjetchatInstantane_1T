@@ -21,7 +21,6 @@ function initPage() {
         $.post(`obtenirUserId`, { convUserId: session.convUserId }, (res) => {
             session.userId = res[0].UserId;
             if (session.userId != null) {
-                $('#modif').href = `./modificationProfil.html?id=${session.userId}`;
                 $.get(`getPseudo?id=${session.userId}`, (p) => {
                     $('#iden').append(`Vous êtes connecté en tant que ${p}.`);
                     session.pseudo = p
