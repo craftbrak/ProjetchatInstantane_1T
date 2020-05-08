@@ -75,6 +75,7 @@ function addUser(event) {
             id = Number(classe);
         }
     });
+    usersToAdd.push({id:id});
     $(`#listeUsersToAdd  .${id}`).show();
     $(`#listeUsers .${id}`).hide();
 }
@@ -106,7 +107,7 @@ function removeUser(event) {
 /**
  * @author François Girondin
  */
-function formNewConv(form) {
+function testForm(form) {
     if (testParticipants()) {
         document.getElementById('erreur').innerText = '';
         $('#convName').removeClass('error');
@@ -114,7 +115,6 @@ function formNewConv(form) {
     }
     else {
         document.getElementById('erreur').innerText = 'Votre conversation doit comporter au moins deux participants !';
-        $('#convName').addClass('error');
     }
     return false;
 }
@@ -155,5 +155,6 @@ function sumbitForm() {
 }
 
 function nomPasUnique() {
+    $('#convName').addClass('error');
     document.getElementById('erreur').innerText = 'Ce nom est déjà pris !';
 }
