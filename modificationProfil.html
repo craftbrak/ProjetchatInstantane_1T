@@ -28,6 +28,13 @@
             <fieldset>
                 <legend>Modification de Profil</legend>
                 <form id="formulaire" title="Modifier Profile" onsubmit="return enregistrerModifs();">
+                    <input id="name" name="name" type="text" placeholder="Nom" class="fadeIn second">
+                    <input id="surname" name="surname" type="text" placeholder="Prénom" class="fadeIn second">
+                    <input id="mdpUser" name="mdpUser" type="password" placeholder="mot de passe" class="fadeIn second">
+                    <input id="nvMdp" name="nvMdp" type="password" placeholder="confirmer mot de passe" class="fadeIn third">
+                    <input id="mail" name="mail" type="text" placeholder="email" class="fadeIn third">
+                    <input id="pseudo" name="pseudo" type="text" placeholder="pseudo" class="fadeIn third">
+                    <input type="submit" name="enregistrer" id="enregistrer" value="Enregistrer" class="fadeIn fourth">
                 </form>
                 <div id="erreur"></div>
             </fieldset>
@@ -35,7 +42,7 @@
     </div>
     </div>
     <footer class="credit">
-        Ce site est l'oeuvre de Baptiste Bemelmans, Louis De Wilde, François Girondin et Arthur Schamroth.
+        Ce site est l"oeuvre de Baptiste Bemelmans, Louis De Wilde, François Girondin et Arthur Schamroth.
     </footer>
 </body>
 </html>
