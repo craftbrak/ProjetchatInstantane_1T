@@ -29,7 +29,7 @@ function initPage() {
                 updateChat();
                 setInterval(updateChat, 1000);
                 $('.listeParticipantsFooter').hide();
-                document.trigger('initOver');
+                $(document).trigger('initOver');
                 listeParticipants();
                 $('#msg').focus()
             } else {
