@@ -16,6 +16,7 @@
     <!-- Nos fichiers -->
     <link type="text/css" rel="stylesheet" href="css/main.css">
     <link type="text/css" rel="stylesheet" href="css/new.css">
+    <link type="text/css" rel="stylesheet" href="css/customForm.css">
     <script src="js/new.js"></script>
     <script src="js/main.js"></script>
 </head>
@@ -36,7 +37,6 @@
                 </div>
             </div>
             <div id="listeUsers">
-
             </div>
         </div>
         <div class="col col-xs-6 col-lg-6">
@@ -45,26 +45,24 @@
                     <form method="POST" onsubmit="return formNewConv(this);" id="form">
                         <fieldset>
                             <legend>Créer une nouvelle conversation :</legend>
-
                             <input class="fadeIn second" id="convName" name="convName" type="text" required placeholder="Nom de la conversation"><br>
                             <label for="color">Couleur de la conversation :&nbsp;</label>
                             <select id="color" name="color" class="gris fadeIn third" onchange="setColor();" value="gris">
-                        <option value="gris" class="gris">Gris</option>
-                        <option value="rouge" class="rouge">Rouge</option>
-                        <option value="orange" class="orange">Orange</option>
-                        <option value="jaune" class="jaune">Jaune</option>
-                        <option value="vert" class="vert">Vert</option>
-                        <option value="bleu" class="bleu">Bleu</option>
-                        <option value="violet" class="violet">Violet</option>
-                        <option value="rose" class="rose">Rose</option>
-                    </select><br>
+                                <option value="gris" class="gris">Gris</option>
+                                <option value="rouge" class="rouge">Rouge</option>
+                                <option value="orange" class="orange">Orange</option>
+                                <option value="jaune" class="jaune">Jaune</option>
+                                <option value="vert" class="vert">Vert</option>
+                                <option value="bleu" class="bleu">Bleu</option>
+                                <option value="violet" class="violet">Violet</option>
+                                <option value="rose" class="rose">Rose</option>
+                            </select><br>
                             <span id="erreur"></span><br>
                             <input type="submit" class="fadeIn fourth">
                         </fieldset>
                     </form>
                 </div>
             </div>
-
         </div>
         <div id="participants" class="col col-xs-3 col-lg-3 sidebar">
             Participants :
