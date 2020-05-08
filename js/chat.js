@@ -79,7 +79,7 @@ function updateChat() {
                 let chatFinal = "";
                 for (const element of chat) {
                     element.heure = element.heure.slice(11, -4);
-                    chatFinal += `<div class="d-flex justify-content-start mb-4${element.idUSer==session.userId?" msgSortant":" msgEntrant"}"id="${element.id}" >
+                    chatFinal += `<div class="d-flex justify-content-start mb-4 ${element.idUSer==session.userId?"msgSortant":"msgEntrant"}"id="${element.id}" >
                             <div class="chatPseudo">
                                 <p class="userMsg ${element.idUSer==session.userId?" msgSortant":" msgEntrant"}">${element.pseudo}</p>
                             </div>

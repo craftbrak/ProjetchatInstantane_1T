@@ -112,11 +112,9 @@ function formNewConv(form) {
             $.post(`./newConv`, { name: form.convName.value, color: form.color.value, admin: userId }, (res) => {
                 usersToAdd.forEach(user => {
                     $.post(`./addUsersToConv`, { id: user.id, nom: form.convName.value }, (ress) => {
-
-                        $.get(`./userToGeneral?id=${userId}`, (id) => { window.location = `./play.html?id=${id}` });
                     });
                 });
-
+                $.get(`./userToGeneral?id=${userId}`, (id) => { window.location = `./play.html?id=${id}` });
             });
         } else {
             document.getElementById('erreur').innerText = 'Ce nom est déjà pris !';
