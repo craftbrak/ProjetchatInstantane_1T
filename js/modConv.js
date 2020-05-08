@@ -227,8 +227,8 @@ function testNomUnique() {
 
 function sendForm() {
     $.post('Updateconv', { nouveauNom: event.target.convName.value, convColorVar: event.target.color.value, convUserId: session.convUserId }, (res) => {
-        $.when(usersToAdd.forEach(usertoadd => {
-            $.post('addUsersToConv', { id: usertoadd.id, nom: res }, () => {})
+        $.when(usersToAdd.forEach(userToAdd => {
+            $.post('addUserToConv', { id: userToAdd.id, nom: res }, () => {})
         }), usersToRemove.forEach(userToRemove => {
             $.post('removeUserFromConv', { id: userToRemove.idUser, nom: res }, () => {})
         })).done(() => {

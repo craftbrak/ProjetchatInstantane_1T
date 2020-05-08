@@ -26,7 +26,7 @@ function creerCompte(email, nom, prenom, pseudo, mdp, mdpVerif) {
                     function() {
                         let idCompte = JSON.parse(getId.response)[0].idUser;
                         let addGeneral = new XMLHttpRequest();
-                        addGeneral.open('get', './addUsersToConv?id=' + idCompte + '&nom=Général', true);
+                        addGeneral.open('get', './addUserToConv?id=' + idCompte + '&nom=Général', true);
                         addGeneral.onload =
                             function() {
                                 let redirect = new XMLHttpRequest();

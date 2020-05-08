@@ -145,7 +145,7 @@ function testNomUnique() {
 function sumbitForm() {
     $.post(`./newConv`, { name: form.convName.value, color: form.color.value, admin: userId }, (res) => {
         usersToAdd.forEach(user => {
-            $.post(`./addUsersToConv`, { id: user.id, nom: form.convName.value }, (ress) => {});
+            $.post(`./addUserToConv`, { id: user.id, nom: form.convName.value }, (ress) => {});
         });
         $.get(`./userToGeneral?id=${userId}`, (id) => { window.location = `./play.html?id=${id}` });
     });
