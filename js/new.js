@@ -130,10 +130,10 @@ function testParticipants() {
  * @author François Girondin
  */
 function testNomUnique() {
-    $.get(`getNoms`, (noms) => {
+    $.get(`getNoms`, (convs) => {
         let unique = true;
-        noms.forEach(nom => {
-            if (nom == document.getElementById('form').convName.value) { unique = false }
+        convs.forEach(conv => {
+            if (conv.nom == document.getElementById('form').convName.value) { unique = false }
         });
         if(unique){
             $(document).trigger('nomUnique');
