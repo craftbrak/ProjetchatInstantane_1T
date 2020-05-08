@@ -19,7 +19,6 @@ function initNew() {
     });
     $.get(`getAllUsers?id=${userId}`, créerListe);
 }
-document.addEventListener('DOMContentLoaded')
 
 function setColor() {
     couleurs.forEach(couleur => {
