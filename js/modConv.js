@@ -6,13 +6,13 @@ let session = {
     userId: null,
     pseudo: null,
     participant: null,
-    ancienNom : null
+    ancienNom: null
 }
 let usersToAdd = [];
 let usersToRemove = [];
 $(document).ready(initNew);
-$(document).on('nomUnique',sendForm);
-$(document).on('nomPasUnique',nomPasUnique);
+$(document).on('nomUnique', sendForm);
+$(document).on('nomPasUnique', nomPasUnique);
 
 /**
  * @author Louis De Wilde
@@ -30,7 +30,7 @@ function initNew() {
                 $.get(`./getPseudo?id=${session.userId}`, (p) => {
                     $('#iden').append(`Vous êtes connecté en tant que ${p}.`);
                     session.pseudo = p
-                    $('#modif').click(() => { window.location = `./modificationProfil.html?id=${sessi.userId}`});
+                    $('#modif').click(() => { window.location = `./modificationProfil.html?id=${sessi.userId}` });
                     $('#déco').click(() => { window.location = './index.html' })
                     document.getElementById('owner').innerText = `${p} (vous)`;
                     $.get(`./getAllUsers?id=${session.userId}`, créerListe);
@@ -216,15 +216,19 @@ function testNomUnique() {
                 estUnique = false
             }
         });
-        if(estUnique){
+        if (estUnique) {
             $(document).trigger('nomUnique');
-        }
-        else {
+        } else {
             $(document).trigger('nomPasUnique');
         }
     });
 }
-
+/**
+ * update the date base based on the user Input
+ * @author François Girondin
+ * @author Louis De Wilde
+ * @returns {void} nothing
+ */
 function sendForm() {
     $.post('Updateconv', { nouveauNom: event.target.convName.value, convColorVar: event.target.color.value, convUserId: session.convUserId }, (res) => {
         $.when(usersToAdd.forEach(userToAdd => {
@@ -236,7 +240,11 @@ function sendForm() {
         })
     })
 }
-
+/**
+ * place an error in error feild
+ * @author François Girondin
+ * @returns {void} nothing
+ */
 function nomPasUnique() {
     document.getElementById('erreur').innerText = 'Ce nom est déjà pris !';
     $('#convName').addClass('error');
