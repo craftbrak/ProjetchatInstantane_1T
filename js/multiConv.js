@@ -42,7 +42,7 @@ function initLinks() {
 }
 
 function modif(event) {
-    window.location = event.target.getAttribute('href') + session.userId;
+    window.location = `modificationProfil.html?id=${session.userId}`;
 }
 
 function goToLink(event) {
