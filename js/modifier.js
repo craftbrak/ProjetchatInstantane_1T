@@ -35,7 +35,6 @@ function enregistrerModifs() {
     if (test(nvMdp, nvMdpConfirme)) {
         document.getElementById("erreur").innerHTML = "";
         alert("Modifcations Enregistrées avec succès !");
-        console.log("ca passe");
         $.get(`./userToGeneral?id=${idUser}`, (id) => { window.location = `./play.html?id=${id}` });
         xhr.send();
         return false;
