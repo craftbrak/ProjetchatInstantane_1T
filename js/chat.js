@@ -1,6 +1,3 @@
-/*le temps du developement des autre partie du code */
-
-
 // on recuper l'id de lutilisateur passé en paramettre 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -15,8 +12,7 @@ $(document).ready(initPage);
 
 function initPage() {
     if (session.convUserId == null) {
-        alert("Vous êtes deconnecté. Veuillez vous connecter pour accéder au chat.");
-        window.location = "./index.html"
+        alerteDeconnecte();
     } else {
         $.post(`./obtenirUserId`, { convUserId: session.convUserId }, (res) => {
             session.userId = res[0].UserId;
@@ -33,8 +29,7 @@ function initPage() {
                 listeParticipants();
                 $('#msg').focus()
             } else {
-                alert("Vous êtes deconnecté. Veuillez vous connecter pour accéder au chat.");
-                window.location = "./index.html"
+                alerteDeconnecte();
             }
         });
     }
@@ -42,15 +37,14 @@ function initPage() {
 
 function TraiterFormMessage(e) {
     e.preventDefault()
-    $.post("newMsg", { msgContentVar: e.target.message.value, convUserIdVar: session.convUserId }, () => {
+    $.post("./newMsg", { msgContentVar: e.target.message.value, convUserIdVar: session.convUserId }, () => {
         updateChat();
         document.getElementById("formMessage").message.value = null;
     });
-    return false;
 }
 
 function listeParticipants() {
-    $.post('chatParticipant', { convUserIdVar: session.convUserId }, (res) => {
+    $.post('./chatParticipant', { convUserIdVar: session.convUserId }, (res) => {
         $('#chatName').append(res[0].convName);
         res.sort((a, b) => {
             if (a.participant > b.participant) {
@@ -79,7 +73,7 @@ function updateChat() {
                 let chatFinal = "";
                 for (const element of chat) {
                     element.heure = element.heure.slice(11, -4);
-                    chatFinal += `<div class="d-flex justify-content-start mb-4${element.idUSer==session.userId?" msgSortant":" msgEntrant"}"id="${element.id}" >
+                    chatFinal += `<div class="d-flex justify-content-start mb-4 ${element.idUSer==session.userId?"msgSortant":"msgEntrant"}"id="${element.id}" >
                             <div class="chatPseudo">
                                 <p class="userMsg ${element.idUSer==session.userId?" msgSortant":" msgEntrant"}">${element.pseudo}</p>
                             </div>

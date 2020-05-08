@@ -27,7 +27,7 @@ function envoyerEmail(emailVerif, mdpVerif) {
                 document.getElementById("erreur").innerText = "Email ou mot de passe éronné! Réessayez.";
             }
             if (mdp == mdpVerif) {
-                $.get(`./userToGeneral?id=${JSON.parse(connexion.response)[0].idUser}`, (id) => { window.location = `./play.html?id=${id}` });
+                $.get(`./userToGeneral?id=${JSON.parse(connexion.response)[0].idUser}`, (id) => { window.location = `./play.html?id=${id}` }); //JS
             } else {
                 document.getElementById("erreur").innerText = "Email ou mot de passe éronné! Réessayez.";
             }
