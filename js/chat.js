@@ -29,7 +29,8 @@ function initPage() {
                 $('#formMessage').submit(TraiterFormMessage)
                 updateChat();
                 setInterval(updateChat, 1000);
-                $('.listeParticipantsFooter').hide()
+                $('.listeParticipantsFooter').hide();
+                document.trigger('initOver');
                 listeParticipants();
                 $('#msg').focus()
             } else {
