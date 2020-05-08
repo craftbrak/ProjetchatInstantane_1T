@@ -20,17 +20,17 @@ function initNew() {
         alert("Vous êtes deconnecté. Veuillez vous connecter pour accéder au chat.");
         window.location = "./index.html"
     } else {
-        $.post(`obtenirUserId`, { convUserId: session.convUserId }, (res) => {
+        $.post(`./obtenirUserId`, { convUserId: session.convUserId }, (res) => {
             session.userId = res[0].UserId;
             if (session.userId != null) {
                 $('#modif').href = `./modificationProfil.html?id=${session.userId}`;
-                $.get(`getPseudo?id=${session.userId}`, (p) => {
+                $.get(`./getPseudo?id=${session.userId}`, (p) => {
                     $('#iden').append(`Vous êtes connecté en tant que ${p}.`);
                     session.pseudo = p
                     $('#modif').click(() => { window.location = "./modificationProfil.html?id=" + sessi.userId });
                     $('#déco').click(() => { window.location = './index.html' })
                     document.getElementById('owner').innerText = `${p} (vous)`;
-                    $.get(`getAllUsers?id=${session.userId}`, créerListe);
+                    $.get(`./getAllUsers?id=${session.userId}`, créerListe);
                     $(document).on('listeCree', initModif);
                     $('#form').submit(formConv)
                 });

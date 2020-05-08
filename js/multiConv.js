@@ -1,7 +1,7 @@
 //Auteur : François Girondin
 
-$(document).on('initOver',initMulticonvs);
-$(document).on('listeCréée',initLinks);
+$(document).on('initOver', initMulticonvs);
+$(document).on('listeCréée', initLinks);
 
 function initMulticonvs() {
     creerListeConvs();
@@ -14,7 +14,7 @@ function initMulticonvs() {
  * Génère le bouton "Nouvelle conversation".
  */
 function creerListeConvs() {
-    $.get(`userConvs?userId=${session.userId}`, (convs) => {
+    $.get(`./userConvs?userId=${session.userId}`, (convs) => {
         convs.forEach(conv => {
             $('#listeConvs').append(`<div class="convListe convListeBox ${conv.couleur}" id="${conv.id}" href="./play.html?id=${conv.id}">${conv.nom}</div>`);
             $(document).trigger('listeCréée');
@@ -26,7 +26,7 @@ function creerListeConvs() {
  * Envoie une requête au serveur afin d'obtenir le nom de la conversation actuelle, et remplace le titre du document par celui-ci.
  */
 function actualiserNomPage() {
-    $.get(`getName?id=${session.convUserId}`, (titre) => { document.title = titre });
+    $.get(`./getName?id=${session.convUserId}`, (titre) => { document.title = titre });
 }
 
 /**
@@ -42,7 +42,7 @@ function initLinks() {
 }
 
 function modif(event) {
-    window.location = `modificationProfil.html?id=${session.userId}`;
+    window.location = `./modificationProfil.html?id=${session.userId}`;
 }
 
 function goToLink(event) {
