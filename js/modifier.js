@@ -11,32 +11,16 @@ function initialiserFormulaire() {
 }
 
 function remplirFormulaire() {
-    let reponse = JSON.parse(this.responseText);
-    console.log(reponse);
-    console.log(reponse[0].idUser);
+    let reponse = JSON.parse(this.responseText)[0];
 
+    let form = document.getElementById('formulaire');
 
-    document.getElementById("formulaire").innerHTML += "<input id='name' name='name' type='text' placeholder='Nom'" + 'class="fadeIn second"' +
-        "value='" + reponse[0].nom + "'>";
-
-    document.getElementById("formulaire").innerHTML += "<input id='surname' name='surname' type='text'placeholder='prenom' " + 'class="fadeIn second"' +
-        "value='" + reponse[0].prenom + "'>";
-
-    document.getElementById("formulaire").innerHTML += "<input id='mdpUser' name='mdpUser' type='password'placeholder='mot de passe' " + 'class="fadeIn second"' +
-        "value='" + reponse[0].mdpUser + "'>";
-
-
-    document.getElementById("formulaire").innerHTML += "<input id='nvMdp' name='nvMdp' type='password' placeholder='verification mot de passe'" + 'class="fadeIn third"' +
-
-        "value='" + reponse[0].mdpUser + "'>";
-
-    document.getElementById("formulaire").innerHTML += "<input id='mail' name='mail' type='text' placeholder='email'" + 'class="fadeIn third"' +
-        "value='" + reponse[0].mail + "'>";
-
-    document.getElementById("formulaire").innerHTML += "<input id='pseudo' name='pseudo' type='text' placeholder='pseudo'" + 'class="fadeIn third"' +
-        "value='" + reponse[0].pseudo + "'>";
-    document.getElementById("formulaire").innerHTML += `<input type="submit" name="enregistrer" id="enregistrer" value="Enregistrer" class="fadeIn fourth">`;
-
+    form.name.value = reponse.nom;
+    form.surname.value  = reponse.prenom;
+    form.mdpUser.value  =  reponse.mdpUser;
+    form.nvMdp.value =  reponse.mdpUser;
+    form.mail.value  = reponse.mail;
+    form.pseudo.value  =  reponse.pseudo;
 }
 
 function enregistrerModifs() {
