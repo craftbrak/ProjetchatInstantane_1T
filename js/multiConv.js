@@ -1,9 +1,9 @@
 //Auteur : François Girondin
 
-$(document).ready(initMulticonvs);
-$(document).on('initOver',creerListeConvs);
+$(document).on('initOver',initMulticonvs);
 
 function initMulticonvs() {
+    creerListeConvs();
     actualiserNomPage();
     initLinks();
 }
