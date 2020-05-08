@@ -57,7 +57,7 @@ function initModif() {
         setColor();
 
         session.participant = res;
-        creeListeParticipant(res);
+        creerListeParticipants(res);
         console.log(typeof res);
     })
 }
@@ -67,7 +67,7 @@ function initModif() {
  * @returns {void} nothing
  * @author Louis De Wilde
  */
-function creeListeParticipant(users) {
+function creerListeParticipants(users) {
 
     users.forEach(user => {
         $(`#listeUsers .user.${user.idUser}`).trigger('childClicked')
