@@ -162,7 +162,8 @@ select:active {
     transform: scale(0.95);
 }
 input[type=password],
-input[type=email] {
+input[type=email],
+select {
     background-color: #acacac;
     border: none;
     color: #000000;

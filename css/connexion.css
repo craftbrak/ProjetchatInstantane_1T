@@ -1,5 +1,4 @@
-input[type=text],
-select {
+input[type=text] {
     background-color: #acacac;
     border: none;
     color: #000000;
