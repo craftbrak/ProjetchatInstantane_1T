@@ -253,6 +253,12 @@
     padding-right: 0.5em;
 }
 
+.userContainer {
+    border-style: solid 60px lightgray;
+    border: 1em;
+    border-color: lightgray;
+}
+
 .userMsg {
     align-content: start;
 }

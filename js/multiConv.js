@@ -3,7 +3,7 @@
 $(document).ready(initMulticonvs);
 
 function initMulticonvs() {
-    créerListeConvs();
+    creerListeConvs();
     actualiserNomPage();
     initLinks();
 }
@@ -13,7 +13,7 @@ function initMulticonvs() {
  * Génère dynamiquement la liste de ces conversations.
  * Génère le bouton "Nouvelle conversation".
  */
-function créerListeConvs() {
+function creerListeConvs() {
     $.get(`userConvs?userId=${session.userId}`, (convs) => {
         convs.forEach(conv => {
             $('#listeConvs').append(`<div class="convListe convListeBox ${conv.couleur}" id="${conv.id}" href="./play.html?id=${conv.id}">${conv.nom}</div>`);

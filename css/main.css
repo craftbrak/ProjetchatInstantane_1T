@@ -70,3 +70,39 @@ link:visited {
     -webkit-border-radius: 5px;
     border-radius: 5px;
 }
+
+
+/* Classes de couleurs */
+
+.gris {
+    background-color: #C0C0C0;
+    color: black;
+}
+
+.rouge {
+    background-color: #F33;
+}
+
+.orange {
+    background-color: #F93;
+}
+
+.jaune {
+    background-color: #FF6;
+}
+
+.vert {
+    background-color: #6F6;
+}
+
+.bleu {
+    background-color: #06C;
+}
+
+.violet {
+    background-color: #93F;
+}
+
+.rose {
+    background-color: #FF66B2;
+}
