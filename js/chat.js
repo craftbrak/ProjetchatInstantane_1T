@@ -9,7 +9,9 @@ let session = {
 }
 
 $(document).ready(initPage);
-
+/**
+ * Initialise la page en recuperent toute les information nescesaire a son fonctionement
+ */
 function initPage() {
     if (session.convUserId == null) {
         alerteDeconnecte();
@@ -34,7 +36,11 @@ function initPage() {
         });
     }
 }
-
+/**
+ * traite le formulaire et ajoute le message a la conversation
+ * @param  {Event} e
+ * @author Louis De Wilde
+ */
 function TraiterFormMessage(e) {
     e.preventDefault()
     $.post("./newMsg", { msgContentVar: e.target.message.value, convUserIdVar: session.convUserId }, () => {
@@ -42,7 +48,10 @@ function TraiterFormMessage(e) {
         document.getElementById("formMessage").message.value = null;
     });
 }
-
+/**
+ * Recupere la liste des participant a la convesation sur la base et l'affiche
+ * @author Louis De Wilde
+ */
 function listeParticipants() {
     $.post('./chatParticipant', { convUserIdVar: session.convUserId }, (res) => {
         $('#chatName').append(res[0].convName);
@@ -67,7 +76,10 @@ function listeParticipants() {
         }
     })
 }
-
+/**
+ * recupere et affiche les message du chat 
+ * @author Louis De Wilde
+ */
 function updateChat() {
     $.post(`./updateChat`, { idConvUserVar: session.convUserId, lastId: session.lastMsgId }, (chat) => {
                 let chatFinal = "";
@@ -89,34 +101,51 @@ function updateChat() {
             var element = document.getElementById("divChat");
             element.scrollTop = element.scrollHeight;
             /* bouton d'administation du chat
-
             $('.deleteMsgSpan').click(deleteMsg);
             $('.modifyMsgSpan').click(modifyMsg);
             */
         }
      } );
 }
-
-/* fonction de traitement des bouton d'administation
-
-function modifyMsg(event) {
-   console.log("modify", event);
-}
-
-function deleteMsg() {
- 
-     let msgId=event.target.getAttribute('data-msgId');
-  $.get(`deleteMsg?MsgId=${msgId}`,()=>{
-    $("#"+msgId).remove();
- 
-  })
-}
-*/
-
-// fixe dynamiquement la taile de l'input du message avec JQuerry 
+/**
+ * fixe dynamiquement la taile de l'input du message avec JQuerry 
+ * @author Louis De Wilde
+ */
 $('document').ready(function() { //quand le DOM est pret 
     $('#msg').each(function() { //pour tt les element qui correspondent a ce selecteur 
 
         $(this).width($(this).parent().width() - $('#MsgFormSub').width() - 50); //fixe la tail de l'element par raporet a la largeur de son parent -la largeur du bouton -50px 
     });
 });
+
+
+/* fonction de traitement des bouton d'administation*/
+/**
+ * modifie le message dans la base de donnée sur base du bouton clicker
+ * @author Louis De Wilde
+ */
+/*  cette procedure n'est pas en utilisation pour le moment ,
+   les fonctions de modification des messages n'etait pas tres appreciée par notre professeur,
+   j'ai donc decider de desactiver l'interface utilisateur mais de conserver le code malgré tout celui si n'a jamais ete crée completement pour les meme raison
+   */
+  /*
+function modifyMsg(event) {
+   console.log("modify", event);
+}*/
+/**
+ * supprime le message dans la base de donnée sur base du bouton clicker
+ * @author Louis De Wilde
+ */
+/*  cette procedure n'est pas en utilisation pour le moment ,
+   les fonctions de modification des messages n'etait pas tres appreciée par notre professeur,
+   j'ai donc decider de desactiver l'interface utilisateur mais de conserver le code fonctionel malgré tout*/
+   /*
+    function deleteMsg(event) {
+    
+        let msgId=event.target.getAttribute('data-msgId');
+        $.get(`deleteMsg?MsgId=${msgId}`,()=>{
+        $("#"+msgId).remove();
+    
+    })
+}
+*/

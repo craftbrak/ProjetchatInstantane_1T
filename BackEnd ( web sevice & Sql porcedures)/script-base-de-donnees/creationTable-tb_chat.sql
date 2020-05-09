@@ -10,3 +10,4 @@ CREATE TABLE "dba"."tb_chat" (
 COMMENT ON TABLE "dba"."tb_chat" IS '
 
 ';
+ALTER TABLE "dba"."tb_chat" ADD CONSTRAINT "tb_convUsers" NOT NULL FOREIGN KEY ( "convUserId" ASC ) REFERENCES "dba"."tb_convUsers" ( "convUserId" );

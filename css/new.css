@@ -3,9 +3,11 @@
 #erreur {
     color: red;
 }
+
 #listeUsers {
     margin: 15px;
 }
+
 #titres {
     background-color: #444;
     border: solid 0.03em #333;
@@ -18,6 +20,7 @@
     margin: 15px;
 }
 
+
 /* Propriétés de classes */
 
 .commonChats {
@@ -25,13 +28,16 @@
     width: 8em;
     text-align: center;
 }
+
 .error {
     background-color: tomato;
 }
+
 .pseudo {
     display: inline-block;
     width: calc(100% - 10em);
 }
+
 .user {
     background-color: rgb(49, 49, 49);
     border: solid 0.03em #333333;
@@ -42,4 +48,9 @@
     display: block;
     margin: 5px auto;
     padding: 5px;
+}
+
+.sidebarBody {
+    width: 94%;
+    max-height: 97%;
 }

@@ -8,3 +8,5 @@ CREATE TABLE "dba"."tb_Identifiants" (
 	"pseudo" CHAR(85) NOT NULL,
 	CONSTRAINT "idUser" PRIMARY KEY ( "idUser" ASC )
 ) IN "system";
+ALTER TABLE "dba"."tb_Identifiants" ADD CONSTRAINT "uniPseudo" UNIQUE ( "pseudo" ASC );
+ALTER TABLE "dba"."tb_Identifiants" ADD CONSTRAINT "inuEmail" UNIQUE ( "email" ASC );

@@ -1,3 +1,7 @@
+/**
+ * verrifie a chaque changement que l'email et le mot de passe sont bien Unique
+ * @author Louis De Wilde
+ */
 $(document).ready(() => {
     $('#newEmail').change((e) => {
         $.post('./verifEmail', { emailVar: e.target.value }, (res) => {

@@ -15,7 +15,9 @@ $(document).on('nomUnique', sendForm);
 $(document).on('nomPasUnique', nomPasUnique);
 
 /**
- * @author Louis De Wilde
+ * Initialise la page 
+ * @author François Girondin
+ * @author Louis de Wilde
  */
 function initNew() {
     document.getElementById('color').selectedIndex = 0;
@@ -212,7 +214,7 @@ function testNomUnique() {
     $.get(`getAllConvNames`, (convs) => {
         let estUnique = true;
         convs.forEach(conv => {
-            if (conv.nom == document.getElementById('form').convName.value && conv.nom != ancienNom) {
+            if (conv.nom == document.getElementById('form').convName.value && conv.nom != session.ancienNom) {
                 estUnique = false
             }
         });
@@ -227,10 +229,11 @@ function testNomUnique() {
  * update the date base based on the user Input
  * @author François Girondin
  * @author Louis De Wilde
+ * @param {Event} event
  * @returns {void} nothing
  */
-function sendForm() {
-    $.post('Updateconv', { nouveauNom: event.target.convName.value, convColorVar: event.target.color.value, convUserId: session.convUserId }, (res) => {
+function sendForm(event) {
+    $.post('Updateconv', { nouveauNom: $('#convName').val(), convColorVar: $('#color').val(), convUserId: session.convUserId }, (res) => {
         $.when(usersToAdd.forEach(userToAdd => {
             $.post('addUserToConv', { id: userToAdd.id, nom: res }, () => {})
         }), usersToRemove.forEach(userToRemove => {
