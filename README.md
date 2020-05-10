@@ -9,16 +9,17 @@
 
 ## Description du projet
 
-Pour ce projet, nous avons décidé de réaliser un tchat de discussion, du même style que messenger ou whatsApp.
+Pour ce projet, nous avons décidé de réaliser un tchat de discussion, du même style que Messenger ou WhatsApp.
 Nous désirons y implémenter différents services tel qu'un système d'inscription et de connexion, un chat global et un système de discussions privées. L'utilisateur aura également la possibilité de modifier son profil.
 
-## Comment Instaler
-  -Pour commencer telecharger le repository complet, installer Sybase avec SQL anywhere . 
+## Comment installer
+  -Pour commencer, télécharger le repository complet, et installer Sybase avec SQL anywhere. 
   
-  -Ensuite crée un base de donnée Sybase et un service Web SqlAnywhere, la base de donnée doit etre remplie avec les scripts fournit dans le dossier BackEnd. Cette base doit etre dans le dossier parent au dossier backend ( le dossier du racine du site)
-  Pour que le site fonctionne correctement une structure de fichier spécifique est nécésaire , pour ce faire il vous sufit d'extraire le contenu du dossier FrontEnd dans son dossier parent (la ou ce situe la base de donnée),
+  -Ensuite, créer une base de données Sybase et un service Web SqlAnywhere, la base de données doit être remplie avec les scripts fournis dans le dossier BackEnd. Cette base doit être dans le dossier parent au dossier backend ( le dossier racine du site).
+  Pour que le site fonctionne correctement, une structure de fichier spécifique est nécésaire, pour ce faire il vous suffit d'extraire le contenu du dossier FrontEnd dans son dossier parent (là où se situe la base de données).
 
-  -demarer le serveur Web Sybase , et si tout a correctement ete mit ne place vous pouver naviger sur index.html pour decouvrir le site ☺ 
+  -Démarrer le serveur Web Sybase, et si tout a correctement été mis en place, vous pouvez naviger sur index.html pour découvrir le site ☺
+
 ## Aspects implémentés 
 
 ### Backend
@@ -30,11 +31,14 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
     * Baptiste Bemelmans - proc_Creation.sql
     * Baptiste Bemelmans - proc_Connexion.sql
     * Baptiste Bemelmans - returnIdCreation.sql
+    * François Girondin - proc_addUserToConv.sql
     * François Girondin - proc_getAllConvNames.sql
     * François Girondin - proc_getAllUsers.sql
     * François Girondin - proc_getConvName.sql
+    * François Girondin - proc_getPseudo.sql
     * François Girondin - proc_newConv.sql
     * François Girondin - proc_userConvs.sql
+    * François Girondin - proc_userToGeneral.sql
     * Louis De Wilde - deleteMsg.sql
     * Louis De Wilde - insertNewMsg.sql
     * Louis De Wilde - proc_ObtenirInfoConv.sql
@@ -43,9 +47,6 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
     * Louis De Wilde - requestChat.sql
     * Louis De Wilde - verifEmail.sql
     * Louis De Wilde - verifPseudo.sql
-    * Commun - proc_addUserToConv.sql
-    * Commun - proc_getPseudo.sql
-    * Commun - proc_userToGeneral.sql
 
   * Fonctions
     * Louis De Wilde - userIdconvIdToConvUserId.sql
@@ -59,12 +60,14 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
     * Baptiste Bemelmans - connexion.sql
     * Baptiste Bemelmans - creation.sql
     * Baptiste Bemelmans - redirectionCreation.sql
-    * Francois Girondin - getConvName.sql
     * François Girondin - addUserToConv.sql
     * François Girondin - getAllConvNames.sql
     * François Girondin - getAllUsers.sql
+    * Francois Girondin - getConvName.sql
+    * François Girondin - getPseudo.sql
     * François Girondin - newConv.sql
     * François Girondin - userConvs.sql
+    * François Girondin - usertoGeneral.sql
     * Louis De Wilde - ObtenirInfoConv.sql
     * Louis De Wilde - UpdateConv.sql
     * Louis De Wilde - chatParticipant.sql
@@ -74,9 +77,7 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
     * Louis De Wilde - updateChat.sql
     * Louis De Wilde - verifEmail.sql
     * Louis De Wilde - verifPseudo.sql
-    * Commun - getPseudo.sql
     * Commun - obtenirUserId.sql
-    * Commun - usertoGeneral.sql
 
 * Script Base de données
   * InsertionDonneesMinimales-ConvGeneral.sql
@@ -206,6 +207,62 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
     * isAdmin (boolean) (indique si oui ou nom l'utilisateur est administrateur)
     * convName (string) (Nom De la conversation)
     
+
+* Webservice addUserToConv :
+  * Description : Ajoute un utilisateur à une conversation
+  * Paramètres :
+    * userId BIGINT (id de l'utilisateur à ajouter)
+    * convName TEXT (nom de la conversation à laquelle ajouter l'utilisateur)
+
+* Webservice getAllConvNames :
+  * Description : Renvoie le nom de toutes les conversations existantes
+  * Paramètres : none
+  * Format de réponse : JSON
+  * Exemple de réponse : [{id:0,nom:"Général",couleur:"gris"}]
+
+* Webservice getAllUsers :
+  * Description : Renvoie le nom et l'id de tous les utilisateurs à l'exception de celui rentré en paramètre, et le nombre de conversations en commun avec celui-ci.
+  * Paramètres :
+    * id BIGINT (id de l'utilisateur à l'origine de la requête)
+  * Format de réponse : JSON
+  * Exemple de réponse : [{id:8026,name:"Tommy",commonChats:3},{id:8029,name:"Trololo",commonChats:2}]"
+
+* Webservice getConvName :
+  * Description : Renvoie le nom de la conversation dont l'id est entré
+  * Paramètres :
+    * id BIGINT (id de la conversation)
+  * Format de réponse : RAW
+  * Exemple de réponse : "Général"
+
+* Webservice getPseudo :
+  * Description : Renvoie le pseudo de l'utilisateur demandé
+  * Paramètres :
+    * id BIGINT (id de l'utilisateur dont on veut connaître le pseudo)
+  * Format de réponse : RAW
+  * Exemple de réponse : "EEEEEEEEH OOOOOH"
+
+* Webservice newConv :
+  * Description : 
+  * Paramètres :
+    * 
+  * Format de réponse : 
+  * Exemple de réponse : 
+
+* Webservice userConvs :
+  * Description : 
+  * Paramètres :
+    * 
+  * Format de réponse : 
+  * Exemple de réponse : 
+
+* Webservice usertoGeneral :
+  * Description : 
+  * Paramètres :
+    * 
+  * Format de réponse : 
+  * Exemple de réponse : 
+
+
 ## Détail DB
 * tb_chat 
   * Cette table contient les id des messages, l'id de conversation de l'utilisateur, le contenu de chaque message, la date et l'heure d'ajout du message. Voici les différents noms de données présentes dans cette table :
@@ -234,3 +291,12 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
       * mdpUser
       * email
       * pseudo
+
+    * François Girondin - proc_addUserToConv.sql
+    * François Girondin - proc_getAllConvNames.sql
+    * François Girondin - proc_getAllUsers.sql
+    * François Girondin - proc_getConvName.sql
+    * François Girondin - proc_getPseudo.sql
+    * François Girondin - proc_newConv.sql
+    * François Girondin - proc_userConvs.sql
+    * François Girondin - proc_userToGeneral.sql
