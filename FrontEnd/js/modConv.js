@@ -232,7 +232,7 @@ function testNomUnique() {
  * @param {Event} event
  * @returns {void} nothing
  */
-function sendForm(event) {
+function sendForm() {
     $.post('Updateconv', { nouveauNom: $('#convName').val(), convColorVar: $('#color').val(), convUserId: session.convUserId }, (res) => {
         $.when(usersToAdd.forEach(userToAdd => {
             $.post('addUserToConv', { id: userToAdd.id, nom: res }, () => {})
