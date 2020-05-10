@@ -200,7 +200,7 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
 * webService chatParticipant :
   * Description : Recupere tout les participants d'une conversation 
   * Paramètre :
-    * c
+    * convUserIdVar Integer (Id de conversation Utilisateur ( lien entre une conversation et un utilisateur)) 
   * Format de réposes: Json
   * Propriété des élement du tableau: 
     * participant (string) (pseudo d'un participant a la conversation)
