@@ -207,6 +207,62 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
     * isAdmin (boolean) (indique si oui ou nom l'utilisateur est administrateur)
     * convName (string) (Nom De la conversation)
     
+
+* Webservice addUserToConv :
+  * Description : Ajoute un utilisateur à une conversation
+  * Paramètres :
+    * userId BIGINT (id de l'utilisateur à ajouter)
+    * convName TEXT (nom de la conversation à laquelle ajouter l'utilisateur)
+
+* Webservice getAllConvNames :
+  * Description : Renvoie le nom de toutes les conversations existantes
+  * Paramètres : none
+  * Format de réponse : JSON
+  * Exemple de réponse : [{id:0,nom:"Général",couleur:"gris"}]
+
+* Webservice getAllUsers :
+  * Description : Renvoie le nom et l'id de tous les utilisateurs à l'exception de celui rentré en paramètre, et le nombre de conversations en commun avec celui-ci.
+  * Paramètres :
+    * id BIGINT (id de l'utilisateur à l'origine de la requête)
+  * Format de réponse : JSON
+  * Exemple de réponse : [{id:8026,name:"Tommy",commonChats:3},{id:8029,name:"Trololo",commonChats:2}]"
+
+* Webservice getConvName :
+  * Description : Renvoie le nom de la conversation dont l'id est entré
+  * Paramètres :
+    * id BIGINT (id de la conversation)
+  * Format de réponse : RAW
+  * Exemple de réponse : "Général"
+
+* Webservice getPseudo :
+  * Description : Renvoie le pseudo de l'utilisateur demandé
+  * Paramètres :
+    * id BIGINT (id de l'utilisateur dont on veut connaître le pseudo)
+  * Format de réponse : RAW
+  * Exemple de réponse : "EEEEEEEEH OOOOOH"
+
+* Webservice newConv :
+  * Description : 
+  * Paramètres :
+    * 
+  * Format de réponse : 
+  * Exemple de réponse : 
+
+* Webservice userConvs :
+  * Description : 
+  * Paramètres :
+    * 
+  * Format de réponse : 
+  * Exemple de réponse : 
+
+* Webservice usertoGeneral :
+  * Description : 
+  * Paramètres :
+    * 
+  * Format de réponse : 
+  * Exemple de réponse : 
+
+
 ## Détail DB
 * tb_chat 
   * Cette table contient les id des messages, l'id de conversation de l'utilisateur, le contenu de chaque message, la date et l'heure d'ajout du message. Voici les différents noms de données présentes dans cette table :
@@ -244,11 +300,3 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
     * François Girondin - proc_newConv.sql
     * François Girondin - proc_userConvs.sql
     * François Girondin - proc_userToGeneral.sql
-    * François Girondin - addUserToConv.sql
-    * François Girondin - getAllConvNames.sql
-    * François Girondin - getAllUsers.sql
-    * Francois Girondin - getConvName.sql
-    * François Girondin - getPseudo.sql
-    * François Girondin - newConv.sql
-    * François Girondin - userConvs.sql
-    * François Girondin - usertoGeneral.sql
