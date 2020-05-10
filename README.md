@@ -164,14 +164,23 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
         * id (number)
         * msgContent (string)
         * pseudo(string)
-        * idUser(number)     
+        * idUser(number)  
+   *Exemple de reponse: 
+    [
+      {"id": 579,
+        "msgContent": "tt a ete clear c bon ca ",
+        "heure": "2020-05-10 15:29:09.068",
+        "pseudo": "Co vide nith the",
+        "idUSer": 782
+      }
+    ]   
         
 * webService-removeUserFromConv:
    *  Description : Retire un utilisateur d'une conversation
    * Paramètres:
       * id Integer(l'Identifiant de l'utilisateur)
       * nom text (nom de la conversation)
-   * Format des réposes : RAW.
+   * Format des réposes : none.
    
 * webService ObtenirInfoConv:
    * Description : Récuperes les inforamtion sur une conversation ( id, nom et couleurs)
@@ -183,19 +192,38 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
       * convName (string) ( Nom d'une conversation )
       * isAdmin (boolean)  ( Si vrai l'utilisateur est administrateur de la conversation)
       * pseudo (string) ( Pseudo de l'utilisateur)
+   *Exemple de reponse: [
+      {
+        "convColor": "vert",
+        "idUser": 782,
+        "convName": "devs",
+        "isAdmin": true,
+        "pseudo": "Co vide nith the",
+        "idConv": 4
+      },
+      {
+        "convColor": "vert",
+        "idUser": 8015,
+        "convName": "devs",
+        "isAdmin": false,
+        "pseudo": "c",
+        "idConv": 4
+      }
+    ]
+    
 
 * webService newMSG:
   * Description : insert un nouveau message dans la table tb_chat
   * Paramètres: 
     * msgContentVar Varchar ( les contenu d'un msessage)
     * convUserIdVar Interger (Id de conversation Utilisateur ( lien entre une conversation et un utilisateur))
-  * Format de réposes : RAW
+  * Format de réposes : none
 
 * Web Service deleteMsg:
   * Description: supprime un message d'un conversation 
   * Paramètre :
     * -msgId Interger
-  * Format de réposes : RAW
+  * Format de réposes : none
 
 * webService chatParticipant :
   * Description : Récupere tout les participants d'une conversation 
@@ -206,7 +234,21 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
     * participant (string) (pseudo d'un participant a la conversation)
     * isAdmin (boolean) (indique si oui ou nom l'utilisateur est administrateur)
     * convName (string) (Nom De la conversation)
-    
+  *Exemple de reponse:[
+    {
+      "participant": "Co vide nith the",
+      "isAdmin": true,
+      "convName": "devs"
+    },
+    {
+      "participant": "c",
+      "isAdmin": false,
+      "convName": "devs"
+    }convName": "devs"
+    }
+  ]
+
+
 * Webservice addUserToConv :
   * Description : Ajoute un utilisateur à une conversation
   * Paramètres :
