@@ -67,7 +67,7 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
     * François Girondin - getPseudo.sql
     * François Girondin - newConv.sql
     * François Girondin - userConvs.sql
-    * François Girondin - usertoGeneral.sql
+    * François Girondin - userToGeneral.sql
     * Louis De Wilde - ObtenirInfoConv.sql
     * Louis De Wilde - UpdateConv.sql
     * Louis De Wilde - chatParticipant.sql
@@ -207,12 +207,12 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
     * isAdmin (boolean) (indique si oui ou nom l'utilisateur est administrateur)
     * convName (string) (Nom De la conversation)
     
-
 * Webservice addUserToConv :
   * Description : Ajoute un utilisateur à une conversation
   * Paramètres :
     * userId BIGINT (id de l'utilisateur à ajouter)
     * convName TEXT (nom de la conversation à laquelle ajouter l'utilisateur)
+  * Format de réponse : none
 
 * Webservice getAllConvNames :
   * Description : Renvoie le nom de toutes les conversations existantes
@@ -228,39 +228,40 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
   * Exemple de réponse : [{id:8026,name:"Tommy",commonChats:3},{id:8029,name:"Trololo",commonChats:2}]"
 
 * Webservice getConvName :
-  * Description : Renvoie le nom de la conversation dont l'id est entré
+  * Description : Renvoie le nom de la conversation dont l'id est entré.
   * Paramètres :
     * id BIGINT (id de la conversation)
   * Format de réponse : RAW
   * Exemple de réponse : "Général"
 
 * Webservice getPseudo :
-  * Description : Renvoie le pseudo de l'utilisateur demandé
+  * Description : Renvoie le pseudo de l'utilisateur demandé.
   * Paramètres :
     * id BIGINT (id de l'utilisateur dont on veut connaître le pseudo)
   * Format de réponse : RAW
   * Exemple de réponse : "EEEEEEEEH OOOOOH"
 
 * Webservice newConv :
-  * Description : 
-  * Paramètres :
-    * 
-  * Format de réponse : 
-  * Exemple de réponse : 
+  * Description : Créée une nouvelle conversation, et lui ajoute un admministrateur.
+  * Paramètres : 
+    * nom TEXT (nom de la conversation)
+    * couleur CHAR(6) (couleur de la conversation)
+    * idAdmin BIGINT (id de l'admin de la conv)
+  * Format de réponse : none
 
 * Webservice userConvs :
-  * Description : 
+  * Description : Renvoie toutes les conversations dans lesquelles se trouve l'utilisateur demandé.
   * Paramètres :
-    * 
-  * Format de réponse : 
-  * Exemple de réponse : 
+    * userId BIGINT (id de l'utilisateur)
+  * Format de réponse : JSON
+  * Exemple de réponse : [{id:1,nom:"Général",couleur:"gris"},{id:2,nom:"Les devs",couleur:"rouge"}]
 
-* Webservice usertoGeneral :
-  * Description : 
+* Webservice userToGeneral :
+  * Description : Renvoie le convUserId correspondant à l'utilisateur demandé dans le général.
   * Paramètres :
-    * 
-  * Format de réponse : 
-  * Exemple de réponse : 
+    * userId BIGINT (id de l'utilisateur demandé)
+  * Format de réponse : RAW
+  * Exemple de réponse : "3"
 
 
 ## Détail DB
@@ -291,12 +292,3 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
       * mdpUser
       * email
       * pseudo
-
-    * François Girondin - proc_addUserToConv.sql
-    * François Girondin - proc_getAllConvNames.sql
-    * François Girondin - proc_getAllUsers.sql
-    * François Girondin - proc_getConvName.sql
-    * François Girondin - proc_getPseudo.sql
-    * François Girondin - proc_newConv.sql
-    * François Girondin - proc_userConvs.sql
-    * François Girondin - proc_userToGeneral.sql
