@@ -327,7 +327,7 @@ link:visited {
     margin: 5px auto;
     width: 20em;
     padding: 5px;
-    max-height: 77%;
+    max-height: calc( calc(100% - 15em) - 20px);
     overflow: auto;
 }
 

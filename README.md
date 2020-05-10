@@ -101,7 +101,7 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
   * François Girondin - new.js
   * Louis De Wilde - chat.js
   * Louis De Wilde - main.js
-  * newUserVerif.js
+  * Louis De Wilde - newUserVerif.js
 
 * CSS
   * Commun - chat.css
@@ -174,7 +174,7 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
    * Format des réposes : RAW.
    
 * webService ObtenirInfoConv:
-   * Description : Recuperes les inforamtion sur un conversation ( id, nom et couleurs)
+   * Description : Récuperes les inforamtion sur une conversation ( id, nom et couleurs)
    * Paramètre : 
       * convUserIdVar Interger (Id de conversation Utilisateur ( lien entre une conversation et un utilisateur))
    * Format de réposes : Json
@@ -198,7 +198,7 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
   * Format de réposes : RAW
 
 * webService chatParticipant :
-  * Description : Recupere tout les participants d'une conversation 
+  * Description : Récupere tout les participants d'une conversation 
   * Paramètre :
     * convUserIdVar Integer (Id de conversation Utilisateur ( lien entre une conversation et un utilisateur)) 
   * Format de réposes: Json
