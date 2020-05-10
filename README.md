@@ -9,16 +9,17 @@
 
 ## Description du projet
 
-Pour ce projet, nous avons décidé de réaliser un tchat de discussion, du même style que messenger ou whatsApp.
+Pour ce projet, nous avons décidé de réaliser un tchat de discussion, du même style que Messenger ou WhatsApp.
 Nous désirons y implémenter différents services tel qu'un système d'inscription et de connexion, un chat global et un système de discussions privées. L'utilisateur aura également la possibilité de modifier son profil.
 
-## Comment Instaler
-  -Pour commencer telecharger le repository complet, installer Sybase avec SQL anywhere . 
+## Comment installer
+  -Pour commencer, télécharger le repository complet, et installer Sybase avec SQL anywhere. 
   
-  -Ensuite crée un base de donnée Sybase et un service Web SqlAnywhere, la base de donnée doit etre remplie avec les scripts fournit dans le dossier BackEnd. Cette base doit etre dans le dossier parent au dossier backend ( le dossier du racine du site)
-  Pour que le site fonctionne correctement une structure de fichier spécifique est nécésaire , pour ce faire il vous sufit d'extraire le contenu du dossier FrontEnd dans son dossier parent (la ou ce situe la base de donnée),
+  -Ensuite, créer une base de données Sybase et un service Web SqlAnywhere, la base de données doit être remplie avec les scripts fournis dans le dossier BackEnd. Cette base doit être dans le dossier parent au dossier backend ( le dossier racine du site).
+  Pour que le site fonctionne correctement, une structure de fichier spécifique est nécésaire, pour ce faire il vous suffit d'extraire le contenu du dossier FrontEnd dans son dossier parent (là où se situe la base de données).
 
-  -demarer le serveur Web Sybase , et si tout a correctement ete mit ne place vous pouver naviger sur index.html pour decouvrir le site ☺ 
+  -Démarrer le serveur Web Sybase, et si tout a correctement été mis en place, vous pouvez naviger sur index.html pour découvrir le site ☺
+
 ## Aspects implémentés 
 
 ### Backend
@@ -65,6 +66,7 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
     * François Girondin - getAllUsers.sql
     * François Girondin - newConv.sql
     * François Girondin - userConvs.sql
+    * François Girondin - usertoGeneral.sql
     * Louis De Wilde - ObtenirInfoConv.sql
     * Louis De Wilde - UpdateConv.sql
     * Louis De Wilde - chatParticipant.sql
@@ -76,7 +78,6 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
     * Louis De Wilde - verifPseudo.sql
     * Commun - getPseudo.sql
     * Commun - obtenirUserId.sql
-    * Commun - usertoGeneral.sql
 
 * Script Base de données
   * InsertionDonneesMinimales-ConvGeneral.sql
