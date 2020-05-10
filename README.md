@@ -310,7 +310,25 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
   * Format de réponse : RAW
   * Exemple de réponse : "3"
 
+* Webservice modification : 
+  * Description : Renvoie les informations(nom, prénom, ...) correspondantes à l'utilisateur. 
+  * Paramètres :
+    * idChoisi integer (id de l'utilisateur)
+  * Format de réponse : JSON
+  * Exemple de réponse : "15 'beer' 'michou' 'gege' zad@zd.fe' 'Margueritelavache'"
 
+* Webservice mettreAJour : 
+  * Description : Met la table utilisateur à jour avec les nouvelles données du formulaire.
+  * Paramètres :
+    * idUtilisateur integer (id de l'utilisateur)
+    * nvNom varchar(50) (nom entré dans le formulaire)
+    * nvPrenom varchar(50) (prénom entré dans le formulaire)
+    * nvMdp varchar(50) (mot de passe entré dans le formulaire)
+    * nvMail varchar(50) (adresse mail entré dans le formulaire)
+    * nvPseudo varchar(50) (pseudo entré dans le formulaire)
+  * Format de réponse : RAW
+  * Exemple de réponse : None
+  
 ## Détail DB
 * tb_chat 
   * Cette table contient les id des messages, l'id de conversation de l'utilisateur, le contenu de chaque message, la date et l'heure d'ajout du message. Voici les différents noms de données présentes dans cette table :
@@ -328,8 +346,13 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
     * convColor
     
 * tb_convUsers
-    * Cette table contient l'
-
+    * Cette table contient les membres des différentes conversations crées sur le site. Un id liant l'utilisateur à la conversation est alors cré de façon autoimplémentée. Ainsi qu'une colonne si l'utilisateur est oui ou non administrateur de la conversation. Cette table est ainsi composée de différentes colonnes :
+	    * convUserId
+	      * Utilise un id autoincrémenté
+	    * idUser
+	    * convId
+	    * isAdmin
+	
 * tb_Identifiants
     * Cette table contient les informations de chaque utilisateur telles que son id, son nom, son prénom, son mot de passe, son adresse mail et son pseudo. La table est composée de ces colonnes :
       * idUser 
