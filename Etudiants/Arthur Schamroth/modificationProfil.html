@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Modification De Données</title>
+    <!--FrameWork CSS (javascript)-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
+    <!--FrameWork CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css">
+    <!--Framework JavaSript-->
+    <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <!-- CSS Custom -->
+    <link type="text/css" rel="stylesheet" href="css/main.css">
+    <link type="text/css" rel="stylesheet" href="css/customForm.css">
+    <!-- JavaScript Custom -->
+    <script src="js/modifier.js"></script>
+</head>
+<body onload="return initialiserFormulaire();">
+    <header>
+        <img src="img/tchat.png" id="logo">
+    </header>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <fieldset>
+                <legend>Modification de Profil</legend>
+                <form id="formulaire" title="Modifier profil" onsubmit="return enregistrerModifs();">
+                    <input id="name" name="name" type="text" placeholder="Nom" class="fadeIn second">
+                    <input id="surname" name="surname" type="text" placeholder="Prénom" class="fadeIn second">
+                    <input id="mdpUser" name="mdpUser" type="password" placeholder="mot de passe" class="fadeIn second">
+                    <input id="nvMdp" name="nvMdp" type="password" placeholder="confirmer mot de passe" class="fadeIn third">
+                    <input id="mail" name="mail" type="text" placeholder="email" class="fadeIn third">
+                    <input id="pseudo" name="pseudo" type="text" placeholder="pseudo" class="fadeIn third">
+                    <input type="submit" name="enregistrer" id="enregistrer" value="Enregistrer" class="fadeIn fourth">
+                </form>
+                <div id="erreur"></div>
+            </fieldset>
+        </div>
+    </div>
+    </div>
+    <footer class="credit">
+        Ce site est l"oeuvre de Baptiste Bemelmans, Louis De Wilde, François Girondin et Arthur Schamroth.
+    </footer>
+</body>
+</html>

@@ -10,7 +10,7 @@
 ## Description du projet
 
 Pour ce projet, nous avons décidé de réaliser un tchat de discussion, du même style que messenger ou whatsApp.
-Nous désirons y implémenter différents services tel qu'un système d'inscription et de connexion, un tchat global et un système de discussions privées. L'utilisateur aura également la possibilité de modifier son profil.
+Nous désirons y implémenter différents services tel qu'un système d'inscription et de connexion, un chat global et un système de discussions privées. L'utilisateur aura également la possibilité de modifier son profil.
 
 ## Aspects implémentés 
 
