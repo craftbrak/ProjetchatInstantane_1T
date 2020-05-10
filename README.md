@@ -166,13 +166,13 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
         * pseudo(string)
         * idUser(number)  
    *Exemple de reponse: 
-    [
-      {"id": 579,
-        "msgContent": "tt a ete clear c bon ca ",
-        "heure": "2020-05-10 15:29:09.068",
-        "pseudo": "Co vide nith the",
-        "idUSer": 782
-      }
+    [<br>
+      {"id": 579,<br>
+        "msgContent": "tt a ete clear c bon ca ",<br>
+        "heure": "2020-05-10 15:29:09.068",<br>
+        "pseudo": "Co vide nith the",<br>
+        "idUSer": 782<br>
+      }<br>
     ]   
         
 * webService-removeUserFromConv:
@@ -193,21 +193,21 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
       * isAdmin (boolean)  ( Si vrai l'utilisateur est administrateur de la conversation)
       * pseudo (string) ( Pseudo de l'utilisateur)
    *Exemple de reponse: [
+      {<br>
+        "convColor": "vert",<br>
+        "idUser": 782,<br>
+        "convName": "devs",<br>
+        "isAdmin": true,<br>
+        "pseudo": "Co vide nith the",<br>
+        "idConv": 4<br>
+      },<br>
       {
-        "convColor": "vert",
-        "idUser": 782,
-        "convName": "devs",
-        "isAdmin": true,
-        "pseudo": "Co vide nith the",
-        "idConv": 4
-      },
-      {
-        "convColor": "vert",
-        "idUser": 8015,
-        "convName": "devs",
-        "isAdmin": false,
-        "pseudo": "c",
-        "idConv": 4
+        "convColor": "vert",<br>
+        "idUser": 8015,<br>
+        "convName": "devs",<br>
+        "isAdmin": false,<br>
+        "pseudo": "c",<br>
+        "idConv": 4<br>
       }
     ]
     
@@ -235,16 +235,15 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
     * isAdmin (boolean) (indique si oui ou nom l'utilisateur est administrateur)
     * convName (string) (Nom De la conversation)
   *Exemple de reponse:[
-    {
-      "participant": "Co vide nith the",
-      "isAdmin": true,
-      "convName": "devs"
-    },
-    {
-      "participant": "c",
-      "isAdmin": false,
-      "convName": "devs"
-    }convName": "devs"
+    {<br>
+      "participant": "Co vide nith the",<br>
+      "isAdmin": true,<br>
+      "convName": "devs"<br>
+    },<br>
+    {<br>
+      "participant": "c",<br>
+      "isAdmin": false, <br>
+      "convName": "devs" <br>
     }
   ]
 
