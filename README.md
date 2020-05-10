@@ -240,7 +240,7 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
       "isAdmin": true,<br>
       "convName": "devs"<br>
     },<br>
-    {<br>
+    {
       "participant": "c",<br>
       "isAdmin": false, <br>
       "convName": "devs" <br>
