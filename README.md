@@ -126,32 +126,38 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
   * Appelle la procédure proc_connexion avec pour paramètre l'email de connexion (emailVerif varchar(55)).<br/>
 	Il renvoie le mot de passe (mdp varchar(255)) et l'identifiant utilisateur (idUser integer)  correspondant à l'email donné.<br/>
 	Le format du webservice est le JSON.
+	Exemple de réponse : [{mdpUser:"password"}, {idUser:701}]
   
 * webService-creation :
   * Appelle la procédure proc_Creation avec pour paramètre l'email (newEmail varchar(55)), le nom (newNom char(55)), le prénom (newPrenom char(55)), le pseudo (newPseudo char(40)) et le mot de passe (newMdpUser varchar(255)).<br/>
 	Il crée un nouvel utilisateur dans la table des identifiants (tb_Identifiants) avec ces paramètres.<br/>
 	Le format du webservice est le JSON.
+	La fonction ne renvoie rien.
   
 * webService-redirectionCreation :
    * Appelle la procédure returnIdCreation avec pour paramètre l'email de l'utilisateur (emailRecherche varchar(55)).<br/>
 	Il renvoie l'identifiant (idUser bigint) correspondant à l'email reçu en paramètre.<br/>
 	Le format du webservice est le JSON.<br/>
+	Exemple de réponse : [{idUser:701}]
 
 * webService-UpdateConv :
   * Appelle la procédure proc_modifConv avec pour paramètre le nom de la conversation (nouveauNom text), la couleur de la conversation (convColorVar char(6)) et l'identifiant de corrélation conversation-utilisateur (convUserId interger).<br/>
 	Il met à jour le nom , la couleur de la conversation pour laquelle l'identifiant correspond à celui récupérer grâce à la fonction convUserIdToConvId ayant pour paramètre convUserId qui récupère l'identifiant d'une conversation (IdConv integer) à partir d'un identifiant de corrélation conversation-utilisateur (convUserIdVar integer).<br/>
 	Le résultat de la procédure est newConvName de type "text".<br/>
 	Le format du webservice est le RAW.
+	Exemple de réponse : nouvNomConv
 
 * webService-verifEmail :
   * Appelle la procédure verifEmail avec pour paramètre l'email (emailVar varchar(55)).<br/>
 	Il renvoie l'email de tb_Identifiants correspondant à l'email donnée en paramètre.<br/>
 	Le format du webservice est le RAW.
+	Exemple de réponse : mail@email.com
   
 * webService-verifPseudo : 
   * Appelle la procédure verifPseudo avec pour paramètre le pseudo (pseudoVar varchar(55)).<br/>
 	Il renvoie le pseudo de tb_Identifiants correspondant au pseudo donné en paramètre.<br/>
 	Le format du webservice est le RAW.
+	Exemple de réponse : nickName
   
 * webService-updateChat :  
   * Description : Recupere les nouveau message d'une conversation.<br/>
