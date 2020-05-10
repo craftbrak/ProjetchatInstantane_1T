@@ -86,7 +86,6 @@ link:visited {
 .link {
     height: 3em;
     float: right;
-    cursor: pointer;
     padding: 5px 10px;
     border-left: 1px black solid;
     -moz-border-radius: 5px;

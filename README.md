@@ -31,11 +31,14 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
     * Baptiste Bemelmans - proc_Creation.sql
     * Baptiste Bemelmans - proc_Connexion.sql
     * Baptiste Bemelmans - returnIdCreation.sql
+    * François Girondin - proc_addUserToConv.sql
     * François Girondin - proc_getAllConvNames.sql
     * François Girondin - proc_getAllUsers.sql
     * François Girondin - proc_getConvName.sql
+    * François Girondin - proc_getPseudo.sql
     * François Girondin - proc_newConv.sql
     * François Girondin - proc_userConvs.sql
+    * François Girondin - proc_userToGeneral.sql
     * Louis De Wilde - deleteMsg.sql
     * Louis De Wilde - insertNewMsg.sql
     * Louis De Wilde - proc_ObtenirInfoConv.sql
@@ -44,9 +47,6 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
     * Louis De Wilde - requestChat.sql
     * Louis De Wilde - verifEmail.sql
     * Louis De Wilde - verifPseudo.sql
-    * Commun - proc_addUserToConv.sql
-    * Commun - proc_getPseudo.sql
-    * Commun - proc_userToGeneral.sql
 
   * Fonctions
     * Louis De Wilde - userIdconvIdToConvUserId.sql
@@ -60,10 +60,11 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
     * Baptiste Bemelmans - connexion.sql
     * Baptiste Bemelmans - creation.sql
     * Baptiste Bemelmans - redirectionCreation.sql
-    * Francois Girondin - getConvName.sql
     * François Girondin - addUserToConv.sql
     * François Girondin - getAllConvNames.sql
     * François Girondin - getAllUsers.sql
+    * Francois Girondin - getConvName.sql
+    * François Girondin - getPseudo.sql
     * François Girondin - newConv.sql
     * François Girondin - userConvs.sql
     * François Girondin - usertoGeneral.sql
@@ -76,7 +77,6 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
     * Louis De Wilde - updateChat.sql
     * Louis De Wilde - verifEmail.sql
     * Louis De Wilde - verifPseudo.sql
-    * Commun - getPseudo.sql
     * Commun - obtenirUserId.sql
 
 * Script Base de données
@@ -235,3 +235,20 @@ Nous désirons y implémenter différents services tel qu'un système d'inscript
       * mdpUser
       * email
       * pseudo
+
+    * François Girondin - proc_addUserToConv.sql
+    * François Girondin - proc_getAllConvNames.sql
+    * François Girondin - proc_getAllUsers.sql
+    * François Girondin - proc_getConvName.sql
+    * François Girondin - proc_getPseudo.sql
+    * François Girondin - proc_newConv.sql
+    * François Girondin - proc_userConvs.sql
+    * François Girondin - proc_userToGeneral.sql
+    * François Girondin - addUserToConv.sql
+    * François Girondin - getAllConvNames.sql
+    * François Girondin - getAllUsers.sql
+    * Francois Girondin - getConvName.sql
+    * François Girondin - getPseudo.sql
+    * François Girondin - newConv.sql
+    * François Girondin - userConvs.sql
+    * François Girondin - usertoGeneral.sql
