@@ -22,10 +22,7 @@ function creerCompte(email, nom, prenom, pseudo, mdp, mdpVerif) {
         xmlId.open('get', 'verifId?id=' + newId, true);
         xmlId.onload =
             function testId() {
-                if (JSON.parse(xmlId.response)[0] == undefined) {
-                    break;
-                }
-                else {
+                if (JSON.parse(xmlId.response)[0] != undefined) {
                     while (JSON.parse(xmlId.response)[0] != undefined) {
                         newId = Math.round(Math.random() * 10000);
                         xmlId.open("get", "verifId?id=" + newId);
@@ -37,8 +34,7 @@ function creerCompte(email, nom, prenom, pseudo, mdp, mdpVerif) {
         let creation = new XMLHttpRequest();
         creation.open('get', 'creation?newId=' + newId + '&newEmail=' + email + '&newNom=' + nom + '&newPrenom=' + prenom + '&newPseudo=' + pseudo + '&newMdpUser=' + mdp, true);
         creation.onload =
-            window.location = "http://craftbrakddns.myddns.me:536/creation?newId=" + newId + "&newEmail=" + email + "&newNom=" + nom + "&newPrenom=" + prenom + "&newPseudo=" + pseudo + "&newMdpUser=" + mdp;
-            window.location = "http://craftbrakddns.myddns.me:536/play.html?id=" + newId; 
+            window.location = "http://craftbrakddns.myddns.me:536/creation?newId=" + newId + "&newEmail=" + email + "&newNom=" + nom + "&newPrenom=" + prenom + "&newPseudo=" + pseudo + "&newMdpUser=" + mdp;            
         creation.send;
     }
 }
