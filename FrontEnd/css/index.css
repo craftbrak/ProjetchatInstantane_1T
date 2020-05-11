@@ -1,0 +1,17 @@
+/* Propriétés de balises */
+
+body {
+    padding-top: 50px;
+}
+
+/* Propriétés d'ids */
+
+#logoIndex {
+    height: 3em;
+}
+
+/* Propriétés de classes */
+
+.jumbotron {
+    background-color: rgb(240, 59, 59);
+}

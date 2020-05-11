@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Page de connexion</title>
+    <meta charset="utf-8">
+    <!--FrameWork Css (javascript)-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
+    <!--FrameWork CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css">
+    <!--Framework JavaSript-->
+    <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <!-- Notre CSS -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/customForm.css">
+    <!-- Notre JavaScript -->
+    <script src="js/connexion.js"></script>
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+    <header>
+        <img src="img/tchat.png" alt="tchat" id="logo" class="click">
+    </header>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <form id="formulaireConnexion">
+                <fieldset>
+                    <legend>Connexion</legend>
+                    <input id="identifiant" class="fadeIn second" name="idEmail" type="email" placeholder="Email" required>
+                    <input id="mdp" name="motPasse" class="fadeIn third" type="password" placeholder="Mot de passe" required>
+                    <input id="boutonConnexion" class="fadeIn fourth" type="submit" name="bouton" value="Se connecter">
+                </fieldset>
+            </form>
+            <div id="erreur">
+            </div>
+            <div id="pasInscrit" class="formFooter underlineHover">
+                <a href="./creation.html">Pas encore inscrit ? Rejoins-nous !</a>
+            </div>
+        </div>
+    </div>
+    <footer class="credit">
+        Ce site est l'oeuvre de Baptiste Bemelmans, Louis De Wilde, François Girondin et Arthur Schamroth.
+    </footer>
+</body>
+
+</html>
+<!--Baptiste-->

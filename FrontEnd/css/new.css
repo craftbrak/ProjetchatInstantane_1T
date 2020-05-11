@@ -1,0 +1,56 @@
+/* Propriétés d'ids */
+
+#erreur {
+    color: red;
+}
+
+#listeUsers {
+    margin: 15px;
+}
+
+#titres {
+    background-color: #444;
+    border: solid 0.03em #333;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    display: block;
+    text-align: center;
+    padding: 5px;
+    margin: 15px;
+}
+
+
+/* Propriétés de classes */
+
+.commonChats {
+    display: inline-block;
+    width: 8em;
+    text-align: center;
+}
+
+.error {
+    background-color: tomato;
+}
+
+.pseudo {
+    display: inline-block;
+    width: calc(100% - 10em);
+}
+
+.user {
+    background-color: rgb(49, 49, 49);
+    border: solid 0.03em #333333;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+    margin: 5px auto;
+    padding: 5px;
+}
+
+.sidebarBody {
+    width: 94%;
+    max-height: 97%;
+}

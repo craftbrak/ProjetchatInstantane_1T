@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Nouvelle conversation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <!-- Libraries -->
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Nos fichiers -->
+    <link type="text/css" rel="stylesheet" href="css/main.css">
+    <link type="text/css" rel="stylesheet" href="css/new.css">
+    <link type="text/css" rel="stylesheet" href="css/customForm.css">
+    <script src="js/new.js"></script>
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+    <header>
+        <img src="img/tchat.png" alt="tchat" id="logo" class="click">
+        <div class="link click" id="déco" href="./index.html">Déconnexion</div>
+        <div class="link click" id="modif" href="./modificationProfil.html?id=">Modifier profil</div>
+        <div id="iden"></div>
+    </header>
+    <div class="row">
+        <div class="col col-xs-3 col-lg-3 sidebar">
+            <div class="sidebarHead">
+                <div id="titres">
+                    <div class="pseudo">Pseudo :</div>
+                    <div class="commonChats">Chats communs :</div>
+                </div>
+            </div>
+            <div id="listeUsers" class="sidebarBody">
+            </div>
+        </div>
+        <div class="col col-xs-6 col-lg-6">
+            <div class="wrapper fadeInDown">
+                <div id="formContent">
+                    <form method="POST" onsubmit="return testForm(this);" id="form">
+                        <fieldset>
+                            <legend>Créer une nouvelle conversation :</legend>
+                            <input class="fadeIn second" id="convName" name="convName" type="text" required placeholder="Nom de la conversation"><br>
+                            <label for="color">Couleur de la conversation :&nbsp;</label>
+                            <select id="color" name="color" class="gris fadeIn third" onchange="setColor();">
+                                <option value="gris" class="gris">Gris</option>
+                                <option value="rouge" class="rouge">Rouge</option>
+                                <option value="orange" class="orange">Orange</option>
+                                <option value="jaune" class="jaune">Jaune</option>
+                                <option value="vert" class="vert">Vert</option>
+                                <option value="bleu" class="bleu">Bleu</option>
+                                <option value="violet" class="violet">Violet</option>
+                                <option value="rose" class="rose">Rose</option>
+                            </select><br>
+                            <span id="erreur"></span><br>
+                            <input type="submit" class="fadeIn fourth">
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="participants" class="col col-xs-3 col-lg-3 sidebar">
+            Participants :
+            <div id="owner"></div>
+            <div id="listeUsersToAdd" class="sidebarBody"></div>
+        </div>
+    </div>
+    <footer class="credit">
+        Ce site est l'oeuvre de Baptiste Bemelmans, Louis De Wilde, François Girondin et Arthur Schamroth.
+    </footer>
+</body>
+
+</html>

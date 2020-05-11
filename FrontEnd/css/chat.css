@@ -1,0 +1,188 @@
+/* Propriétés d'ids */
+
+#ajouterConv {
+    background-color: lightslategrey;
+    border: none 0.3em lightslategray;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+    margin: 5px auto;
+    padding: 5px;
+}
+
+#divChat::-webkit-scrollbar {
+    width: 12px;
+    background-color: #222;
+}
+
+#divChat::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #D62929;
+}
+
+#divChat::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #222;
+}
+
+#divMessage {
+    display: inline;
+}
+
+#listeConvs {
+    background-color: #444;
+    border: solid 0.3em #444;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+    margin: 5px auto;
+    width: 20em;
+    padding: 5px;
+}
+
+#msg {
+    background-color: transparent;
+    color: snow;
+    border: solid 0.1em lightseagreen;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    position: fixed;
+    bottom: 1%;
+}
+
+#MsgFormSub {
+    min-width: 6%;
+    max-width: 30%;
+    background-color: rgb(40, 219, 40);
+    color: rgb(255, 255, 255);
+    position: fixed;
+    bottom: 1%;
+    right: 22%;
+}
+
+
+/* Propriétés de classes */
+
+.cardBody {
+    max-height: 90vh;
+    overflow: auto;
+    margin: 0vh;
+}
+
+.chatMessageContent {
+    font-size: 2.5em;
+    align-content: center;
+}
+
+.chatPseudo {
+    font-size: 0.8em;
+    align-content: flex-start;
+    min-width: 15%;
+    background-color: #FF5733;
+    border: solid 0.3em lightsalmon;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    max-height: 2em;
+    padding-left: 0.5em;
+}
+
+.chatTimeCode {
+    font-size: 0.7em;
+    align-content: bottom;
+}
+
+.convListeBox {
+    display: block;
+    margin: 5px auto;
+    padding: 5px;
+    border: 3px solid #333;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.deleteMsg {
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.modifyMsg {
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.msgContainer {
+    word-wrap: break-word;
+    align-content: center;
+    display: flex;
+    flex-basis: auto;
+    background-color: lightseagreen;
+    border: solid 0.3em lightseagreen;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    min-width: 10%;
+    max-width: 38%;
+}
+
+.msgEntrant {
+    display: inline-block;
+}
+
+.msgSortant {
+    display: inline-block;
+    -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+    -moz-transform: matrix(-1, 0, 0, 1, 0, 0);
+    -o-transform: matrix(-1, 0, 0, 1, 0, 0);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+.msgTime {
+    display: flex;
+    flex-basis: auto;
+    height: 3em;
+    size: 2.5em;
+    font-size: 0.75em;
+    align-content: end;
+}
+
+.OptionMsgDiv {
+    max-height: 3em;
+    max-width: 25%;
+}
+
+.pMsg {
+    word-wrap: break-word;
+    max-width: 100%;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.userContainer {
+    border-style: solid 60px lightgray;
+    border: solid 0.3em #111;
+    border: 1em;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+    margin: 5px auto;
+    padding: 5px;
+}
+
+.userMsg {
+    align-content: start;
+}
