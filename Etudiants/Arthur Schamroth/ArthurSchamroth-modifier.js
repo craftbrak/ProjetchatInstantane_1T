@@ -67,6 +67,7 @@ function enregistrerModifs() {
         document.getElementById("erreur").innerHTML = "";
         alert("Modifcations Enregistrées avec succès !");
         $.get(`./userToGeneral?id=${idUser}`, (id) => { window.location = `./play.html?id=${id}` });
+        //window.location = "./play.html?id=" + idUser;
         xhr.send();
         return false;
     } else {
